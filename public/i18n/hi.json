@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "ईमेल",
+                "email-input-error-required": "ईमेल आवश्यक है",
+                "email-input-error-email": "ईमेल ऐसा दिखना चाहिए: \"आपकानाम@mail.com\"",
+
+                "password-label": "पासवर्ड",
+                "password-input-error-required": "पासवर्ड आवश्यक है",
+                "password-input-error-lowerCase": "पासवर्ड में कम से कम एक **छोटा अक्षर** होना चाहिए",
+                "password-input-error-upperCase": "पासवर्ड में कम से कम एक **बड़ा अक्षर** होना चाहिए",
+                "password-input-error-number": "पासवर्ड में कम से कम एक **अंक** होना चाहिए",
+                "password-input-error-tooShort": "पासवर्ड में कम से कम **8 वर्ण** होने चाहिए",
+                "password-input-error-specialChar": "पासवर्ड में कम से कम एक **विशेष वर्ण** होना चाहिए (जैसे: !@#$%^&*)",
+                "button-submit": "लॉग इन करें",
+                "button-register": "रजिस्टर करें"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "उपयोगकर्ता की भूमिका: {{role}}",
+                "home": "होम",
+                "login": "लॉगिन",
+                "logout": "लॉग आउट",
+                "register": "रजिस्टर करें",
+                "users": "उपयोगकर्ता"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "छिपाएं",
+                "password-input-show": "दिखाएं"
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "E-posta",
+                "email-input-error-required": "E-posta gereklidir",
+                "email-input-error-email": "E-posta şöyle görünmelidir: \"adınız@mail.com\"",
+
+                "password-label": "Şifre",
+                "password-input-error-required": "Şifre gereklidir",
+                "password-input-error-lowerCase": "Şifre en az bir **küçük harf** içermelidir",
+                "password-input-error-upperCase": "Şifre en az bir **büyük harf** içermelidir",
+                "password-input-error-number": "Şifre en az bir **rakam** içermelidir",
+                "password-input-error-tooShort": "Şifre en az **8 karakter** içermelidir",
+                "password-input-error-specialChar": "Şifre en az bir **özel karakter** içermelidir (ör. : !@#$%^&*)",
+                "button-submit": "Giriş Yap",
+                "button-register": "Kaydol"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "Kullanıcı Rolü: {{role}}",
+                "home": "Ana Sayfa",
+                "login": "Giriş",
+                "logout": "Çıkış",
+                "register": "Kaydol",
+                "users": "Kullanıcılar"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "Gizle",
+                "password-input-show": "Göster"
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "features": {
+    "auth": {
+      "pages": {
+        "email-label": "电子邮件",
+        "email-input-error-required": "电子邮件是必需的",
+        "email-input-error-email": "电子邮件必须类似于 \"votreNom@mail.com\"",
+
+        "password-label": "密码",
+        "password-input-error-required": "密码是必需的",
+        "password-input-error-lowerCase": "密码必须包含至少一个**小写字母**",
+        "password-input-error-upperCase": "密码必须包含至少一个**大写字母**",
+        "password-input-error-number": "密码必须包含至少一个**数字**",
+        "password-input-error-tooShort": "密码必须包含至少**8个字符**",
+        "password-input-error-specialChar": "密码必须包含至少一个**特殊字符** (例如: !@#$%^&*)",
+        "button-submit": "登录",
+        "button-register": "注册"
+      }
+    }
+  },
+  "components": {
+    "layout": {
+      "nav-bar": {
+        "role-user": "用户角色: {{role}}",
+        "home": "主页",
+        "login": "登录",
+        "logout": "退出",
+        "register": "注册",
+        "users": "用户"
+      }
+    },
+    "common":{
+      "form":{
+        "password-input-hiden": "隐藏",
+        "password-input-show": "显示"
+      }
+    }
+  }
+}

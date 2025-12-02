@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "Ηλεκτρονική διεύθυνση",
+                "email-input-error-required": "Η ηλεκτρονική διεύθυνση είναι υποχρεωτική",
+                "email-input-error-email": "Η ηλεκτρονική διεύθυνση πρέπει να μοιάζει με: \"τοΟνομάΣας@mail.com\"",
+
+                "password-label": "Κωδικός πρόσβασης",
+                "password-input-error-required": "Ο κωδικός πρόσβασης είναι υποχρεωτικός",
+                "password-input-error-lowerCase": "Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα **πεζό γράμμα**",
+                "password-input-error-upperCase": "Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα **κεφαλαίο γράμμα**",
+                "password-input-error-number": "Ο κωδικός πρέπει να περιέχει τουλάχιστον έναν **αριθμό**",
+                "password-input-error-tooShort": "Ο κωδικός πρέπει να περιέχει τουλάχιστον **8 χαρακτήρες**",
+                "password-input-error-specialChar": "Ο κωδικός πρέπει να περιέχει τουλάχιστον έναν **ειδικό χαρακτήρα** (π.χ. : !@#$%^&*)",
+                "button-submit": "Σύνδεση",
+                "button-register": "Εγγραφή"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "Ρόλος χρήστη: {{role}}",
+                "home": "Αρχική",
+                "login": "Σύνδεση",
+                "logout": "Αποσύνδεση",
+                "register": "Εγγραφή",
+                "users": "Χρήστες"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "Απόκρυψη",
+                "password-input-show": "Εμφάνιση"
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "メールアドレス",
+                "email-input-error-required": "メールアドレスは必須です",
+                "email-input-error-email": "メールアドレスの形式が正しくありません: 「yourName@mail.com」のように入力してください",
+
+                "password-label": "パスワード",
+                "password-input-error-required": "パスワードは必須です",
+                "password-input-error-lowerCase": "パスワードには**小文字**を1文字以上含める必要があります",
+                "password-input-error-upperCase": "パスワードには**大文字**を1文字以上含める必要があります",
+                "password-input-error-number": "パスワードには**数字**を1文字以上含める必要があります",
+                "password-input-error-tooShort": "パスワードは**8文字以上**である必要があります",
+                "password-input-error-specialChar": "パスワードには**特殊文字**を1文字以上含める必要があります (例: !@#$%^&*)",
+                "button-submit": "ログイン",
+                "button-register": "登録"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "ユーザーの役割: {{role}}",
+                "home": "ホーム",
+                "login": "ログイン",
+                "logout": "ログアウト",
+                "register": "登録",
+                "users": "ユーザー"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "非表示",
+                "password-input-show": "表示"
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "البريد الإلكتروني",
+                "email-input-error-required": "البريد الإلكتروني مطلوب",
+                "email-input-error-email": "يجب أن يكون البريد الإلكتروني على شكل: \"yourName@mail.com\"",
+
+                "password-label": "كلمة المرور",
+                "password-input-error-required": "كلمة المرور مطلوبة",
+                "password-input-error-lowerCase": "يجب أن تحتوي كلمة المرور على حرف **صغير واحد** على الأقل",
+                "password-input-error-upperCase": "يجب أن تحتوي كلمة المرور على حرف **كبير واحد** على الأقل",
+                "password-input-error-number": "يجب أن تحتوي كلمة المرور على **رقم واحد** على الأقل",
+                "password-input-error-tooShort": "يجب أن تحتوي كلمة المرور على **8 أحرف** على الأقل",
+                "password-input-error-specialChar": "يجب أن تحتوي كلمة المرور على **حرف خاص واحد** على الأقل (مثل: !@#$%^&*)",
+                "button-submit": "تسجيل الدخول",
+                "button-register": "تسجيل"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "دور المستخدم: {{role}}",
+                "home": "الرئيسية",
+                "login": "تسجيل الدخول",
+                "logout": "تسجيل الخروج",
+                "register": "تسجيل",
+                "users": "المستخدمون"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "إخفاء",
+                "password-input-show": "إظهار"
+            }
+        }
+    }
+}

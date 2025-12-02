@@ -1,24 +1,102 @@
 <nav>
-  <ul>
-    <li><a routerLink="/">{{ 'components.layout.nav-bar.home' | translate }}</a></li>
-    @if (!isConnected()) {
-      <li><a routerLink="/auth/login">{{ 'components.layout.nav-bar.login' | translate }}</a></li>
-      <li><a routerLink="/auth/register">{{ 'components.layout.nav-bar.register' | translate }}</a></li>
-    } @else {
-      <li><button (click)="onClickLogout()">{{ 'components.layout.nav-bar.logout' | translate }}</button></li>
-      @if (role() === UserRole.Admin) {
+    <ul>
         <li>
-          Admin
-          <ul>
-            <li><a routerLink="/admin/user">{{ 'components.layout.nav-bar.users' | translate }}</a></li>
-          </ul>
+            <a routerLink="/">{{
+                'components.layout.nav-bar.home' | translate
+            }}</a>
         </li>
-      }
-    }
-  </ul>
+        @if (!isConnected()) {
+            <li>
+                <a routerLink="/auth/login">{{
+                    'components.layout.nav-bar.login' | translate
+                }}</a>
+            </li>
+            <li>
+                <a routerLink="/auth/register">{{
+                    'components.layout.nav-bar.register' | translate
+                }}</a>
+            </li>
+        } @else {
+            <li>
+                <button (click)="onClickLogout()">
+                    {{ 'components.layout.nav-bar.logout' | translate }}
+                </button>
+            </li>
+            @if (role() === UserRole.Admin) {
+                <li>
+                    Admin
+                    <ul>
+                        <li>
+                            <a routerLink="/admin/user">{{
+                                'components.layout.nav-bar.users' | translate
+                            }}</a>
+                        </li>
+                    </ul>
+                </li>
+            }
+        }
+    </ul>
 </nav>
 
 {{ 'components.layout.nav-bar.role-user' | translate: { role: role() } }}
 
-<button (click)="onChangeLanguage('fr')">FR</button
-><button (click)="onChangeLanguage('en')">EN</button>
+<button
+    (click)="onChangeLanguage('fr')"
+    [class.active-lang]="currentLanguage === 'fr'"
+>
+    FR
+</button>
+<button
+    (click)="onChangeLanguage('en')"
+    [class.active-lang]="currentLanguage === 'en'"
+>
+    EN
+</button>
+<button
+    (click)="onChangeLanguage('zh')"
+    [class.active-lang]="currentLanguage === 'zh'"
+>
+    ZH
+</button>
+<button
+    (click)="onChangeLanguage('ja')"
+    [class.active-lang]="currentLanguage === 'ja'"
+>
+    JA
+</button>
+<button
+    (click)="onChangeLanguage('ko')"
+    [class.active-lang]="currentLanguage === 'ko'"
+>
+    KO
+</button>
+<button
+    (click)="onChangeLanguage('ru')"
+    [class.active-lang]="currentLanguage === 'ru'"
+>
+    RU
+</button>
+<button
+    (click)="onChangeLanguage('ar')"
+    [class.active-lang]="currentLanguage === 'ar'"
+>
+    AR
+</button>
+<button
+    (click)="onChangeLanguage('hi')"
+    [class.active-lang]="currentLanguage === 'hi'"
+>
+    HI
+</button>
+<button
+    (click)="onChangeLanguage('tr')"
+    [class.active-lang]="currentLanguage === 'tr'"
+>
+    TR
+</button>
+<button
+    (click)="onChangeLanguage('el')"
+    [class.active-lang]="currentLanguage === 'el'"
+>
+    EL
+</button>

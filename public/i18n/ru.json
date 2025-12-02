@@ -1,0 +1,39 @@
+{
+    "features": {
+        "auth": {
+            "pages": {
+                "email-label": "Электронная почта",
+                "email-input-error-required": "Требуется электронная почта",
+                "email-input-error-email": "Электронная почта должна выглядеть как \"вашеИмя@mail.com\"",
+
+                "password-label": "Пароль",
+                "password-input-error-required": "Требуется пароль",
+                "password-input-error-lowerCase": "Пароль должен содержать как минимум одну **строчную букву**",
+                "password-input-error-upperCase": "Пароль должен содержать как минимум одну **заглавную букву**",
+                "password-input-error-number": "Пароль должен содержать как минимум одну **цифру**",
+                "password-input-error-tooShort": "Пароль должен содержать как минимум **8 символов**",
+                "password-input-error-specialChar": "Пароль должен содержать как минимум один **специальный символ** (напр.: !@#$%^&*)",
+                "button-submit": "Войти",
+                "button-register": "Зарегистрироваться"
+            }
+        }
+    },
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "Роль пользователя: {{role}}",
+                "home": "Главная",
+                "login": "Вход",
+                "logout": "Выход",
+                "register": "Регистрация",
+                "users": "Пользователи"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "Скрыть",
+                "password-input-show": "Показать"
+            }
+        }
+    }
+}
