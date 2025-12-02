@@ -1,0 +1,43 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">{{ 'features.auth.pages.email-label' | translate }} </label>
+    <input type="email" id="email" formControlName="email" />
+    @if (email.touched && email.invalid) {
+      @if (email.getError('required')) {
+        <p>The email is required</p>
+      } @else if (email.getError('email')) {
+        <p>{{ 'features.auth.pages.email-input-error-email' | translate }}"</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="password">{{ 'features.auth.pages.password-label' | translate }}</label>
+    <input type="password" id="password" formControlName="password" />
+    @if (password.touched && password.invalid) {
+      @if (password.getError('required')) {
+        <p>{{ 'features.auth.pages.password-input-error-required' | translate }}</p>
+      }
+      @if (password.getError('lowerCase')) {
+        <p>{{ 'features.auth.pages.password-input-error-lowerCase' | translate }}</p>
+      }
+      @if (password.getError('upperCase')) {
+        <p>{{ 'features.auth.pages.password-input-error-upperCase' | translate }}</p>
+      }
+      @if (password.getError('number')) {
+        <p>{{ 'features.auth.pages.password-input-error-number' | translate }}</p>
+      }
+      @if (password.getError('tooShort')) {
+        <p>{{ 'features.auth.pages.password-input-error-tooShort' | translate }}</p>
+      }
+      @if (password.getError('specialChar')) {
+        <p>{{ 'features.auth.pages.password-input-error-specialChar' | translate }}</p>
+      }
+    }
+  </div>
+  <!-- Confirm password? -->
+
+  <button type="submit" [disabled]="registerForm.invalid">{{ 'features.auth.pages.button-register' | translate }}</button>
+  @if (registerError) {
+    <p>{{ registerError }}</p>
+  }
+</form>

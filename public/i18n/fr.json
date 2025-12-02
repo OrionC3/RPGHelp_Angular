@@ -1,0 +1,39 @@
+{
+  "features": {
+    "auth": {
+      "pages": {
+        "email-label": "Email",
+        "email-input-error-required": "L'email est requis",
+        "email-input-error-email": "L'email doit ressembler à un email : \"votreNom@mail.com\"",
+
+        "password-label": "Mot de passe",
+        "password-input-error-required": "Le mot de passe est requis",
+        "password-input-error-lowerCase": "Le mot de passe doit contenir au moins une lettre minuscule",
+        "password-input-error-upperCase": "Le mot de passe doit contenir au moins une lettre majuscule",
+        "password-input-error-number": "Le mot de passe doit contenir au moins un chiffre",
+        "password-input-error-tooShort": "Le mot de passe doit contenir au moins 8 caractères",
+        "password-input-error-specialChar": "Le mot de passe doit contenir au moins un caractère spécial (ex. : !@#$%^&*)",
+        "button-submit": "Se connecter",
+        "button-register": "S'enregistrer"
+      }
+    }
+  },
+  "components": {
+    "layout": {
+      "nav-bar": {
+        "role-user": "Role du user: {{role}}",
+        "home": "Accueil",
+        "login": "Connexion",
+        "logout": "Déconnexion",
+        "register": "S'enregistrer",
+        "users": "Utilisateurs"
+      }
+    },
+    "common":{
+      "form":{
+        "password-input-hiden": "Masquer",
+        "password-input-show": "Afficher"
+      }
+    }
+  }
+}

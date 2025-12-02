@@ -1,0 +1,39 @@
+{
+  "features": {
+    "auth": {
+      "pages": {
+        "email-label": "Email",
+        "email-input-error-required": "The email is required",
+        "email-input-error-email": "The email must look like an email: \"yourName@mail.com\"",
+
+        "password-label": "Password",
+        "password-input-error-required": "The password is required",
+        "password-input-error-lowerCase": "The password must contain at least one lowercase letter",
+        "password-input-error-upperCase": "The password must contain at least one uppercase letter",
+        "password-input-error-number": "The password must contain at least one number",
+        "password-input-error-tooShort": "The password must be at least 8 characters long",
+        "password-input-error-specialChar": "The password must contain at least one special character (e.g., !@#$%^&*)",
+        "button-submit": "Log In",
+        "button-register": "Register"
+      }
+    }
+  },
+  "components": {
+    "layout": {
+      "nav-bar": {
+        "role-user": "User role : {{role}}",
+        "home": "Home",
+        "login": "Login",
+        "logout": "Logout",
+        "register": "Register",
+        "users": "Users"
+      }
+    },
+    "common":{
+      "form":{
+        "password-input-hiden": "Hiden",
+        "password-input-show": "Show"
+      }
+    }
+  }
+}
