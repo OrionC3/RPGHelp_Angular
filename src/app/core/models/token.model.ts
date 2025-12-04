@@ -1,10 +1,8 @@
-import { UserRole } from "@core/enums";
-
-
+import { UserRole } from '@core/enums';
 
 export interface Token {
-  userId: number;
-  role: UserRole;
-  iat: number;
-  exp: number;
+    'http://schemas.microsoft.com/ws/2008/06/identity/claims/Sid': number;
+    'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': UserRole;
+    iat: number;
+    exp: number;
 }

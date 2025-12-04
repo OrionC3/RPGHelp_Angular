@@ -38,7 +38,9 @@ export class NavBar {
 
     ngOnInit(): void {
         this.currentLanguage =
-            this._translate.currentLang || this._translate.defaultLang || 'fr';
+            this._translate.getCurrentLang() ||
+            this._translate.getFallbackLang() ||
+            'fr';
         // 1. Démarrer le timer
         this.startRandomLanguageTimer();
 
@@ -74,4 +76,6 @@ export class NavBar {
             this.setRandomLanguage();
         });
     }
+
+    onClickSelf() {}
 }

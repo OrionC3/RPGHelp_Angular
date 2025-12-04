@@ -18,6 +18,11 @@
             </li>
         } @else {
             <li>
+                <a routerLink="/users/self">
+                    {{ 'components.layout.nav-bar.self' | translate }}
+                </a>
+            </li>
+            <li>
                 <button (click)="onClickLogout()">
                     {{ 'components.layout.nav-bar.logout' | translate }}
                 </button>

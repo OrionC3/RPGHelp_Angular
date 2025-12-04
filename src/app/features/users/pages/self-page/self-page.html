@@ -1,0 +1,29 @@
+@if (user) {
+    <p>
+        {{ 'features.users.pages.self-page.email' | translate }} :
+        {{ user.email }}
+    </p>
+    <p>
+        {{ 'features.users.pages.self-page.role' | translate }} :
+        @for (role of user.role; track $index) {
+            {{ role.name }},
+        }
+    </p>
+    <p>{{ 'features.users.pages.self-page.characters-list' | translate }}</p>
+    <ul>
+        @for (charactere of user.characteres; track charactere.id) {
+            <li>
+                {{ charactere.name }}, {{ charactere.raceIndexDto.name }}, level
+                : {{ charactere.level }}
+            </li>
+        }
+    </ul>
+    <p>{{ 'features.users.pages.self-page.campagns-list' | translate }}</p>
+    <ul>
+        @for (campagn of user.campagns; track $index) {
+            <li>
+                <p>Id: {{ campagn.id }}, Name: {{ campagn.name }}</p>
+            </li>
+        }
+    </ul>
+}
