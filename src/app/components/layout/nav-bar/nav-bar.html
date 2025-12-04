@@ -27,17 +27,20 @@
                     {{ 'components.layout.nav-bar.logout' | translate }}
                 </button>
             </li>
-            @if (role() === UserRole.Admin) {
-                <li>
-                    Admin
-                    <ul>
-                        <li>
-                            <a routerLink="/admin/user">{{
-                                'components.layout.nav-bar.users' | translate
-                            }}</a>
-                        </li>
-                    </ul>
-                </li>
+            @for (role of role(); track $index) {
+                @if (role === UserRole.Admin) {
+                    <li>
+                        Admin
+                        <ul>
+                            <li>
+                                <a routerLink="/admin/user">{{
+                                    'components.layout.nav-bar.users'
+                                        | translate
+                                }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
             }
         }
     </ul>

@@ -16,6 +16,28 @@
                 "button-submit": "Se connecter",
                 "button-register": "S'enregistrer"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "email": "Email",
+                    "role": "Role",
+                    "characters-list": "Liste des personnages",
+                    "campagns-list": "Liste des campagnes"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "Détails de l'utilisateur"
+                    },
+                    "user-listing-page": {
+                        "user-list": "Liste des utilisateurs"
+                    }
+                }
+            }
         }
     },
     "components": {

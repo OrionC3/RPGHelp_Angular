@@ -1,0 +1,9 @@
+<h2>
+    {{ 'features.admin.users.pages.user-listing-page.user-list' | translate }}
+</h2>
+
+<app-listing-table
+    [elements]="user"
+    [columns]="['email']"
+    (clickDetails)="onClickDetails($event)"
+/>

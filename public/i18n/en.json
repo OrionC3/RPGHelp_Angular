@@ -26,6 +26,18 @@
                     "campagns-list": "List of Campagns"
                 }
             }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "User Details"
+                    },
+                    "user-listing-page": {
+                        "user-list": "User List"
+                    }
+                }
+            }
         }
     },
     "components": {
