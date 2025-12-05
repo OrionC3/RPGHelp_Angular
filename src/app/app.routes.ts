@@ -18,6 +18,13 @@ export const routes: Routes = [
             import('./features/admin/admin.routes').then((r) => r.routes),
     },
     {
+        path: 'characters',
+        loadChildren: () =>
+            import('./features/characters/characters.routes').then(
+                (r) => r.routes,
+            ),
+    },
+    {
         path: 'error',
         loadChildren: () =>
             import('./features/error/error.routes').then((r) => r.routes),
