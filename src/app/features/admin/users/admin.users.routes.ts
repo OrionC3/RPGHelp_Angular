@@ -15,4 +15,11 @@ export const routes: Routes = [
                 (c) => c.UserDetailsPage,
             ),
     },
+    {
+        path: ':id/delete',
+        loadComponent: () =>
+            import('./pages/user-delete-page/user-delete-page').then(
+                (c) => c.UserDeletePage,
+            ),
+    },
 ];

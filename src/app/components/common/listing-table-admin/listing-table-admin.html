@@ -1,0 +1,47 @@
+<table>
+    <thead>
+        @for (col of colums(); track $index) {
+            <th>{{ col.headerKey | translate }}</th>
+        }
+        <th>
+            {{ 'components.common.listing-table-admin.details' | translate }}
+        </th>
+        <th>
+            {{ 'components.common.listing-table-admin.update' | translate }}
+        </th>
+        <th>
+            {{ 'components.common.listing-table-admin.delete' | translate }}
+        </th>
+    </thead>
+    <tbody>
+        @for (e of elements(); track e.id) {
+            <tr>
+                @for (col of colums(); track $index) {
+                    <td>{{ e[col.property] }}</td>
+                }
+                <td><button (click)="onDetails(e.id)">🔎</button></td>
+                <td><button (click)="onUpdate(e.id)">✒️</button></td>
+                <td><button (click)="onDelete(e.id)">🗑️</button></td>
+                @if (elementIdToConfirm() === e.id) {
+                    <app-confirm-modal
+                        (confirmed)="onModalAction($event)"
+                        [message]="
+                            ('components.common.listing-table-admin.delete-element'
+                                | translate) +
+                            ' ' +
+                            e.id +
+                            ' ?'
+                        "
+                    />
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button [disabled]="currentPage() <= 1" (click)="onPrevious(currentPage() - 1)">
+    Previous {{ currentPage() - 1 }}
+</button>
+<button (click)="onNext(currentPage() + 1)">
+    Next {{ currentPage() + 1 }}
+</button>

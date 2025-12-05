@@ -43,4 +43,11 @@ export class UserService {
             >(environment.apiUrl + 'api/user/' + id)
             .pipe(map((response) => response.data));
     }
+
+    deleteUserById(id: number): Observable<UserDetails> {
+        //console.log(environment.apiUrl + 'api/user/' + id);
+        return this._httpClient.delete<UserDetails>(
+            environment.apiUrl + 'api/user/' + id,
+        );
+    }
 }

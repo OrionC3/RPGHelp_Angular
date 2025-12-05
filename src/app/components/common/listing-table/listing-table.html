@@ -1,28 +1,28 @@
 <table>
-  <thead>
-    <tr>
-      <!-- Diplay the header of the table -->
-      @for (col of columns(); track $index) {
-        <th>{{ col }}</th>
-      }
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Display all the rows -->
-    @for (e of elements(); track e.id) {
-      <tr>
-        <!-- Display the value of each cell -->
-        @for (col of columns(); track $index) {
-          <td>
-            <!-- {{e.name}} -->
-            {{ e[col] }}
-          </td>
+    <thead>
+        <tr>
+            <!-- Diplay the header of the table -->
+            @for (col of columns(); track $index) {
+                <th>{{ col.headerKey | translate }}</th>
+            }
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Display all the rows -->
+        @for (e of elements(); track e.id) {
+            <tr>
+                <!-- Display the value of each cell -->
+                @for (col of columns(); track $index) {
+                    <td>
+                        <!-- {{e.name}} -->
+                        {{ e[col.property] }}
+                    </td>
+                }
+                <td>
+                    <button (click)="onDetails(e.id)">🔎</button>
+                </td>
+            </tr>
         }
-        <td>
-          <button (click)="onDetails(e.id)">🔎</button>
-        </td>
-      </tr>
-    }
-  </tbody>
+    </tbody>
 </table>

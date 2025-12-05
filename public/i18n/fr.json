@@ -34,7 +34,8 @@
                         "user-details": "Détails de l'utilisateur"
                     },
                     "user-listing-page": {
-                        "user-list": "Liste des utilisateurs"
+                        "user-list": "Liste des utilisateurs",
+                        "email": "Email"
                     }
                 }
             }
@@ -56,6 +57,12 @@
             "form": {
                 "password-input-hiden": "Masquer",
                 "password-input-show": "Afficher"
+            },
+            "listing-table-admin": {
+                "delete-element": "Supprimer l'élement",
+                "details": "Détail",
+                "update": "Modifier",
+                "delete": "Supprimer"
             }
         }
     }
