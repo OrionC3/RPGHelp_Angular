@@ -34,9 +34,20 @@
                         "user-details": "Détails de l'utilisateur"
                     },
                     "user-listing-page": {
-                        "user-list": "Liste des utilisateurs",
-                        "email": "Email"
+                        "user-list": "Liste des utilisateurs"
                     }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-listing-page": {
+                    "id": "Id",
+                    "name": "Nom",
+                    "race": "Race",
+                    "level": "Level",
+                    "campagn": "Campagne",
+                    "action": "Action"
                 }
             }
         }
@@ -50,19 +61,14 @@
                 "logout": "Déconnexion",
                 "register": "S'enregistrer",
                 "users": "Utilisateurs",
-                "self": "Mon Compte"
+                "self": "Mon Compte",
+                "characters": "Mes Personnages"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "Masquer",
                 "password-input-show": "Afficher"
-            },
-            "listing-table-admin": {
-                "delete-element": "Supprimer l'élement",
-                "details": "Détail",
-                "update": "Modifier",
-                "delete": "Supprimer"
             }
         }
     }

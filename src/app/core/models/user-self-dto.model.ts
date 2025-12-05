@@ -1,5 +1,5 @@
-import { CharacteresIndexDto } from './charactere-index-dto.model';
 import { CampagnIndexDto } from './campagn-index-dto.model';
+import { CharactersIndexDto } from './characters-index-dto.model';
 import { UserRoleApi } from './user.role.model';
 
 export interface UserSelfDto {
@@ -7,6 +7,6 @@ export interface UserSelfDto {
     email: string;
     password: string;
     role: UserRoleApi[];
-    characteres: CharacteresIndexDto[];
+    characteres: CharactersIndexDto[];
     campagns: CampagnIndexDto[];
 }

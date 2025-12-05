@@ -39,6 +39,18 @@
                     }
                 }
             }
+        },
+        "characters": {
+            "pages": {
+                "character-listing-page": {
+                    "id": "Id",
+                    "name": "Name",
+                    "race": "Race",
+                    "level": "Level",
+                    "campagn": "Campagn",
+                    "action": "Action"
+                }
+            }
         }
     },
     "components": {
@@ -50,7 +62,8 @@
                 "logout": "Logout",
                 "register": "Register",
                 "users": "Users",
-                "self": "My Account"
+                "self": "My Account",
+                "characters": "Characters"
             }
         },
         "common": {

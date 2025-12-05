@@ -1,1 +1,77 @@
-<p>character-listing-page works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                {{
+                    'features.characters.pages.character-listing-page.name'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.characters.pages.character-listing-page.race'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.characters.pages.character-listing-page.level'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.characters.pages.character-listing-page.campagn'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.characters.pages.character-listing-page.action'
+                        | translate
+                }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @for (character of characters; track character.id) {
+                <td>
+                    {{ character.name }}
+                </td>
+                <td>
+                    {{ character.raceIndexDto.name }}
+                </td>
+                <td>
+                    {{ character.level }}
+                </td>
+                <td>
+                    @if (character.campagnId > 0) {
+                        Dans une campagne
+                    } @else {
+                        Pas dans une campagne
+                    }
+                </td>
+                <td>
+                    <button (click)="onClickDetails(character.id)">🔎</button>
+                </td>
+
+                <td>
+                    <button (click)="onClickDelete(character.id)">🗑️</button>
+                    @if (elementIdToConfirm() === character.id) {
+                        <app-confirm-modal
+                            (confirmed)="onModalAction($event)"
+                            [message]="
+                                ('components.common.listing-table-admin.delete-element'
+                                    | translate) +
+                                ' ' +
+                                character.id +
+                                ' ?'
+                            "
+                        />
+                    }
+                </td>
+            }
+        </tr>
+    </tbody>
+</table>

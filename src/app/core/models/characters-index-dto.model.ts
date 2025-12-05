@@ -1,6 +1,6 @@
 import { RaceIndexDto } from './race-index-dto.model';
 
-export interface CharacteresIndexDto {
+export interface CharactersIndexDto {
     id: number;
     name: string;
     idRace: number;
