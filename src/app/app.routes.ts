@@ -25,6 +25,11 @@ export const routes: Routes = [
             ),
     },
     {
+        path: 'races',
+        loadChildren: () =>
+            import('./features/races/races.routes').then((r) => r.routes),
+    },
+    {
         path: 'error',
         loadChildren: () =>
             import('./features/error/error.routes').then((r) => r.routes),

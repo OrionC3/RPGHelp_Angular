@@ -5,6 +5,11 @@
                 'components.layout.nav-bar.home' | translate
             }}</a>
         </li>
+        <li>
+            <a routerLink="/races">{{
+                'components.layout.nav-bar.races' | translate
+            }}</a>
+        </li>
         @if (!isConnected()) {
             <li>
                 <a routerLink="/auth/login">{{
