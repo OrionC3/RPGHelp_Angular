@@ -1,0 +1,15 @@
+<p>pagination works!</p>
+
+<button [disabled]="currentPage() <= 1" (click)="onFirstPage()">
+    First Page
+</button>
+<button [disabled]="currentPage() <= 1" (click)="onClickPrevious()">
+    Previous {{ currentPage() - 1 }}
+</button>
+{{ currentPage() }}
+<button [disabled]="currentPage() >= maxPages()" (click)="onClickNext()">
+    Next {{ currentPage() + 1 }}
+</button>
+<button [disabled]="currentPage() >= maxPages()" (click)="onLastPage()">
+    Last Page
+</button>

@@ -1,14 +1,15 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { RaceIndexDto } from '@core/models/race-index-dto.model';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { ConfirmModal } from '@components/modal/confirm-modal/confirm-modal';
 import { RaceService } from '@core/services/race.service';
+import { Pagination } from '@components/layout/pagination/pagination';
 
 @Component({
     selector: 'app-race-listing-page',
-    imports: [TranslatePipe, ConfirmModal, RouterLink],
+    imports: [TranslatePipe, ConfirmModal, Pagination],
     templateUrl: './race-listing-page.html',
     styleUrl: './race-listing-page.scss',
 })
@@ -16,6 +17,8 @@ export class RaceListingPage {
     private readonly _racesService = inject(RaceService);
     private readonly _router = inject(Router);
     count: number | null = null;
+    currentPage: number = 1;
+    pageSize: number = 10;
     races: RaceIndexDto[] = [];
     racesSubscription: Subscription | null = null;
     racesError: string | null = null;
@@ -26,6 +29,7 @@ export class RaceListingPage {
             next: (data) => {
                 console.log(data);
                 this.races = data.data;
+                this.count = data.count;
             },
             error: (err) => {
                 console.error(err);
@@ -62,5 +66,20 @@ export class RaceListingPage {
 
     addRace() {
         this._router.navigate(['/', 'races', 'create']);
+    }
+
+    futurPage(next: number) {
+        this.racesSubscription = this._racesService
+            .getRaces(next - 1)
+            .subscribe({
+                next: (data) => {
+                    this.races = data.data;
+                    this.count = data.count;
+                },
+                error: (err) => {
+                    console.error(err);
+                    this.racesError = err.message;
+                },
+            });
     }
 }

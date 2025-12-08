@@ -1,4 +1,10 @@
 <button (click)="addRace()">➕</button>
+<app-pagination
+    [total]="count"
+    [(currentPage)]="currentPage"
+    (futurPage)="futurPage($event)"
+    [pageSize]="pageSize"
+/>
 <table>
     <thead>
         <tr>
