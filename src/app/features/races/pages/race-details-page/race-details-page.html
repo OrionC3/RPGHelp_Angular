@@ -1,1 +1,18 @@
-<p>race-details-page works!</p>
+@if (race) {
+    <p>{{ race.name }}</p>
+    <p>
+        {{ 'features.races.pages.race-details-page.speed' | translate }} :
+        {{ race.travelSpeed }}
+    </p>
+
+    <p>
+        {{
+            'features.races.pages.race-details-page.racial-bonus-malus'
+                | translate
+        }}
+    </p>
+    <p>{{ race.bonusRacial.bonusName }} : {{ race.bonusRacial.bonusValue }}</p>
+    <p>{{ race.bonusRacial.malusName }} : {{ race.bonusRacial.malusValue }}</p>
+} @else {
+    <p>{{ 'features.races.pages.race-details-page.not-found' | translate }}</p>
+}

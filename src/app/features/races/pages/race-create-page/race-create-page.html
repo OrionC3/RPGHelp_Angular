@@ -1,1 +1,98 @@
-<p>race-create-page works!</p>
+<form [formGroup]="raceForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name"
+            >{{
+                'features.races.pages.race-create-page.name' | translate
+            }}
+            :</label
+        ><input type="text" id="name" formControlName="name" />
+        @if (raceForm.get('name')?.touched && raceForm.get('name')?.invalid) {
+            <p>Champs requis</p>
+        }
+    </div>
+    <div>
+        <label for="travelSpeed"
+            >{{
+                'features.races.pages.race-create-page.travelSpeed' | translate
+            }}
+            :</label
+        ><input
+            type="number"
+            min="1"
+            id="travelSpeed"
+            formControlName="travelSpeed"
+        />
+        @if (
+            raceForm.get('travelSpeed')?.touched &&
+            raceForm.get('travelSpeed')?.invalid
+        ) {
+            <p>Champs requis</p>
+        }
+    </div>
+
+    <div>
+        <label for="bonusName"
+            >{{
+                'features.races.pages.race-create-page.bonusName' | translate
+            }}
+            :</label
+        ><select id="bonusName" formControlName="bonusName">
+            @for (name of Stat; track $index) {
+                <option [value]="name">{{ name }}</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="bonusValue"
+            >{{
+                'features.races.pages.race-create-page.bonusValue' | translate
+            }}
+            :</label
+        ><input
+            type="number"
+            min="0"
+            id="bonusValue"
+            formControlName="bonusValue"
+        />
+        @if (
+            raceForm.get('bonusValue')?.touched &&
+            raceForm.get('bonusValue')?.invalid
+        ) {
+            <p>Champs requis</p>
+        }
+    </div>
+
+    <div>
+        <label for="malusName"
+            >{{
+                'features.races.pages.race-create-page.malusName' | translate
+            }}
+            :</label
+        ><select id="malusName" formControlName="malusName">
+            @for (name of Stat; track $index) {
+                <option [value]="name">{{ name }}</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="malusValue"
+            >{{
+                'features.races.pages.race-create-page.malusValue' | translate
+            }}
+            :</label
+        ><input
+            type="number"
+            max="0"
+            id="malusValue"
+            formControlName="malusValue"
+        />
+        @if (
+            raceForm.get('malusValue')?.touched &&
+            raceForm.get('malusValue')?.invalid
+        ) {
+            <p>Champs requis</p>
+        }
+    </div>
+
+    <button type="submit">Envoyer</button>
+</form>

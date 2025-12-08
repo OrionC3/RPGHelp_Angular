@@ -34,8 +34,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            @for (character of characters; track character.id) {
+        @for (character of characters; track character.id) {
+            <tr>
                 <td>
                     {{ character.name }}
                 </td>
@@ -71,7 +71,7 @@
                         />
                     }
                 </td>
-            }
-        </tr>
+            </tr>
+        }
     </tbody>
 </table>

@@ -51,6 +51,31 @@
                     "action": "Action"
                 }
             }
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "name": "Name",
+                    "travelSpeed": "Travel Speed",
+                    "bonusName": "Bonus Name",
+                    "bonusValue": "Bonus Values",
+                    "malusName": "Malus Name",
+                    "malusValue": "Malus Value"
+                },
+                "race-details-page": {
+                    "speed": "Speed",
+                    "racial-bonus-malus": "Racial Bonus/Malus",
+                    "not-found": "Not Found"
+                },
+                "race-listing-page": {
+                    "name": "Name",
+                    "travelSpeed": "Travel Speed",
+                    "bonusName": "Bonus Name",
+                    "bonusValue": "Bonus Values",
+                    "malusName": "Malus Name",
+                    "malusValue": "Malus Value"
+                }
+            }
         }
     },
     "components": {
@@ -63,7 +88,8 @@
                 "register": "Register",
                 "users": "Users",
                 "self": "My Account",
-                "characters": "Characters"
+                "characters": "Characters",
+                "races": "Races"
             }
         },
         "common": {

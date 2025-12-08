@@ -1,1 +1,79 @@
-<p>race-listing-page works!</p>
+<button (click)="addRace()">➕</button>
+<table>
+    <thead>
+        <tr>
+            <th>
+                {{ 'features.races.pages.race-listing-page.name' | translate }}
+            </th>
+            <th>
+                {{
+                    'features.races.pages.race-listing-page.travelSpeed'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.races.pages.race-listing-page.bonusName'
+                        | translate
+                }}
+                :
+                {{
+                    'features.races.pages.race-listing-page.bonusValue'
+                        | translate
+                }}
+            </th>
+            <th>
+                {{
+                    'features.races.pages.race-listing-page.malusName'
+                        | translate
+                }}
+                :
+                {{
+                    'features.races.pages.race-listing-page.malusValue'
+                        | translate
+                }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (race of races; track race.id) {
+            <tr>
+                <td>
+                    {{ race.name }}
+                </td>
+                <td>
+                    {{ race.travelSpeed }}
+                </td>
+                <td>
+                    {{ race.bonusRacial.bonusName }} :{{
+                        race.bonusRacial.bonusValue
+                    }}
+                </td>
+                <td>
+                    {{ race.bonusRacial.malusName }} :{{
+                        race.bonusRacial.malusValue
+                    }}
+                </td>
+                <td>
+                    <button (click)="onClickDetails(race.id)">🔎</button>
+                </td>
+
+                <td>
+                    <button (click)="onClickDelete(race.id)">🗑️</button>
+                    @if (elementIdToConfirm() === race.id) {
+                        <app-confirm-modal
+                            (confirmed)="onModalAction($event)"
+                            [message]="
+                                ('components.common.listing-table-admin.delete-element'
+                                    | translate) +
+                                ' ' +
+                                race.id +
+                                ' ?'
+                            "
+                        />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
