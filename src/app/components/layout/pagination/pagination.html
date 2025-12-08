@@ -1,15 +1,17 @@
 <p>pagination works!</p>
 
 <button [disabled]="currentPage() <= 1" (click)="onFirstPage()">
-    First Page
+    {{ 'components.layout.pagination.first-page' | translate }}
 </button>
 <button [disabled]="currentPage() <= 1" (click)="onClickPrevious()">
-    Previous {{ currentPage() - 1 }}
+    {{ 'components.layout.pagination.previous-page' | translate }}
+    {{ currentPage() - 1 }}
 </button>
 {{ currentPage() }}
 <button [disabled]="currentPage() >= maxPages()" (click)="onClickNext()">
-    Next {{ currentPage() + 1 }}
+    {{ 'components.layout.pagination.next-page' | translate }}
+    {{ currentPage() + 1 }}
 </button>
 <button [disabled]="currentPage() >= maxPages()" (click)="onLastPage()">
-    Last Page
+    {{ 'components.layout.pagination.last-page' | translate }}
 </button>

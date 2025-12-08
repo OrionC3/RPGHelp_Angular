@@ -90,6 +90,12 @@
                 "self": "My Account",
                 "characters": "Characters",
                 "races": "Races"
+            },
+            "pagination": {
+                "first-page": "First Page",
+                "previous-page": "Previous Page",
+                "next-page": "Next Page",
+                "last-page": "Last Page"
             }
         },
         "common": {

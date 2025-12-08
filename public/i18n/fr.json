@@ -89,6 +89,12 @@
                 "self": "Mon Compte",
                 "characters": "Mes Personnages",
                 "races": "Races"
+            },
+            "pagination": {
+                "first-page": "Première page",
+                "previous-page": "Page précédente",
+                "next-page": "Page suivante",
+                "last-page": "Dernière Page"
             }
         },
         "common": {
