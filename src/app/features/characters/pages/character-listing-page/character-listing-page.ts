@@ -11,10 +11,11 @@ import { CharatersService } from '@core/services/charaters.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { ConfirmModal } from '@components/modal/confirm-modal/confirm-modal';
+import { Pagination } from '@components/layout/pagination/pagination';
 
 @Component({
     selector: 'app-character-listing-page',
-    imports: [TranslatePipe, ConfirmModal],
+    imports: [TranslatePipe, ConfirmModal, Pagination],
     templateUrl: './character-listing-page.html',
     styleUrl: './character-listing-page.scss',
 })
@@ -22,6 +23,9 @@ export class CharacterListingPage {
     private readonly _charactersService = inject(CharatersService);
     private readonly _router = inject(Router);
     count: number | null = null;
+    currentPage: number = 1;
+    pageSize: number = 10;
+
     characters: CharactersIndexDto[] = [];
     charactersSubscription: Subscription | null = null;
     charactersError: string | null = null;
@@ -32,8 +36,8 @@ export class CharacterListingPage {
             .getCharacters()
             .subscribe({
                 next: (data) => {
-                    console.log(data);
                     this.characters = data.data;
+                    this.count = data.count;
                 },
                 error: (err) => {
                     console.error(err);
@@ -66,5 +70,20 @@ export class CharacterListingPage {
         }
         // Cache la modale en réinitialisant l'ID
         this.elementIdToConfirm.set(null);
+    }
+
+    futurPage(next: number) {
+        this.charactersSubscription = this._charactersService
+            .getCharacters(next - 1)
+            .subscribe({
+                next: (data) => {
+                    this.characters = data.data;
+                    this.count = data.count;
+                },
+                error: (err) => {
+                    console.error(err);
+                    this.charactersError = err.message;
+                },
+            });
     }
 }
