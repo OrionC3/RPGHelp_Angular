@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-listing-page',
-  imports: [RouterModule],
+  imports: [RouterModule, TranslatePipe],
   templateUrl: './campaign-listing-page.html',
   styleUrl: './campaign-listing-page.scss',
 })

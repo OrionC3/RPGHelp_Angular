@@ -1,5 +1,6 @@
-<h2>Details of Movie {{ campaign?.id }}</h2>
-<p>Name: {{ campaign?.name }}</p>
-<button (click)="onNextCampaign()">Next</button>
+<h2>{{ ('features.campaign.pages.campaign-details-page.title' | translate) }} "{{ campaign?.name }}"</h2>
+<p>{{ ('features.campaign.pages.campaign-details-page.id' | translate) }} {{ campaign?.id }}</p>
+<p>{{ ('features.campaign.pages.campaign-details-page.name' | translate) }} {{ campaign?.name }}</p>
+<button (click)="onNextCampaign()">{{ ('features.campaign.pages.campaign-details-page.next' | translate) }}</button>
 <br>
-<a [routerLink]="['/campaign']">Return to the campaign list</a>
+<a [routerLink]="['/campaign']">{{ ('features.campaign.pages.campaign-details-page.return-listing' | translate) }}</a>

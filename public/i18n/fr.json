@@ -35,6 +35,27 @@
                 }
             }
         },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "Campagnes",
+                    "details-link": "Détails",
+                    "add-link": "Ajouter une campagne"
+                },
+                "campaign-details-page": {
+                    "title": "Détails de la campagne : ",
+                    "id": "Id : ",
+                    "name": "Nom : ",
+                    "next": "Suivant",
+                    "return-listing": "Retourner à la liste des campagnes"
+                },
+                "campaign-form-page": {
+                    "title": "Ajouter une nouvelle campagne :",
+                    "name-form": "Nom: ",
+                    "add-button": "Ajouter"
+                }
+            }
+        },
         "admin": {
             "users": {
                 "pages": {

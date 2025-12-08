@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CampagnIndexDto } from '@core/models/campagn-index-dto.model';
 import { CampaignDetailsDtoModel } from '@core/models/campaign-details-dto.model';
 import { CampaignService } from '@core/services/campaign.service';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-details-page',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './campaign-details-page.html',
   styleUrl: './campaign-details-page.scss',
 })
