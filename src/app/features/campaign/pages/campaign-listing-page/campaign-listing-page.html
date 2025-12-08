@@ -1,0 +1,7 @@
+<h2>Campaigns</h2>
+@for (item of campaign; track $index) {
+    <p>{{ item.name }} <a [routerLink]="['/campaign', item.id]">Details</a></p>
+}
+
+<br>
+<a [routerLink]="['/campaign', 'add']">Add campaign</a>

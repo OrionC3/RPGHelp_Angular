@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 import { adminGuard } from '@core/guards';
 export const routes: Routes = [
     {
+        path: '',
+        loadChildren: () =>
+            import('./features/home/home.routes').then((r) => r.routes),
+    },
+    {
         path: 'auth',
         loadChildren: () =>
             import('./features/auth/auth.routes').then((r) => r.routes),
@@ -10,6 +15,10 @@ export const routes: Routes = [
         path: 'users',
         loadChildren: () =>
             import('./features/users/users.routes').then((r) => r.routes),
+    },    {
+        path: 'campaign',
+        loadChildren: () =>
+            import('./features/campaign/campaign.routes').then((r) => r.routes),
     },
     {
         path: 'admin',

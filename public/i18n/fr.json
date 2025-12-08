@@ -27,6 +27,14 @@
                 }
             }
         },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂️ Aide RPG - Application",
+                    "p1": "Bienvenue sur Aide RPG, un outil compagnon conçu pour faciliter vos aventures de jeu de rôle sur table. Gérez vos personnages, suivez vos campagnes et accédez à des fonctionnalités utiles pour des sessions plus fluides et immersives."
+                }
+            }
+        },
         "admin": {
             "users": {
                 "pages": {
@@ -108,6 +116,7 @@
                 "register": "S'enregistrer",
                 "users": "Utilisateurs",
                 "self": "Mon Compte",
+                "campaign": "Campagnes"
                 "characters": "Mes Personnages",
                 "races": "Races"
             },

@@ -27,6 +27,14 @@
                 }
             }
         },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - Application",
+                    "p1": "Welcome to RPGHelp, a companion tool designed to support your tabletop RPG adventures. Manage your characters, track campaigns, and access useful features to make your sessions smoother and more immersive."
+                }
+            }
+        },
         "admin": {
             "users": {
                 "pages": {
@@ -109,6 +117,7 @@
                 "register": "Register",
                 "users": "Users",
                 "self": "My Account",
+                "campaign": "Campaigns"
                 "characters": "Characters",
                 "races": "Races"
             },
