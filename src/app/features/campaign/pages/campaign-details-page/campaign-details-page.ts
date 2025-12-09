@@ -1,6 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CampagnIndexDto } from '@core/models/campagn-index-dto.model';
 import { CampaignDetailsDtoModel } from '@core/models/campaign-details-dto.model';
 import { CampaignService } from '@core/services/campaign.service';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -10,50 +9,63 @@ import { Subscription } from 'rxjs';
   selector: 'app-campaign-details-page',
   imports: [RouterLink, TranslatePipe],
   templateUrl: './campaign-details-page.html',
-  styleUrl: './campaign-details-page.scss',
+  styleUrls: ['./campaign-details-page.scss'],
 })
-export class CampaignDetailsPage implements OnInit {
+export class CampaignDetailsPage implements OnInit, OnDestroy {
 
-  private readonly _campagnService = inject(CampaignService);
+  private readonly _campaignService = inject(CampaignService);
   private readonly _router = inject(Router);
-totalCampaigns: number = 0;
-campaign: CampaignDetailsDtoModel | null = null;
-campaignSubscription: Subscription | null = null;
-userError: string | null = null;
 
+  campaign: CampaignDetailsDtoModel | null = null;
+  campaignSubscription!: Subscription;
+
+  totalCampaigns = 0;
   campaignId!: string;
 
   constructor(private route: ActivatedRoute) {}
-  
-ngOnInit(): void {
-  // Récupération de la campagne actuelle
-  this.campaignSubscription = this.route.paramMap.subscribe(params => {
-    const id = params.get('id');
-    if (!id) return;
-    this.campaignId = id;
 
-    // Appel pour récupérer la campagne par ID
-    this._campagnService.getCampaignById(id).subscribe({
-      next: (data) => this.campaign = data,
-      error: (err) => this.userError = err.message
+  ngOnInit(): void {
+    this.campaignSubscription = this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (!id) return;
+
+      this.campaignId = id;
+
+      this._campaignService.getCampaignById(id).subscribe({
+        next: (data) => this.campaign = data,
+        error: (err) => console.error(err),
+      });
     });
-  });
 
-  // Récupérer la liste complète pour connaître le nombre total
-  this._campagnService.getCampaigns().subscribe({
-    next: (listData) => {
-      this.totalCampaigns = listData.data.length;
-    },
-    error: (err) => console.error("Impossible de récupérer le total de campagnes", err)
-  });
-}
- 
-onNextCampaign() {
-  const nextId = Number(this.campaignId) + 1;
-  if(nextId > this.totalCampaigns) {
-    console.log("C'est la dernière campagne !");
-    return; // on ne navigue pas
+    this._campaignService.getCampaigns().subscribe({
+      next: (list) => this.totalCampaigns = list.data.length,
+      error: (err) => console.error(err),
+    });
   }
-  this._router.navigate(['/campaign', nextId]);
-}
+
+  ngOnDestroy(): void {
+    this.campaignSubscription?.unsubscribe();
+  }
+
+  onNextCampaign() {
+    const nextId = Number(this.campaignId) + 1;
+    if (nextId > this.totalCampaigns) return;
+    this._router.navigate(['/campaign', nextId]);
+  }
+
+  deleteCampaign() {
+    if (!this.campaign) return;
+
+    this._campaignService.deleteCampaign(this.campaign.id).subscribe({
+      next: () => {
+        console.log('Campagne supprimée avec succès');
+        this._router.navigate(['/campaign']);
+      },
+      error: (err) => console.error('Erreur suppression:', err),
+    });
+  }
+  onEditCampaign() {
+    this._router.navigate(['/campaign/edit', this.campaignId]);
+  }
+
 }

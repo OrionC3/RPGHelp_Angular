@@ -22,7 +22,6 @@ export class CampaignListingPage implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.campaignSubsciption = this._campaignService.getCampaigns().subscribe({
       next: (data) => {
-        console.log(data);
         this.campaign = data.data;
       },
       error: (err) => {

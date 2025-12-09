@@ -15,6 +15,12 @@ export const routes: Routes = [
             import('./pages/campaign-form-page/campaign-form-page').then((c) => c.CampaignFormPage),
     },
     {
+        path:'edit/:id',
+        canActivate: [isConnectedGuard],
+        loadComponent: () =>
+            import('./pages/campaign-edit-page/campaign-edit-page').then((c) => c.CampaignEditPage),
+    },
+    {
         path:':id',
         canActivate: [isConnectedGuard],
         loadComponent: () =>

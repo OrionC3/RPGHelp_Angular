@@ -1,8 +1,22 @@
-<form>
+<form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
   <div>
-    <p>{{ ('features.campaign.pages.campaign-form-page.title' | translate) }}</p>
-    <label>{{ ('features.campaign.pages.campaign-form-page.name-form' | translate) }}</label>
-    <input type="name" id="name" formControlName="name" />
+    <p>{{ 'features.campaign.pages.campaign-form-page.title' | translate }}</p>
+
+    <label for="name">{{ 'features.campaign.pages.campaign-form-page.name-form' | translate }}</label>
+    <input type="text" id="name" formControlName="name" />
+
+    <p>
+      {{
+        name.touched && name.invalid
+          ? name.getError('required')
+            ? ('features.campaign.pages.campaign-form-page.name-input-error-required' | translate)
+            : (name.getError('minlength') || name.getError('maxlength'))
+              ? ('features.campaign.pages.campaign-form-page.name-input-error-shortOrLong' | translate : nameLengthMessage)
+              : ''
+          : ''
+      }}
+    </p>
     <br>
-    <button>{{ ('features.campaign.pages.campaign-form-page.add-button' | translate) }}</button>
+    <button type="submit">{{ 'features.campaign.pages.campaign-form-page.add' | translate }}</button>
   </div>
+</form>

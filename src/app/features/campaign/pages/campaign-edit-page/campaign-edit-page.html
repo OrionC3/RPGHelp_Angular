@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <p>{{ 'features.campaign.pages.campaign-edit-page.title' | translate }}</p>
+
+    <label for="name">{{ 'features.campaign.pages.campaign-edit-page.name' | translate }}</label>
+    <input type="text" id="name" formControlName="name" />
+    <br>
+    <button type="submit">{{ 'features.campaign.pages.campaign-edit-page.edit' | translate }}</button>
+  </div>
+</form>

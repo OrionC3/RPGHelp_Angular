@@ -39,20 +39,32 @@
             "pages": {
                 "campaign-listing-page": {
                     "title": "Campagnes",
-                    "details-link": "Détails",
-                    "add-link": "Ajouter une campagne"
+                    "details-link": "Détails 🔎",
+                    "add-link": "Ajouter une campagne ➕"
                 },
                 "campaign-details-page": {
                     "title": "Détails de la campagne : ",
                     "id": "Id : ",
                     "name": "Nom : ",
-                    "next": "Suivant",
+                    "next": "Campagne Suivante ⏩",
+                    "edit": "Modifier ✏️",
+                    "delete": "Supprimer 🚮",
+                    "return-listing": "◀️ Retourner à la liste des campagnes "
+                },
+                "campaign-edit-page": {
+                    "title": "Modifier la campagne : ",
+                    "id": "Id : ",
+                    "name": "Nom : ",
+                    "edit": "Modifier ✏️",
                     "return-listing": "Retourner à la liste des campagnes"
                 },
                 "campaign-form-page": {
                     "title": "Ajouter une nouvelle campagne :",
                     "name-form": "Nom: ",
-                    "add-button": "Ajouter"
+                    "add": "Ajouter ➕",
+                    "edit": "Modifier ✏️",
+                    "name-input-error-required": "Le nom de la campagne est requis !",
+                    "name-input-error-shortOrLong": "La taille du nom de la campagne n'est pas correcte: entre {minLength} et {maxLength} caractères !"
                 }
             }
         },

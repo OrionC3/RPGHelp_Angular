@@ -39,23 +39,36 @@
             "pages": {
                 "campaign-listing-page": {
                     "title": "Campaigns",
-                    "details-link": "Details",
-                    "add-link": "Add campaign"
+                    "details-link": "Details 🔎",
+                    "add-link": "Add a campaign ➕"
                 },
                 "campaign-details-page": {
-                    "title": "Details of campaign : ",
-                    "id": "Id : ",
-                    "name": "Name : ",
-                    "next": "Next",
-                    "return-listing": "Return to the campaign list"
+                    "title": "Campaign Details: ",
+                    "id": "Id: ",
+                    "name": "Name: ",
+                    "next": "Next Campaign ⏩",
+                    "edit": "Edit ✏️",
+                    "delete": "Delete 🚮",
+                    "return-listing": "◀️ Return to campaign list"
+                },
+                "campaign-edit-page": {
+                    "title": "Edit Campaign: ",
+                    "id": "Id: ",
+                    "name": "Name: ",
+                    "edit": "Edit ✏️",
+                    "return-listing": "Return to campaign list"
                 },
                 "campaign-form-page": {
-                    "title": "Add a new campaign :",
+                    "title": "Add a New Campaign:",
                     "name-form": "Name: ",
-                    "add-button": "Add"
+                    "add": "Add",
+                    "edit": "Edit",
+                    "name-input-error-required": "Campaign name is required!",
+                    "name-input-error-shortOrLong": "Campaign name length is invalid: between {minLength} and {maxLength} characters!"
                 }
             }
         },
+
         "admin": {
             "users": {
                 "pages": {
