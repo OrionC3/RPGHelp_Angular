@@ -1,0 +1,25 @@
+<h2>
+  {{ ('features.campaign.pages.campaign-details-page.title' | translate) }}
+  "{{ campaign?.name }}"
+</h2>
+<p>
+  {{ ('features.campaign.pages.campaign-details-page.id' | translate) }}
+  {{ campaign?.id }}
+</p>
+<p>
+  {{ ('features.campaign.pages.campaign-details-page.name' | translate) }}
+  {{ campaign?.name }}
+</p>
+<button (click)="onNextCampaign()">
+  {{ ('features.campaign.pages.campaign-details-page.next' | translate) }}
+</button>
+<button [routerLink]="['/campaign/edit', campaign?.id]">
+  {{ ('features.campaign.pages.campaign-details-page.edit' | translate) }}
+</button>
+<button (click)="deleteCampaign()">
+  {{ ('features.campaign.pages.campaign-details-page.delete' | translate) }}
+</button>
+<br><br>
+<a [routerLink]="['/campaign']">
+  {{ ('features.campaign.pages.campaign-details-page.return-listing' | translate) }}
+</a>
