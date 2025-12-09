@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { ApiResponseList } from '@core/models/api-response-list.model';
 import { ApiResponseOne } from '@core/models/api-response-one.model';
 import { CharactersDetailsDto } from '@core/models/characters-details-dto.models';
+import { CharactersFormDto } from '@core/models/characters-form-dto.model';
 import { CharactersIndexDto } from '@core/models/characters-index-dto.model';
 import { environment } from '@env';
 import { map, Observable } from 'rxjs';
@@ -37,6 +38,15 @@ export class CharatersService {
     deleteCharactersById(id: number): Observable<CharactersIndexDto> {
         return this._httpClient.delete<CharactersIndexDto>(
             environment.apiUrl + 'api/charactere/' + id,
+        );
+    }
+
+    createCharacter(
+        form: CharactersFormDto,
+    ): Observable<ApiResponseOne<CharactersDetailsDto>> {
+        return this._httpClient.post<ApiResponseOne<CharactersDetailsDto>>(
+            environment.apiUrl + 'api/charactere',
+            form,
         );
     }
 }

@@ -11,19 +11,19 @@ export const routes: Routes = [
             ),
     },
     {
-        path: ':id',
-        canActivate: [isConnectedGuard],
-        loadComponent: () =>
-            import('./pages/character-details-page/character-details-page').then(
-                (c) => c.CharacterDetailsPage,
-            ),
-    },
-    {
         path: 'create',
         canActivate: [isConnectedGuard],
         loadComponent: () =>
             import('./pages/character-create-page/character-create-page').then(
                 (c) => c.CharacterCreatePage,
+            ),
+    },
+    {
+        path: ':id',
+        canActivate: [isConnectedGuard],
+        loadComponent: () =>
+            import('./pages/character-details-page/character-details-page').then(
+                (c) => c.CharacterDetailsPage,
             ),
     },
     {

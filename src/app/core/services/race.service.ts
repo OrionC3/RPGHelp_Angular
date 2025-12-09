@@ -45,4 +45,15 @@ export class RaceService {
             form,
         );
     }
+
+    getRacesByName(name: string): Observable<ApiResponseList<RaceIndexDto>> {
+        return this._httpClient.get<ApiResponseList<RaceIndexDto>>(
+            environment.apiUrl + 'api/race/byname',
+            {
+                params: {
+                    name: name,
+                },
+            },
+        );
+    }
 }

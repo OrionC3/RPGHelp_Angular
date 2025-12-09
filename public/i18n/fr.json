@@ -48,6 +48,27 @@
                     "level": "Level",
                     "campagn": "Campagne",
                     "action": "Action"
+                },
+                "character-create-page": {
+                    "name": "Nom",
+                    "pvMax": "PV Max",
+                    "pvCurrent": "Pv actuel",
+                    "strength": "Force",
+                    "dexterity": "Dextérité",
+                    "constitution": "Constitution",
+                    "intelligence": "Intelligence",
+                    "wisdom": "Sagesse",
+                    "charisma": "Charisme",
+                    "defence": "Défense",
+                    "initiative": "Initiative",
+                    "baseAttackBonus": "Bonus de base à l'attaque",
+                    "fortitudeSave": "Vigeur",
+                    "reflexeSave": "Réflexe",
+                    "willpowerSave": "Volonté",
+                    "level": "Niveau",
+                    "xp": "Xp",
+                    "speed": "Vitesse",
+                    "races": "Races"
                 }
             }
         },

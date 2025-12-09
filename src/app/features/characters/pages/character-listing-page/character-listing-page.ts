@@ -86,4 +86,8 @@ export class CharacterListingPage {
                 },
             });
     }
+
+    addCharacters() {
+        this._router.navigate(['/', 'characters', 'create']);
+    }
 }

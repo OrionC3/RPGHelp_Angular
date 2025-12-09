@@ -1,0 +1,17 @@
+<input
+    #inputElement
+    [id]="inputId()"
+    type="text"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+    list="suggestionsDatalist"
+    (keyup)="resetTimer()"
+/>
+
+<datalist id="suggestionsDatalist">
+    @for (item of items(); track $index) {
+        <option [value]="item[displayKey()]"></option>
+    }
+</datalist>
