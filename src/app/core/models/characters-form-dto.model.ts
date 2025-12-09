@@ -11,7 +11,7 @@ export interface CharactersFormDto {
     name: string;
     pvCurrent: number;
     pvMax: number;
-    idRace: number;
+    raceId: number;
     reflexeSave: number;
     speed: number;
     strength: number;

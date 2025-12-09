@@ -20,7 +20,7 @@ export class CharacterCreatePage {
     private readonly _router = inject(Router);
     private readonly _raceService = inject(RaceService);
 
-    idRace: number = 0;
+    raceId: number = 0;
     races: RaceIndexDto[] = [];
 
     charactersForm = this._fb.group({
@@ -44,12 +44,12 @@ export class CharacterCreatePage {
     });
 
     onSubmit() {
-        console.log(this.idRace);
+        console.log(this.raceId);
 
-        if (this.charactersForm.valid && this.idRace > 0) {
+        if (this.charactersForm.valid && this.raceId > 0) {
             const characters: CharactersFormDto = {
                 name: this.charactersForm.value.name!,
-                idRace: this.idRace!,
+                raceId: this.raceId!,
                 pvMax: this.charactersForm.value.pvMax!,
                 pvCurrent: this.charactersForm.value.pvMax!,
                 strength: this.charactersForm.value.strength!,
@@ -94,11 +94,11 @@ export class CharacterCreatePage {
     }
     idSelected(id: string | number | null) {
         if (id === null) {
-            this.idRace = 0; // or set to a default value like 0
+            this.raceId = 0; // or set to a default value like 0
             return;
         }
         console.log('selected : ' + id);
-        this.idRace = parseInt(String(id), 10);
-        console.log(this.idRace);
+        this.raceId = parseInt(String(id), 10);
+        console.log(this.raceId);
     }
 }
