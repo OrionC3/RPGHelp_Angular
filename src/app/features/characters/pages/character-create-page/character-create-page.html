@@ -327,7 +327,7 @@
     </div>
 
     <div>
-        <label
+        <label for="raceId"
             >{{
                 'features.characters.pages.character-create-page.races'
                     | translate
@@ -344,5 +344,5 @@
         ></app-input-datalist>
     </div>
 
-    <button type="submit">Envoyer</button>
+    <button [disabled]="charactersForm.invalid" type="submit">Envoyer</button>
 </form>
