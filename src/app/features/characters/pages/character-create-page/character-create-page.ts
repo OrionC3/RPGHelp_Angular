@@ -6,11 +6,11 @@ import { CharatersService } from '@core/services/charaters.service';
 import { RaceService } from '@core/services/race.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { RaceIndexDto } from '@core/models/race-index-dto.model';
-import { InputDatalist } from '@components/common/input-datalist/input-datalist';
+import { InputTextAutocomplete } from '@components/form/input-text-autocomplete/input-text-autocomplete';
 
 @Component({
     selector: 'app-character-create-page',
-    imports: [ReactiveFormsModule, TranslatePipe, InputDatalist],
+    imports: [ReactiveFormsModule, TranslatePipe, InputTextAutocomplete],
     templateUrl: './character-create-page.html',
     styleUrl: './character-create-page.scss',
 })
@@ -41,11 +41,10 @@ export class CharacterCreatePage {
         level: [0, [Validators.required, Validators.min(0)]],
         xp: [0, [Validators.required, Validators.min(0)]],
         speed: [0, [Validators.required, Validators.min(1)]],
+        raceId: [0, [Validators.required]],
     });
 
     onSubmit() {
-        console.log(this.raceId);
-
         if (this.charactersForm.valid && this.raceId > 0) {
             const characters: CharactersFormDto = {
                 name: this.charactersForm.value.name!,
@@ -97,8 +96,16 @@ export class CharacterCreatePage {
             this.raceId = 0; // or set to a default value like 0
             return;
         }
-        console.log('selected : ' + id);
+        //récupéré l'id de la race avant de l'assigné
+        this._raceService
+            .getRaceIdByName(id.toString())
+            .then((data) => {
+                this.raceId = data.data.id;
+            })
+            .catch((err) => {
+                console.error(err.message);
+            });
+
         this.raceId = parseInt(String(id), 10);
-        console.log(this.raceId);
     }
 }

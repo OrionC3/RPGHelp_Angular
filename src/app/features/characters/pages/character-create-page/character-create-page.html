@@ -327,21 +327,16 @@
     </div>
 
     <div>
-        <label for="raceId"
-            >{{
-                'features.characters.pages.character-create-page.races'
-                    | translate
-            }}
-            :
-        </label>
-        <app-input-datalist
-            inputId="races"
-            [items]="races"
+        <label for="raceId">Race</label>
+        <app-input-text-autocomplete
+            inputId="raceId"
+            [placeholder]="'Ma petite recherche'"
+            [suggestions]="races"
             [displayKey]="'name'"
-            [idKey]="'id'"
             (search)="onSearchRaces($event)"
-            (id)="idSelected($event)"
-        ></app-input-datalist>
+            (itemSelected)="idSelected($event)"
+            formControlName="raceId"
+        ></app-input-text-autocomplete>
     </div>
 
     <button [disabled]="charactersForm.invalid" type="submit">Envoyer</button>

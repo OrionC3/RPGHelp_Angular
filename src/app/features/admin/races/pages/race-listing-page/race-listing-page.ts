@@ -26,7 +26,6 @@ export class RaceListingPage {
         this._racesService
             .getRaces()
             .then((data) => {
-                console.log(data);
                 this.races = data.data;
                 this.count = data.count;
             })

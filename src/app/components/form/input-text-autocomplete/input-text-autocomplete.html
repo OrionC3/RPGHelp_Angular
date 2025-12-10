@@ -1,0 +1,30 @@
+<div class="autocomplete-container">
+    <input
+        [id]="inputId()"
+        type="text"
+        [placeholder]="placeholder()"
+        [(ngModel)]="searchTerm"
+        (input)="onInputChange($event)"
+        (focus)="
+            showSuggestions = searchTerm.length > 0 && suggestions().length > 0
+        "
+        (blur)="showSuggestions = false"
+    />
+
+    @if (showSuggestions && suggestions().length > 0) {
+        <div class="suggestions-dropdown">
+            @for (suggestion of suggestions(); track $index) {
+                <div
+                    class="suggestion-item"
+                    (mousedown)="selectSuggestion(suggestion)"
+                >
+                    {{ suggestion[displayKey()] }}
+                </div>
+            }
+        </div>
+    } @else if (
+        showSuggestions && suggestions().length === 0 && searchTerm.length > 0
+    ) {
+        <div class="no-results">Aucun résultat trouvé.</div>
+    }
+</div>

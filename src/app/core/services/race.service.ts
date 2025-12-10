@@ -66,4 +66,17 @@ export class RaceService {
             ),
         );
     }
+
+    getRaceIdByName(name: string): Promise<ApiResponseOne<RaceIndexDto>> {
+        return firstValueFrom(
+            this._httpClient.get<ApiResponseOne<RaceIndexDto>>(
+                environment.apiUrl + 'api/race/getidbyname',
+                {
+                    params: {
+                        name: name,
+                    },
+                },
+            ),
+        );
+    }
 }
