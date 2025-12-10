@@ -2,7 +2,6 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { UserSelfDto } from '@core/models/user-self-dto.model';
 import { UserService } from '@core/services/user.service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-self-page',
@@ -10,26 +9,19 @@ import { Subscription } from 'rxjs';
     templateUrl: './self-page.html',
     styleUrl: './self-page.scss',
 })
-export class SelfPage implements OnInit, OnDestroy {
+export class SelfPage implements OnInit {
     private readonly _userService = inject(UserService);
     user: UserSelfDto | null = null;
-    userSubscription: Subscription | null = null;
     userError: string | null = null;
     ngOnInit(): void {
-        this.userSubscription = this._userService.getUserSelf().subscribe({
-            next: (data) => {
-                console.log(data);
-
+        this._userService
+            .getUserSelf()
+            .then((data) => {
                 this.user = data.data;
-            },
-            error: (err) => {
+            })
+            .catch((err) => {
                 console.error(err);
                 this.userError = err.message;
-            },
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.userSubscription?.unsubscribe();
+            });
     }
 }

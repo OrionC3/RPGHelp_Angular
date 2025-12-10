@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RaceDetailsDto } from '@core/models/race-details-dto.model';
 import { RaceFormDto } from '@core/models/race-form-dto.model';
 import { RaceService } from '@core/services/race.service';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -36,8 +35,6 @@ export class RaceCreatePage {
     });
 
     onSubmit() {
-        console.log(this.raceForm.value);
-
         if (this.raceForm.valid) {
             const race: RaceFormDto = {
                 name: this.raceForm.value.name!,
@@ -49,15 +46,15 @@ export class RaceCreatePage {
                     malusValue: this.raceForm.value.malusValue!,
                 },
             };
-            this._raceService.createRace(race).subscribe({
-                next: (data) => {
+            this._raceService
+                .createRace(race)
+                .then((data) => {
                     //traitement
                     this._router.navigate(['/', 'races']);
-                },
-                error: (err) => {
+                })
+                .catch((err) => {
                     console.error(err);
-                },
-            });
+                });
         } else {
             console.log('formulaire invalide...');
         }

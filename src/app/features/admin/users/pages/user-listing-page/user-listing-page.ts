@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserListing } from '@core/models/user-listing.models';
 import { UserService } from '@core/services/user.service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+
 import { ListingTableAdmin } from '@components/common/listing-table-admin/listing-table-admin';
 import { ColumnDefinition } from '@core/models/column-definition.models';
 
@@ -18,7 +18,6 @@ export class UserListingPage {
     private readonly _router = inject(Router);
     count: number | null = null;
     user: UserListing[] = [];
-    userSubscription: Subscription | null = null;
     userError: string | null = null;
 
     public userColumns: ColumnDefinition[] = [
@@ -30,20 +29,16 @@ export class UserListingPage {
     ];
 
     ngOnInit(): void {
-        this.userSubscription = this._userService.getUsers().subscribe({
-            next: (data) => {
+        this._userService
+            .getUsers()
+            .then((data) => {
                 console.log(data);
                 this.user = data.data;
-            },
-            error: (err) => {
+            })
+            .catch((err) => {
                 console.error(err);
                 this.userError = err.message;
-            },
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.userSubscription?.unsubscribe();
+            });
     }
 
     onClickDetails(id: string | number) {
@@ -51,6 +46,21 @@ export class UserListingPage {
     }
 
     onClickDelete(id: string | number) {
-        this._router.navigate(['/admin/user', id, 'delete']);
+        //this._router.navigate(['/admin/user', id, 'delete']);
+        this._userService
+            .deleteUserById(+id)
+            .then(() => {
+                // redirigé
+                const currentUrl = this._router.url;
+                this._router
+                    .navigateByUrl('/', { skipLocationChange: true })
+                    .then(() => {
+                        this._router.navigateByUrl(currentUrl);
+                    });
+            })
+            .catch((err) => {
+                console.error(err.message);
+                this.userError = err.message;
+            });
     }
 }

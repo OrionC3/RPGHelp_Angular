@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 import { RaceIndexDto } from '@core/models/race-index-dto.model';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { ConfirmModal } from '@components/modal/confirm-modal/confirm-modal';
 import { RaceService } from '@core/services/race.service';
 import { Pagination } from '@components/layout/pagination/pagination';
 
 @Component({
     selector: 'app-race-listing-page',
-    imports: [TranslatePipe, ConfirmModal, Pagination],
+    imports: [TranslatePipe, Pagination],
     templateUrl: './race-listing-page.html',
     styleUrl: './race-listing-page.scss',
 })
@@ -25,21 +24,17 @@ export class RaceListingPage {
     public elementIdToConfirm: WritableSignal<number | null> = signal(null);
 
     ngOnInit(): void {
-        this.racesSubscription = this._racesService.getRaces().subscribe({
-            next: (data) => {
+        this._racesService
+            .getRaces()
+            .then((data) => {
                 console.log(data);
                 this.races = data.data;
                 this.count = data.count;
-            },
-            error: (err) => {
+            })
+            .catch((err) => {
                 console.error(err);
                 this.racesError = err.message;
-            },
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.racesSubscription?.unsubscribe();
+            });
     }
 
     onClickDetails(id: string | number) {
@@ -69,17 +64,15 @@ export class RaceListingPage {
     }
 
     futurPage(next: number) {
-        this.racesSubscription = this._racesService
+        this._racesService
             .getRaces(next - 1)
-            .subscribe({
-                next: (data) => {
-                    this.races = data.data;
-                    this.count = data.count;
-                },
-                error: (err) => {
-                    console.error(err);
-                    this.racesError = err.message;
-                },
+            .then((data) => {
+                this.races = data.data;
+                this.count = data.count;
+            })
+            .catch((err) => {
+                console.error(err);
+                this.racesError = err.message;
             });
     }
 }

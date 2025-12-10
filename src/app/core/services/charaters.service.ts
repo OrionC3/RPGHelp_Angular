@@ -6,7 +6,7 @@ import { CharactersDetailsDto } from '@core/models/characters-details-dto.models
 import { CharactersFormDto } from '@core/models/characters-form-dto.model';
 import { CharactersIndexDto } from '@core/models/characters-index-dto.model';
 import { environment } from '@env';
-import { map, Observable } from 'rxjs';
+import { first, firstValueFrom, map, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -16,37 +16,45 @@ export class CharatersService {
 
     getCharacters(
         page: number = 0,
-    ): Observable<ApiResponseList<CharactersIndexDto>> {
-        return this._httpClient.get<ApiResponseList<CharactersIndexDto>>(
-            environment.apiUrl + 'api/charactere',
-            {
-                params: {
-                    page: page,
+    ): Promise<ApiResponseList<CharactersIndexDto>> {
+        return firstValueFrom(
+            this._httpClient.get<ApiResponseList<CharactersIndexDto>>(
+                environment.apiUrl + 'api/charactere',
+                {
+                    params: {
+                        page: page,
+                    },
                 },
-            },
+            ),
         );
     }
 
-    getCharactersById(id: number = 0): Observable<CharactersDetailsDto> {
-        return this._httpClient
-            .get<
-                ApiResponseOne<CharactersDetailsDto>
-            >(environment.apiUrl + 'api/charactere/' + id)
-            .pipe(map((response) => response.data));
+    getCharactersById(id: number = 0): Promise<CharactersDetailsDto> {
+        return firstValueFrom(
+            this._httpClient
+                .get<
+                    ApiResponseOne<CharactersDetailsDto>
+                >(environment.apiUrl + 'api/charactere/' + id)
+                .pipe(map((response) => response.data)),
+        );
     }
 
-    deleteCharactersById(id: number): Observable<CharactersIndexDto> {
-        return this._httpClient.delete<CharactersIndexDto>(
-            environment.apiUrl + 'api/charactere/' + id,
+    deleteCharactersById(id: number): Promise<CharactersIndexDto> {
+        return firstValueFrom(
+            this._httpClient.delete<CharactersIndexDto>(
+                environment.apiUrl + 'api/charactere/' + id,
+            ),
         );
     }
 
     createCharacter(
         form: CharactersFormDto,
-    ): Observable<ApiResponseOne<CharactersDetailsDto>> {
-        return this._httpClient.post<ApiResponseOne<CharactersDetailsDto>>(
-            environment.apiUrl + 'api/charactere',
-            form,
+    ): Promise<ApiResponseOne<CharactersDetailsDto>> {
+        return firstValueFrom(
+            this._httpClient.post<ApiResponseOne<CharactersDetailsDto>>(
+                environment.apiUrl + 'api/charactere',
+                form,
+            ),
         );
     }
 }

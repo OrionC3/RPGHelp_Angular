@@ -1,3 +1,4 @@
+<button (click)="addRace()">➕</button>
 <app-pagination
     [total]="count"
     [(currentPage)]="currentPage"
@@ -61,6 +62,22 @@
                 </td>
                 <td>
                     <button (click)="onClickDetails(race.id)">🔎</button>
+                    <button (click)="onClickUpdate(race.id)">✒️</button>
+                </td>
+                <td>
+                    <button (click)="onClickDelete(race.id)">🗑️</button>
+                    @if (elementIdToConfirm() === race.id) {
+                        <app-confirm-modal
+                            (confirmed)="onModalAction($event)"
+                            [message]="
+                                ('components.common.listing-table-admin.delete-element'
+                                    | translate) +
+                                ' ' +
+                                race.id +
+                                ' ?'
+                            "
+                        />
+                    }
                 </td>
             </tr>
         }

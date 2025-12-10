@@ -3,7 +3,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RaceDetailsDto } from '@core/models/race-details-dto.model';
 import { RaceService } from '@core/services/race.service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-race-details-page',
@@ -15,7 +14,6 @@ export class RaceDetailsPage {
     private readonly _raceService = inject(RaceService);
     private readonly _activactedRoute = inject(ActivatedRoute);
     race: RaceDetailsDto | null = null;
-    raceSubscription: Subscription | null = null;
     raceError: string | null = null;
 
     ngOnInit() {

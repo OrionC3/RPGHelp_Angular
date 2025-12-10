@@ -68,29 +68,29 @@ export class CharacterCreatePage {
                 xp: this.charactersForm.value.xp!,
                 speed: this.charactersForm.value.speed!,
             };
-            this._charactersService.createCharacter(characters).subscribe({
-                next: (data) => {
+            this._charactersService
+                .createCharacter(characters)
+                .then((data) => {
                     //traitement
                     this._router.navigate(['/', 'characters']);
-                },
-                error: (err) => {
+                })
+                .catch((err) => {
                     console.error(err);
-                },
-            });
+                });
         } else {
             console.log('formulaire invalide...');
         }
     }
 
     onSearchRaces(search: string) {
-        this._raceService.getRacesByName(search).subscribe({
-            next: (data) => {
+        this._raceService
+            .getRacesByName(search)
+            .then((data) => {
                 this.races = data.data;
-            },
-            error: (err) => {
+            })
+            .catch((err) => {
                 console.error('Erreur de chargement des realisateurs:', err);
-            },
-        });
+            });
     }
     idSelected(id: string | number | null) {
         if (id === null) {

@@ -23,18 +23,16 @@ export class UserDetailsPage {
     ngOnInit(): void {
         this._activactedRoute.params.subscribe({
             next: (params) => {
-                this.userSubscription = this._userService
+                this._userService
                     .getUserById(+params['id'])
-                    .subscribe({
-                        next: (data) => {
-                            console.log(data);
-                            this.user = data;
-                            console.log(this.user);
-                        },
-                        error: (err) => {
-                            console.error(err);
-                            this.userError = err.message;
-                        },
+                    .then((data) => {
+                        console.log(data);
+                        this.user = data;
+                        console.log(this.user);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        this.userError = err.message;
                     });
             },
         });

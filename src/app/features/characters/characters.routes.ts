@@ -34,12 +34,4 @@ export const routes: Routes = [
                 (c) => c.CharacterUpdatePage,
             ),
     },
-    {
-        path: ':id/delete',
-        canActivate: [isConnectedGuard],
-        loadComponent: () =>
-            import('./pages/character-delete-page/character-delete-page').then(
-                (c) => c.CharacterDeletePage,
-            ),
-    },
 ];

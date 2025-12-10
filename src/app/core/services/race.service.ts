@@ -6,7 +6,7 @@ import { RaceDetailsDto } from '@core/models/race-details-dto.model';
 import { RaceFormDto } from '@core/models/race-form-dto.model';
 import { RaceIndexDto } from '@core/models/race-index-dto.model';
 import { environment } from '@env';
-import { map, Observable } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -14,46 +14,56 @@ import { map, Observable } from 'rxjs';
 export class RaceService {
     private readonly _httpClient = inject(HttpClient);
 
-    getRaces(page: number = 0): Observable<ApiResponseList<RaceIndexDto>> {
-        return this._httpClient.get<ApiResponseList<RaceIndexDto>>(
-            environment.apiUrl + 'api/race',
-            {
-                params: {
-                    page: page,
+    getRaces(page: number = 0): Promise<ApiResponseList<RaceIndexDto>> {
+        return firstValueFrom(
+            this._httpClient.get<ApiResponseList<RaceIndexDto>>(
+                environment.apiUrl + 'api/race',
+                {
+                    params: {
+                        page: page,
+                    },
                 },
-            },
+            ),
         );
     }
 
-    getRaceById(id: number = 0): Observable<RaceDetailsDto> {
-        return this._httpClient
-            .get<
-                ApiResponseOne<RaceDetailsDto>
-            >(environment.apiUrl + 'api/race/' + id)
-            .pipe(map((response) => response.data));
-    }
-
-    deleteRaceById(id: number): Observable<RaceIndexDto> {
-        return this._httpClient.delete<RaceIndexDto>(
-            environment.apiUrl + 'api/race/' + id,
+    getRaceById(id: number = 0): Promise<RaceDetailsDto> {
+        return firstValueFrom(
+            this._httpClient
+                .get<
+                    ApiResponseOne<RaceDetailsDto>
+                >(environment.apiUrl + 'api/race/' + id)
+                .pipe(map((response) => response.data)),
         );
     }
 
-    createRace(form: RaceFormDto): Observable<ApiResponseOne<RaceDetailsDto>> {
-        return this._httpClient.post<ApiResponseOne<RaceDetailsDto>>(
-            environment.apiUrl + 'api/race',
-            form,
+    deleteRaceById(id: number): Promise<void> {
+        return firstValueFrom(
+            this._httpClient.delete<void>(
+                environment.apiUrl + 'api/race/' + id,
+            ),
         );
     }
 
-    getRacesByName(name: string): Observable<ApiResponseList<RaceIndexDto>> {
-        return this._httpClient.get<ApiResponseList<RaceIndexDto>>(
-            environment.apiUrl + 'api/race/byname',
-            {
-                params: {
-                    name: name,
+    createRace(form: RaceFormDto): Promise<ApiResponseOne<RaceDetailsDto>> {
+        return firstValueFrom(
+            this._httpClient.post<ApiResponseOne<RaceDetailsDto>>(
+                environment.apiUrl + 'api/race',
+                form,
+            ),
+        );
+    }
+
+    getRacesByName(name: string): Promise<ApiResponseList<RaceIndexDto>> {
+        return firstValueFrom(
+            this._httpClient.get<ApiResponseList<RaceIndexDto>>(
+                environment.apiUrl + 'api/race/byname',
+                {
+                    params: {
+                        name: name,
+                    },
                 },
-            },
+            ),
         );
     }
 }

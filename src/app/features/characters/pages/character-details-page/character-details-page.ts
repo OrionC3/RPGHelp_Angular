@@ -21,18 +21,16 @@ export class CharacterDetailsPage {
     ngOnInit() {
         this._activactedRoute.params.subscribe({
             next: (params) => {
-                this.charactersSubscription = this._charactersService
+                this._charactersService
                     .getCharactersById(+params['id'])
-                    .subscribe({
-                        next: (data) => {
-                            console.log(data);
-                            this.characters = data;
-                            console.log(this.characters);
-                        },
-                        error: (err) => {
-                            console.error(err);
-                            this.charactersError = err.message;
-                        },
+                    .then((data) => {
+                        console.log(data);
+                        this.characters = data;
+                        console.log(this.characters);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        this.charactersError = err.message;
                     });
             },
         });
