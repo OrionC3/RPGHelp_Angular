@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RaceDetailsDto } from '@core/models/race-details-dto.model';
 import { RaceService } from '@core/services/race.service';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-race-details-page',
-    imports: [TranslatePipe],
+    imports: [TranslatePipe, RouterLink],
     templateUrl: './race-details-page.html',
     styleUrl: './race-details-page.scss',
 })

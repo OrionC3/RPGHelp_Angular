@@ -174,5 +174,8 @@
                 "delete": "Delete"
             }
         }
+    },
+    "common": {
+        "return-listing": "Return to list"
     }
 }

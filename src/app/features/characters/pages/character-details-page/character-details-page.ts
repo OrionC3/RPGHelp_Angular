@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CharactersDetailsDto } from '@core/models/characters-details-dto.models';
 import { CharatersService } from '@core/services/charaters.service';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-character-details-page',
-    imports: [],
+    imports: [RouterLink, TranslatePipe],
     templateUrl: './character-details-page.html',
     styleUrl: './character-details-page.scss',
 })
