@@ -9,13 +9,12 @@ export const adminGuard: CanActivateChildFn = (childRoute, state) => {
     const router = inject(Router);
 
     const role = authService.role();
+
     // vérifier le rôle de l'utilisateur
     if (role != null) {
-        for (let index = 0; index < role.length; index++) {
-            if (role[index] === UserRole.Admin) {
-                // l'utilisateur est admin, autoriser l'accès
-                return true;
-            }
+        if (role.includes(UserRole.Admin)) {
+            // l'utilisateur est admin, autoriser l'accès
+            return true;
         }
     }
     // l'utilisateur n'est pas admin, rediriger vers 404

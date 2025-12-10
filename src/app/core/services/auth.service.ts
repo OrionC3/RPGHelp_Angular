@@ -26,7 +26,7 @@ export class AuthService {
     isConnected: Signal<boolean> = computed(() => !!this.token()); // !! convertit en booléen
 
     // signal pour le role de l'utilisateur (null si non connecté)
-    private _role = signal<UserRole | null>(null);
+    private _role = signal<UserRole[] | null>(null);
     role = this._role.asReadonly();
 
     // signal pour le token JWT
@@ -58,11 +58,29 @@ export class AuthService {
                 localStorage.setItem('token', token);
                 const tokenProp = jwtDecode<Token>(token);
                 console.log(tokenProp);
-                this._role.set(
+                const rolesFromToken =
                     tokenProp[
                         'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
-                    ],
-                );
+                    ];
+
+                // Initialisation d'une variable pour le tableau de rôles final
+                let finalRoles: UserRole[];
+
+                // 1. Vérifier si ce qui est retourné est déjà un tableau
+                if (Array.isArray(rolesFromToken)) {
+                    // Si c'est déjà un tableau, on l'utilise directement
+                    finalRoles = rolesFromToken as UserRole[];
+                } else if (rolesFromToken) {
+                    // Si ce n'est PAS un tableau, mais qu'il y a une valeur (un rôle unique),
+                    // on l'encapsule dans un nouveau tableau.
+                    finalRoles = [rolesFromToken as UserRole];
+                } else {
+                    // S'il n'y a pas de rôle du tout
+                    finalRoles = [];
+                }
+
+                // Maintenant, 'finalRoles' est garanti d'être de type 'UserRole[]'
+                this._role.set(finalRoles);
             }
         });
     }
