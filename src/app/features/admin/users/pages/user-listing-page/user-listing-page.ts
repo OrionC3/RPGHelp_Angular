@@ -23,7 +23,7 @@ export class UserListingPage {
     public userColumns: ColumnDefinition[] = [
         {
             property: 'email',
-            headerKey: 'features.admin.users.pages.user-listing-page.email',
+            headerKey: 'common.email',
         },
         // Ajoutez d'autres colonnes ici si nécessaire
     ];

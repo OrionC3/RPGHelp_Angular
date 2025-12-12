@@ -1,10 +1,23 @@
-<div class="modal-backdrop" (click)="onCancel()"></div>
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-footer">
-      <span>{{ message() }}</span>
-      <button (click)="onConfirm()">Confirmer</button>
-      <button (click)="onCancel()">Annuler</button>
+<div
+    class="modal fade show"
+    tabindex="-1"
+    style="display: block"
+    (click)="onCancel()"
+>
+    <div class="modal-dialog" (click)="$event.stopPropagation()">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span>{{ message() }}</span>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" (click)="onConfirm()">
+                    Confirmer
+                </button>
+                <button class="btn btn-secondary" (click)="onCancel()">
+                    Annuler
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

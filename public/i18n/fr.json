@@ -2,7 +2,6 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "Email",
                 "email-input-error-required": "L'email est requis",
                 "email-input-error-email": "L'email doit ressembler à un email : \"votreNom@mail.com\"",
 
@@ -20,7 +19,6 @@
         "users": {
             "pages": {
                 "self-page": {
-                    "email": "Email",
                     "role": "Role",
                     "characters-list": "Liste des personnages",
                     "campagns-list": "Liste des campagnes"
@@ -45,7 +43,6 @@
                 "campaign-details-page": {
                     "title": "Détails de la campagne : ",
                     "id": "Id : ",
-                    "name": "Nom : ",
                     "next": "Campagne Suivante ⏩",
                     "edit": "Modifier ✏️",
                     "delete": "Supprimer 🚮",
@@ -54,13 +51,11 @@
                 "campaign-edit-page": {
                     "title": "Modifier la campagne : ",
                     "id": "Id : ",
-                    "name": "Nom : ",
                     "edit": "Modifier ✏️",
                     "return-listing": "Retourner à la liste des campagnes"
                 },
                 "campaign-form-page": {
                     "title": "Ajouter une nouvelle campagne :",
-                    "name-form": "Nom: ",
                     "add": "Ajouter ➕",
                     "edit": "Modifier ✏️",
                     "name-input-error-required": "Le nom de la campagne est requis !",
@@ -84,14 +79,12 @@
             "pages": {
                 "character-listing-page": {
                     "id": "Id",
-                    "name": "Nom",
                     "race": "Race",
                     "level": "Level",
                     "campagn": "Campagne",
                     "action": "Action"
                 },
                 "character-create-page": {
-                    "name": "Nom",
                     "pvMax": "PV Max",
                     "pvCurrent": "Pv actuel",
                     "strength": "Force",
@@ -116,7 +109,6 @@
         "races": {
             "pages": {
                 "race-create-page": {
-                    "name": "Nom",
                     "travelSpeed": "Vitesse de déplacement",
                     "bonusName": "Nom du bonus",
                     "bonusValue": "Valeur du bonus",
@@ -129,7 +121,6 @@
                     "not-found": "Non trouvé"
                 },
                 "race-listing-page": {
-                    "name": "Nom",
                     "travelSpeed": "Vitesse de déplacement",
                     "bonusName": "Nom du bonus",
                     "bonusValue": "Valeur du bonus",
@@ -164,10 +155,19 @@
             "form": {
                 "password-input-hiden": "Masquer",
                 "password-input-show": "Afficher"
+            },
+            "listing-table-admin": {
+                "delete-element": "Supprimer l'élement {element} ?",
+                "details": "Détails",
+                "update": "Mise à jour",
+                "delete": "Supprimer"
             }
         }
     },
     "common": {
-        "return-listing": "Retour à la liste"
+        "return-listing": "Retour à la liste",
+        "email": "Email",
+        "name": "Nom",
+        "id": "Id"
     }
 }

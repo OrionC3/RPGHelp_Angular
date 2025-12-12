@@ -34,6 +34,7 @@ export class ListingTableAdmin {
 
     currentPage = input<number>(1);
     count = input<number>();
+    elementNameKey = input.required<string>();
 
     onDetails(id: string | number) {
         this.clickDetails.emit(id);

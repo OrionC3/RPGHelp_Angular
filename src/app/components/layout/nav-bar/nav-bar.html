@@ -1,127 +1,213 @@
-<nav>
-    <ul>
-        <li>
-            <a routerLink="/">{{
-                'components.layout.nav-bar.home' | translate
-            }}</a>
-        </li>
-        <li>
-            <a routerLink="/races">{{
-                'components.layout.nav-bar.races' | translate
-            }}</a>
-        </li>
-        @if (!isConnected()) {
-            <li>
-                <a routerLink="/auth/login">{{
-                    'components.layout.nav-bar.login' | translate
-                }}</a>
-            </li>
-            <li>
-                <a routerLink="/auth/register">{{
-                    'components.layout.nav-bar.register' | translate
-                }}</a>
-            </li>
-        } @else {
-            <li>
-                <a routerLink="/users/self">
-                    {{ 'components.layout.nav-bar.self' | translate }}
-                </a>
-            </li>
-            <li>
-                <a routerLink="/campaign">
-                    {{ 'components.layout.nav-bar.campaign' | translate }}
-                </a>
-            </li>
-            <li>
-                <a routerLink="/characters">
-                    {{ 'components.layout.nav-bar.characters' | translate }}
-                </a>
-            </li>
-            <li>
-                <button (click)="onClickLogout()">
-                    {{ 'components.layout.nav-bar.logout' | translate }}
-                </button>
-            </li>
-            @if (role()?.includes(UserRole.Admin)) {
-                <li>
-                    Admin
-                    <ul>
+<nav class="navbar navbar-expand-lg bg-light" style="background-color: #e3f2fd">
+    <div class="container-fluid">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">{{
+                        'components.layout.nav-bar.home' | translate
+                    }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/races">{{
+                        'components.layout.nav-bar.races' | translate
+                    }}</a>
+                </li>
+
+                @if (isConnected()) {
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/campaign">{{
+                            'components.layout.nav-bar.campaign' | translate
+                        }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/characters">{{
+                            'components.layout.nav-bar.characters' | translate
+                        }}</a>
+                    </li>
+                }
+            </ul>
+
+            <ul class="navbar-nav ms-auto">
+                @if (!isConnected()) {
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/login">{{
+                            'components.layout.nav-bar.login' | translate
+                        }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/auth/register">{{
+                            'components.layout.nav-bar.register' | translate
+                        }}</a>
+                    </li>
+                }
+                @if (isConnected()) {
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/users/self">{{
+                            'components.layout.nav-bar.self' | translate
+                        }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <button
+                            class="nav-link btn btn-link"
+                            (click)="onClickLogout()"
+                        >
+                            {{ 'components.layout.nav-bar.logout' | translate }}
+                        </button>
+                    </li>
+                }
+                @if (role()?.includes(UserRole.Admin)) {
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="adminDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Admin
+                        </a>
+                        <ul
+                            class="dropdown-menu"
+                            aria-labelledby="adminDropdown"
+                        >
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="/admin/user"
+                                    >{{
+                                        'components.layout.nav-bar.users'
+                                            | translate
+                                    }}</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="/admin/races"
+                                    >{{
+                                        'components.layout.nav-bar.races'
+                                            | translate
+                                    }}</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="langDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                    >
+                        {{ currentLanguage | uppercase }}
+                    </a>
+                    <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="langDropdown"
+                    >
                         <li>
-                            <a routerLink="/admin/user">{{
-                                'components.layout.nav-bar.users' | translate
-                            }}</a>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('fr')"
+                            >
+                                FR
+                            </button>
                         </li>
                         <li>
-                            <a routerLink="/admin/races">{{
-                                'components.layout.nav-bar.races' | translate
-                            }}</a>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('en')"
+                            >
+                                EN
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('zh')"
+                            >
+                                ZH
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('ja')"
+                            >
+                                JA
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('ko')"
+                            >
+                                KO
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('ru')"
+                            >
+                                RU
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('ar')"
+                            >
+                                AR
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('hi')"
+                            >
+                                HI
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('tr')"
+                            >
+                                TR
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class="dropdown-item"
+                                (click)="onChangeLanguage('el')"
+                            >
+                                EL
+                            </button>
                         </li>
                     </ul>
                 </li>
-            }
-        }
-    </ul>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-{{ 'components.layout.nav-bar.role-user' | translate: { role: role() } }}
-
-<button
-    (click)="onChangeLanguage('fr')"
-    [class.active-lang]="currentLanguage === 'fr'"
->
-    FR
-</button>
-<button
-    (click)="onChangeLanguage('en')"
-    [class.active-lang]="currentLanguage === 'en'"
->
-    EN
-</button>
-<button
-    (click)="onChangeLanguage('zh')"
-    [class.active-lang]="currentLanguage === 'zh'"
->
-    ZH
-</button>
-<button
-    (click)="onChangeLanguage('ja')"
-    [class.active-lang]="currentLanguage === 'ja'"
->
-    JA
-</button>
-<button
-    (click)="onChangeLanguage('ko')"
-    [class.active-lang]="currentLanguage === 'ko'"
->
-    KO
-</button>
-<button
-    (click)="onChangeLanguage('ru')"
-    [class.active-lang]="currentLanguage === 'ru'"
->
-    RU
-</button>
-<button
-    (click)="onChangeLanguage('ar')"
-    [class.active-lang]="currentLanguage === 'ar'"
->
-    AR
-</button>
-<button
-    (click)="onChangeLanguage('hi')"
-    [class.active-lang]="currentLanguage === 'hi'"
->
-    HI
-</button>
-<button
-    (click)="onChangeLanguage('tr')"
-    [class.active-lang]="currentLanguage === 'tr'"
->
-    TR
-</button>
-<button
-    (click)="onChangeLanguage('el')"
-    [class.active-lang]="currentLanguage === 'el'"
->
-    EL
-</button>
+<small class="d-block text-center mt-2">{{
+    'components.layout.nav-bar.role-user' | translate: { role: role() }
+}}</small>

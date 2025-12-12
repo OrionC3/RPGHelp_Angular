@@ -1,4 +1,4 @@
-<table>
+<table class="table table-striped">
     <thead>
         @for (col of colums(); track $index) {
             <th>{{ col.headerKey | translate }}</th>
@@ -26,11 +26,8 @@
                     <app-confirm-modal
                         (confirmed)="onModalAction($event)"
                         [message]="
-                            ('components.common.listing-table-admin.delete-element'
-                                | translate) +
-                            ' ' +
-                            e.id +
-                            ' ?'
+                            'components.common.listing-table-admin.delete-element'
+                                | translate: { element: e[elementNameKey()] }
                         "
                     />
                 }

@@ -2,7 +2,6 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "Email",
                 "email-input-error-required": "The email is required",
                 "email-input-error-email": "The email must look like an email: \"yourName@mail.com\"",
 
@@ -20,7 +19,6 @@
         "users": {
             "pages": {
                 "self-page": {
-                    "email": "Email",
                     "role": "Role",
                     "characters-list": "List of Characters",
                     "campagns-list": "List of Campagns"
@@ -45,7 +43,6 @@
                 "campaign-details-page": {
                     "title": "Campaign Details: ",
                     "id": "Id: ",
-                    "name": "Name: ",
                     "next": "Next Campaign ⏩",
                     "edit": "Edit ✏️",
                     "delete": "Delete 🚮",
@@ -54,13 +51,11 @@
                 "campaign-edit-page": {
                     "title": "Edit Campaign: ",
                     "id": "Id: ",
-                    "name": "Name: ",
                     "edit": "Edit ✏️",
                     "return-listing": "Return to campaign list"
                 },
                 "campaign-form-page": {
                     "title": "Add a New Campaign:",
-                    "name-form": "Name: ",
                     "add": "Add",
                     "edit": "Edit",
                     "name-input-error-required": "Campaign name is required!",
@@ -68,7 +63,6 @@
                 }
             }
         },
-
         "admin": {
             "users": {
                 "pages": {
@@ -76,8 +70,7 @@
                         "user-details": "User Details"
                     },
                     "user-listing-page": {
-                        "user-list": "User List",
-                        "email": "Email"
+                        "user-list": "User List"
                     }
                 }
             }
@@ -86,14 +79,12 @@
             "pages": {
                 "character-listing-page": {
                     "id": "Id",
-                    "name": "Name",
                     "race": "Race",
                     "level": "Level",
                     "campagn": "Campagn",
                     "action": "Action"
                 },
                 "character-create-page": {
-                    "name": "Name",
                     "pvMax": "PV Max",
                     "pvCurrent": "Current Pv",
                     "strength": "Strength",
@@ -118,7 +109,6 @@
         "races": {
             "pages": {
                 "race-create-page": {
-                    "name": "Name",
                     "travelSpeed": "Travel Speed",
                     "bonusName": "Bonus Name",
                     "bonusValue": "Bonus Values",
@@ -131,7 +121,6 @@
                     "not-found": "Not Found"
                 },
                 "race-listing-page": {
-                    "name": "Name",
                     "travelSpeed": "Travel Speed",
                     "bonusName": "Bonus Name",
                     "bonusValue": "Bonus Values",
@@ -168,7 +157,7 @@
                 "password-input-show": "Show"
             },
             "listing-table-admin": {
-                "delete-element": "Delete Element",
+                "delete-element": "Delete Element {element} ?",
                 "details": "Details",
                 "update": "Update",
                 "delete": "Delete"
@@ -176,6 +165,9 @@
         }
     },
     "common": {
-        "return-listing": "Return to list"
+        "return-listing": "Return to list",
+        "email": "Email",
+        "name": "Name",
+        "id": "Id"
     }
 }

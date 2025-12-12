@@ -5,10 +5,11 @@ import { UserRole } from '@core/enums';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { EnumLanguage } from '@core/enums/language.enum';
 import { interval, Subscription } from 'rxjs';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
     selector: 'app-nav-bar',
-    imports: [RouterLink, TranslatePipe],
+    imports: [RouterLink, TranslatePipe, UpperCasePipe],
     templateUrl: './nav-bar.html',
     styleUrl: './nav-bar.scss',
 })

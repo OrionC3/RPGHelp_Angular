@@ -1,13 +1,6 @@
-<p>character-create-page works!</p>
-
 <form [formGroup]="charactersForm" (ngSubmit)="onSubmit()">
     <div>
-        <label for="name"
-            >{{
-                'features.characters.pages.character-create-page.name'
-                    | translate
-            }}
-            :</label
+        <label for="name">{{ 'common.name' | translate }} :</label
         ><input type="text" id="name" formControlName="name" />
         @if (
             charactersForm.get('name')?.touched &&

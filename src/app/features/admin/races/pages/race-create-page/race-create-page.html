@@ -1,10 +1,6 @@
 <form [formGroup]="raceForm" (ngSubmit)="onSubmit()">
     <div>
-        <label for="name"
-            >{{
-                'features.races.pages.race-create-page.name' | translate
-            }}
-            :</label
+        <label for="name">{{ 'common.name' | translate }} :</label
         ><input type="text" id="name" formControlName="name" />
         @if (raceForm.get('name')?.touched && raceForm.get('name')?.invalid) {
             <p>Champs requis</p>
