@@ -10,4 +10,17 @@ import { NavBar } from '@components/layout/nav-bar/nav-bar';
 })
 export class App {
   protected readonly title = signal('RPGHelp_Angular');
+  loading: boolean = false;
+
+  constructor() {}
+
+  // Crée la méthode loadData ici
+  loadData() {
+    this.loading = true;
+
+    // Simule une requête asynchrone
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+  }
 }

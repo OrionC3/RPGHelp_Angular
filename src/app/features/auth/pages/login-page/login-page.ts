@@ -6,10 +6,11 @@ import { ApiError } from "@core/models/api-error.model";
 import { AuthService } from "@core/services/auth.service";
 import { strongPasswordValidator } from "@core/validators";
 import { TranslatePipe } from "@ngx-translate/core";
+import { Spinner } from "@components/spinner/spinner";
 
 @Component({
   selector: 'app-login-page',
-  imports: [ReactiveFormsModule, TranslatePipe, PasswordInput],
+  imports: [ReactiveFormsModule, TranslatePipe, PasswordInput, Spinner],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })
@@ -32,6 +33,7 @@ export class LoginPage {
   loginError = '';
 
   async onSubmit() {
+
     // Vérification de la validité du formulaire
     if (this.loginForm.valid) {
       // formulaire valide, on peut tenter de se connecter

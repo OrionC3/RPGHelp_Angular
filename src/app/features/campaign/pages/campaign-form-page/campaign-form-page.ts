@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { Router } from '@angular/router';
 import { CampaignService } from '@core/services/campaign.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-form-page',
@@ -14,6 +15,8 @@ export class CampaignFormPage {
   private readonly _fb = inject(FormBuilder);
   private readonly _campagnService = inject(CampaignService);
   private readonly _router = inject(Router);
+
+  loading: boolean = false;
 
 get nameLengthMessage() {
   return {
@@ -36,20 +39,22 @@ get nameLengthMessage() {
   campaignError = '';
 
   onSubmit() {
-    if(this.campaignForm.valid){
+  if (this.campaignForm.valid) {
+    this.loading = true;
+
+    // Laisse Angular afficher le spinner avant de lancer la requête
+    setTimeout(() => {
       this._campagnService
-      .add({
-        name: this.campaignForm.value.name!,
-      })
-      .then(() => {
-        this._router.navigate(['/campaign']);
-      })
-      .catch((err) => {
-        console.log(err);
-        this.campaignError = err.message;
-      });
-    }
+        .add({ name: this.campaignForm.value.name! })
+        .then(() => {
+          this.loading = false;
+          this._router.navigate(['/campaign']);
+        })
+        .catch((err) => {
+          this.loading = false;
+          this.campaignError = err.message;
+        });
+    }, 0); // délai minimal
   }
-
-
+}
 }
