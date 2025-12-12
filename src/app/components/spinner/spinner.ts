@@ -1,10 +1,11 @@
+import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { LoadingService } from '@core/services/loading-service';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-spinner',
-  imports: [],
+  imports: [AsyncPipe],
   templateUrl: './spinner.html',
   styleUrl: './spinner.scss',
 })

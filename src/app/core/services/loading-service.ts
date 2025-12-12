@@ -1,4 +1,3 @@
-// src/app/loading.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -19,5 +18,11 @@ export class LoadingService {
   /** Masque le spinner. */
   hide(): void {
     this.isLoadingSubject.next(false);
+  }
+
+  /** Affiche le spinner pendant X millisecondes. */
+  showFor(ms: number = 2000): void {
+    this.show();
+    setTimeout(() => this.hide(), ms);
   }
 }
