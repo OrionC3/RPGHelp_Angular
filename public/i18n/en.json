@@ -85,6 +85,9 @@
                     "action": "Action"
                 },
                 "character-create-page": {
+                    "character-info": "ℹ️ Character Information",
+                    "character-stat": "⚔️ Character Statistics",
+                    "character-defence": "🛡️ Combat Values and Saves",
                     "pvMax": "PV Max",
                     "pvCurrent": "Current Pv",
                     "strength": "Strength",

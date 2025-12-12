@@ -59,19 +59,13 @@
                 </td>
                 <td>
                     <button (click)="onClickDetails(character.id)">🔎</button>
-                </td>
-
-                <td>
                     <button (click)="onClickDelete(character.id)">🗑️</button>
                     @if (elementIdToConfirm() === character.id) {
                         <app-confirm-modal
                             (confirmed)="onModalAction($event)"
                             [message]="
-                                ('components.common.listing-table-admin.delete-element'
-                                    | translate) +
-                                ' ' +
-                                character.id +
-                                ' ?'
+                                'components.common.listing-table-admin.delete-element'
+                                    | translate: { element: character.name }
                             "
                         />
                     }

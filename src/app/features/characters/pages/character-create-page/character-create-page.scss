@@ -1,0 +1,20 @@
+// mon-composant-personnage.component.scss
+
+.stat-field-group {
+    display: flex; /* Simule 'd-flex' */
+    align-items: center; /* Simule 'align-items-center' */
+
+    // Règle pour l'étiquette
+    .form-label {
+        /* Définit la largeur de l'étiquette (équivalent à w-50 ou w-60) */
+        width: 35%;
+        /* Gère l'espacement entre le label et l'input (équivalent à me-1) */
+        margin-right: 0.25rem !important;
+        margin-bottom: 0 !important; // Important pour les labels dans d-flex
+    }
+
+    // Règle pour l'input
+    .form-control {
+        flex-grow: 1; // S'assure que l'input prend l'espace restant
+    }
+}
