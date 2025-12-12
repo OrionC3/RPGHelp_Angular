@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CampaignService } from '@core/services/campaign.service';
+import { LoadingService } from '@core/services/loading-service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { timer } from 'rxjs';
 
@@ -14,6 +15,7 @@ import { timer } from 'rxjs';
 export class CampaignFormPage {
   private readonly _fb = inject(FormBuilder);
   private readonly _campagnService = inject(CampaignService);
+  private readonly _loading = inject(LoadingService);
   private readonly _router = inject(Router);
 
   loading: boolean = false;
@@ -38,23 +40,40 @@ get nameLengthMessage() {
 
   campaignError = '';
 
-  onSubmit() {
-  if (this.campaignForm.valid) {
-    this.loading = true;
+async onSubmit(): Promise<void> {
+  if (this.campaignForm.invalid) return;
 
-    // Laisse Angular afficher le spinner avant de lancer la requête
-    setTimeout(() => {
-      this._campagnService
-        .add({ name: this.campaignForm.value.name! })
-        .then(() => {
-          this.loading = false;
-          this._router.navigate(['/campaign']);
-        })
-        .catch((err) => {
-          this.loading = false;
-          this.campaignError = err.message;
-        });
-    }, 0); // délai minimal
+  const newCampaign = {
+    name: this.campaignForm.value.name!
+  };
+
+  // ⏳ Affiche le spinner global
+  this._loading.show();
+  const start = Date.now();
+
+
+  try {
+    // Convertit la Promise en await direct
+    await this._campagnService.add(newCampaign);
+
+    // Redirection après succès
+    this._router.navigate(['/campaign']);
+
+  } catch (err: any) {
+    console.error('Erreur lors de la création de la campagne', err);
+    this.campaignError = err.message || 'Une erreur est survenue';
+
+  } finally {
+    const elapsed = Date.now() - start;
+    const remaining = 2000 - elapsed;
+
+    if (remaining > 0) {
+      await new Promise(res => setTimeout(res, remaining));
+    }
+
+    this._loading.hide();
+
   }
 }
+
 }
