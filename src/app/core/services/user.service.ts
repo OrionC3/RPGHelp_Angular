@@ -58,4 +58,22 @@ export class UserService {
             ),
         );
     }
+
+    joinCampaign(id: number): Promise<void> {
+        return firstValueFrom(
+            this._httpClient.post<void>(
+                environment.apiUrl + 'api/user/join-campagn',
+                id,
+            ),
+        );
+    }
+
+    leaveCampaign(id: number): Promise<void> {
+        return firstValueFrom(
+            this._httpClient.post<void>(
+                environment.apiUrl + 'api/user/leave-campagn',
+                id,
+            ),
+        );
+    }
 }

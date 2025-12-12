@@ -33,6 +33,10 @@ export class AuthService {
     private _token = signal<string | null>(null);
     token = this._token.asReadonly();
 
+    // signal pour l'id de l'utilisateur
+    private _id = signal<number | null>(null);
+    id = this._id.asReadonly();
+
     constructor() {
         // Récupération du token depuis le localstorage
         const tokenStr = localStorage.getItem('token');
@@ -81,6 +85,13 @@ export class AuthService {
 
                 // Maintenant, 'finalRoles' est garanti d'être de type 'UserRole[]'
                 this._role.set(finalRoles);
+
+                // Ajout de l'id dans le signal
+                const idFromToken =
+                    tokenProp[
+                        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid'
+                    ];
+                this._id.set(+idFromToken);
             }
         });
     }

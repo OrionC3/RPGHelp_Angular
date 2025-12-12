@@ -26,3 +26,8 @@
             | translate
     }}
 </a>
+@if (inCampaign) {
+    <button (click)="leaveCampaign()">Leave Campaign</button>
+} @else {
+    <button (click)="joinCampaign()">Join Campaign</button>
+}
