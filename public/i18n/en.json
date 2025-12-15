@@ -78,37 +78,37 @@
         "characters": {
             "pages": {
                 "character-listing-page": {
-                    "id": "Id",
-                    "race": "Race",
-                    "level": "Level",
                     "campagn": "Campagn",
                     "action": "Action"
                 },
                 "character-create-page": {
-                    "character-info": "ℹ️ Character Information",
-                    "character-stat": "⚔️ Character Statistics",
-                    "character-defence": "🛡️ Combat Values and Saves",
                     "pvMax": "PV Max",
                     "pvCurrent": "Current Pv",
-                    "strength": "Strength",
-                    "dexterity": "Dexterity",
-                    "constitution": "Constitution",
-                    "intelligence": "Intelligence",
-                    "wisdom": "Wisdom",
-                    "charisma": "Charisma",
-                    "defence": "Defence",
-                    "initiative": "Initiative",
-                    "baseAttackBonus": "Base Attack Bonus",
-                    "fortitudeSave": "Fortitude Save",
-                    "reflexeSave": "Reflexe Save",
-                    "willpowerSave": "Willpower Save",
-                    "level": "Level",
-                    "xp": "Xp",
-                    "speed": "Speed",
-                    "races": "Races",
                     "create-characters": "Create Character"
+                },
+                "character-details-page": {
+                    "pv": "Life Point",
+                    "character-not-found": "Character not found"
                 }
-            }
+            },
+            "character-info": "ℹ️ Character Information",
+            "character-stat": "⚔️ Character Statistics",
+            "character-defence": "🛡️ Combat Values and Saves",
+            "strength": "Strength",
+            "dexterity": "Dexterity",
+            "constitution": "Constitution",
+            "intelligence": "Intelligence",
+            "wisdom": "Wisdom",
+            "charisma": "Charisma",
+            "defence": "Defence",
+            "initiative": "Initiative",
+            "base-attack-bonus": "Base Attack Bonus",
+            "fortitude-save": "Fortitude Save",
+            "reflexe-save": "Reflexe Save",
+            "willpower-save": "Willpower Save",
+            "level": "Level",
+            "xp": "Xp",
+            "speed": "Speed"
         },
         "races": {
             "pages": {
@@ -175,6 +175,8 @@
         "return-listing": "Return to list",
         "email": "Email",
         "name": "Name",
-        "id": "Id"
+        "id": "Id",
+        "race": "Race",
+        "level": "Level"
     }
 }

@@ -1,0 +1,31 @@
+// character-details.component.scss
+
+// 1. Définition du conteneur Flexbox pour chaque paire Clé-Valeur
+.detail-field-group {
+    display: flex;
+    align-items: baseline; // Alignement sur la ligne de base pour les longs textes
+    line-height: 1.5; // Espacement de ligne standard
+}
+
+// 2. Définition de la largeur du Label (pour l'alignement vertical)
+// Nous utilisons w-50 comme dans le formulaire de création, ou un pourcentage fixe si nécessaire.
+.detail-label {
+    /* * IMPORTANT : Cette largeur garantit que toutes les valeurs (les <span> qui suivent) 
+     * commencent au même point horizontal, assurant la symétrie.
+     */
+    width: 50%;
+    margin-right: 0.5rem; // Petit espace entre le label et la valeur
+    // Les autres styles comme fw-bold sont déjà dans le HTML
+}
+
+// 3. Style optionnel pour les valeurs numériques
+.detail-field-group span:last-child {
+    font-size: 1.1rem; // Rendre les valeurs plus visibles
+    color: #007bff; // Couleur Bootstrap Blue pour les données clés
+}
+
+// Ajustement pour les très longs labels dans les petites colonnes (col-md-3)
+// Si le texte est tronqué, on pourrait ajuster la largeur ici.
+.col-md-3 .detail-label {
+    width: 60%;
+}

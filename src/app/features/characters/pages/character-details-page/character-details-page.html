@@ -1,29 +1,249 @@
 @if (characters) {
-    <p>{{ characters.name }}</p>
-    <p>{{ characters.raceIndexDto?.name }}, Level : {{ characters.level }}</p>
-    <p>Xp : {{ characters.xp }}</p>
+    <div class="container my-4">
+        <h1 class="text-center mb-5">{{ characters.name }}</h1>
 
-    <p>Statistique :</p>
-    <p>strength : {{ characters.strength }}</p>
-    <p>dexterity : {{ characters.dexterity }}</p>
-    <p>constitution : {{ characters.constitution }}</p>
-    <p>intelligence : {{ characters.intelligence }}</p>
-    <p>wisdom : {{ characters.wisdom }}</p>
-    <p>charisma : {{ characters.charisma }}</p>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    {{ 'features.characters.character-info' | translate }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{ 'common.race' | translate }}
+                                &
+                                {{ 'common.level' | translate }}
+                                :</span
+                            >
+                            <span
+                                >{{ characters.raceIndexDto?.name }}, Level
+                                {{ characters.level }}</span
+                            >
+                        </div>
+                    </div>
 
-    <p>JDS</p>
-    <p>reflexeSave : {{ characters.reflexeSave }}</p>
-    <p>fortitudeSave : {{ characters.fortitudeSave }}</p>
-    <p>willpowerSave : {{ characters.willpowerSave }}</p>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.pages.character-details-page.pv'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span
+                                >{{ characters.pvCurrent }} /
+                                {{ characters.pvMax }}</span
+                            >
+                        </div>
+                    </div>
 
-    <p>Combat</p>
-    <p>baseAttackBonus : {{ characters.baseAttackBonus }}</p>
-    <p>init : {{ characters.initiative }}</p>
-    <p>defence : {{ characters.defence }}</p>
-    <p>Pv :{{ characters.pvCurrent }} / {{ characters.pvMax }}</p>
-    <p>speed : {{ characters.raceIndexDto?.travelSpeed }}</p>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.xp' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.xp }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-info text-dark">
+                <h5 class="mb-0">
+                    {{ 'features.characters.character-stat' | translate }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.strength' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.strength }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.dexterity' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.dexterity }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.constitution'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.constitution }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.intelligence'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.intelligence }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.wisdom' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.wisdom }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.charisma' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.charisma }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">
+                    {{ 'features.characters.character-defence' | translate }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.speed' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{
+                                characters.raceIndexDto?.travelSpeed
+                            }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.defence' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.defence }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.base-attack-bonus'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.baseAttackBonus }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.initiative' | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.initiative }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.reflexe-save'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.reflexeSave }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.fortitude-save'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.fortitudeSave }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold"
+                                >{{
+                                    'features.characters.willpower-save'
+                                        | translate
+                                }}
+                                :</span
+                            >
+                            <span>{{ characters.willpowerSave }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a routerLink="/characters" class="btn btn-secondary">
+                {{ 'common.return-listing' | translate }}
+            </a>
+        </div>
+    </div>
 } @else {
-    <p>not found</p>
+    <p class="text-center my-5">
+        {{
+            'features.characters.pages.character-details-page.character-not-found'
+                | translate
+        }}.
+    </p>
 }
-
-<a routerLink="/characters">{{ 'common.return-listing' | translate }}</a>
