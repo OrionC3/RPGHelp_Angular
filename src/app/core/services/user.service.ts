@@ -76,4 +76,50 @@ export class UserService {
             ),
         );
     }
+
+    getUsersByEmail(
+        search: string = '',
+    ): Promise<ApiResponseList<UserListing>> {
+        // Appel HTTP GET pour récupérer la liste des utilisateurs avec pagination
+        //console.log(environment.apiUrl + 'api/user');
+
+        return firstValueFrom(
+            this._httpClient.get<ApiResponseList<UserListing>>(
+                environment.apiUrl + 'api/user/search',
+                {
+                    // Paramètres de requête pour la pagination (rajoute ?page=1, ?page=2, etc. à l'URL)
+                    params: {
+                        search: search,
+                    },
+                },
+            ),
+        );
+    }
+
+    addUserToCampaign(userId: number, campaignId: number): Promise<void> {
+        const body = {
+            userId: userId,
+            campagnId: campaignId,
+        };
+        return firstValueFrom(
+            this._httpClient.post<void>(
+                environment.apiUrl + 'api/user/invit-campagn',
+                body,
+            ),
+        );
+    }
+
+    removeUserForCampaign(userId: number, campaignId: number): Promise<void> {
+        const body = {
+            userId: userId,
+            campagnId: campaignId,
+        };
+
+        return firstValueFrom(
+            this._httpClient.post<void>(
+                environment.apiUrl + 'api/user/remove-player-campagn',
+                body,
+            ),
+        );
+    }
 }

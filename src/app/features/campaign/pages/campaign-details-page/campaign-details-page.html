@@ -10,6 +10,49 @@
     {{ 'common.name' | translate }} :
     {{ campaign?.name }}
 </p>
+<p>
+    Description :
+    {{ campaign?.description }}
+</p>
+<p>
+    Id GM :
+    {{ campaign?.idGM }}
+</p>
+<p>
+    finish:
+    {{ campaign?.isFinish }}
+</p>
+@if (isGM) {
+    <p>Utilisateur présent dans la campagne</p>
+    @for (user of userInCampaign; track $index) {
+        <p>
+            {{ user.email
+            }}<button type="button" (click)="removeUser(user.id)">❌</button>
+        </p>
+    } @empty {
+        <p>Pas d'utilisateurs dans la campagne</p>
+    }
+    <form>
+        <p>inviter des utilisateurs</p>
+        <app-input-text-autocomplete
+            inputId="userId"
+            [placeholder]="'Ma petite recherche'"
+            [suggestions]="usersSearch"
+            [displayKey]="'email'"
+            (search)="onSearchRaces($event)"
+            (itemSelected)="idSelected($event)"
+            formControlName="userId"
+        ></app-input-text-autocomplete>
+        <button type="button" (click)="addUser()">➕</button>
+    </form>
+} @else {
+    @if (inCampaign) {
+        <button (click)="leaveCampaign()">Leave Campaign</button>
+    } @else {
+        <button (click)="joinCampaign()">Join Campaign</button>
+    }
+}
+
 <button (click)="onNextCampaign()">
     {{ 'features.campaign.pages.campaign-details-page.next' | translate }}
 </button>
@@ -26,8 +69,3 @@
             | translate
     }}
 </a>
-@if (inCampaign) {
-    <button (click)="leaveCampaign()">Leave Campaign</button>
-} @else {
-    <button (click)="joinCampaign()">Join Campaign</button>
-}

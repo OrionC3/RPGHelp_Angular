@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ApiResponseList } from '@core/models/api-response-list.model';
+import { ApiResponseOne } from '@core/models/api-response-one.model';
 import { CampaignDetailsDtoModel } from '@core/models/campaign-details-dto.model';
 import { CampaignFormDtoModel } from '@core/models/campaign-form-dto.model';
 import { CampaignListing } from '@core/models/campaign-listing.models';
 import { UserListing } from '@core/models/user-listing.models';
 import { environment } from '@env';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, map, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -25,9 +26,13 @@ export class CampaignService {
         );
     }
 
-    getCampaignById(id: string | number): Observable<CampaignDetailsDtoModel> {
-        return this._httpClient.get<CampaignDetailsDtoModel>(
-            `${environment.apiUrl}api/Campagn/${id}`,
+    getCampaignById(id: string | number): Promise<CampaignDetailsDtoModel> {
+        return firstValueFrom(
+            this._httpClient
+                .get<
+                    ApiResponseOne<CampaignDetailsDtoModel>
+                >(environment.apiUrl + 'api/Campagn/' + id)
+                .pipe(map((response) => response.data)),
         );
     }
 
@@ -57,7 +62,6 @@ export class CampaignService {
         id: number,
         page: number = 0,
     ): Promise<ApiResponseList<UserListing>> {
-        console.log(environment.apiUrl + 'api/campagn/campagn-users/' + id);
         return firstValueFrom(
             this._httpClient.get<ApiResponseList<UserListing>>(
                 environment.apiUrl + 'api/campagn/campagn-users/' + id,
