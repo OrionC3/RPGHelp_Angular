@@ -105,7 +105,8 @@
                     "level": "Niveau",
                     "xp": "Xp",
                     "speed": "Vitesse",
-                    "races": "Races"
+                    "races": "Races",
+                    "create-characters": "Créer le personnage"
                 }
             }
         },
@@ -160,7 +161,7 @@
                 "password-input-show": "Afficher"
             },
             "spinner": {
-                "loading-text": "Chargement en cours..." 
+                "loading-text": "Chargement en cours..."
             },
             "listing-table-admin": {
                 "delete-element": "Supprimer l'élement {element} ?",

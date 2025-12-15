@@ -105,7 +105,8 @@
                     "level": "Level",
                     "xp": "Xp",
                     "speed": "Speed",
-                    "races": "Races"
+                    "races": "Races",
+                    "create-characters": "Create Character"
                 }
             }
         },
@@ -166,7 +167,7 @@
                 "delete": "Delete"
             },
             "spinner": {
-                "loading-text": "Loading in progress..." 
+                "loading-text": "Loading in progress..."
             }
         }
     },
