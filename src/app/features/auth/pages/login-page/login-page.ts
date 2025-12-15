@@ -6,20 +6,24 @@ import { ApiError } from "@core/models/api-error.model";
 import { AuthService } from "@core/services/auth.service";
 import { strongPasswordValidator } from "@core/validators";
 import { TranslatePipe } from "@ngx-translate/core";
+import { LoadingService } from "@core/services/loading-service";
 
 @Component({
   selector: 'app-login-page',
+  standalone: true,
   imports: [ReactiveFormsModule, TranslatePipe, PasswordInput],
   templateUrl: './login-page.html',
   styleUrl: './login-page.scss',
 })
 export class LoginPage {
-  // Injection de services
+
+  // Services injectés
   private readonly _fb = inject(FormBuilder);
   private readonly _authService = inject(AuthService);
   private readonly _router = inject(Router);
+  private readonly _loading = inject(LoadingService);
 
-  // Form controls (utilisés dans le template pour récupérer les erreurs)
+  // Champs individuels
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, strongPasswordValidator()]);
 
@@ -33,17 +37,30 @@ export class LoginPage {
 
   async onSubmit() {
     // Vérification de la validité du formulaire
-    if (this.loginForm.valid) {
-      // formulaire valide, on peut tenter de se connecter
-      try {
-        await this._authService.login(this.loginForm.value.email!, this.loginForm.value.password!);
-        // connexion réussie, redirigé vers la page d'accueil
-        this._router.navigate(['/']);
-      } catch (err) {
-        // connexion échouée, on affiche l'erreur
-        console.error(err);
-        this.loginError = (err as ApiError).message;
-      }
+    if (!this.loginForm.valid) {
+      return;
+    }
+
+    // ⏳ Affiche le spinner pendant l’appel
+    this._loading.show();
+
+    try {
+      // Tentative de connexion
+      await this._authService.login(
+        this.loginForm.value.email!,
+        this.loginForm.value.password!
+      );
+
+      // Redirection après succès
+      this._router.navigate(['/']);
+
+    } catch (err) {
+      console.error(err);
+      this.loginError = (err as ApiError).message;
+
+    } finally {
+      // 🔥 Masque le spinner dans tous les cas (succès ou échec)
+      this._loading.hide();
     }
   }
 }

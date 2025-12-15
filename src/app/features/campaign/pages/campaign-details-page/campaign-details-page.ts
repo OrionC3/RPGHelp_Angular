@@ -5,8 +5,9 @@ import { UserListing } from '@core/models/user-listing.models';
 import { AuthService } from '@core/services/auth.service';
 import { CampaignService } from '@core/services/campaign.service';
 import { UserService } from '@core/services/user.service';
+import { LoadingService } from '@core/services/loading-service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { lastValueFrom, Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-campaign-details-page',
@@ -15,6 +16,8 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./campaign-details-page.scss'],
 })
 export class CampaignDetailsPage implements OnInit, OnDestroy {
+
+  private readonly _loading = inject(LoadingService);
     private readonly _campaignService = inject(CampaignService);
     private readonly _router = inject(Router);
     private readonly _userService = inject(UserService);
@@ -77,20 +80,33 @@ export class CampaignDetailsPage implements OnInit, OnDestroy {
         this._router.navigate(['/campaign', nextId]);
     }
 
-    deleteCampaign() {
-        if (!this.campaign) return;
+async deleteCampaign(): Promise<void> {
+  if (!this.campaign) return;
 
-        this._campaignService.deleteCampaign(this.campaign.id).subscribe({
-            next: () => {
-                console.log('Campagne supprimée avec succès');
-                this._router.navigate(['/campaign']);
-            },
-            error: (err) => console.error('Erreur suppression:', err),
-        });
+  this._loading.show(); // afficher le spinner
+
+  const start = Date.now();
+
+  try {
+    // attendre la requête
+    await lastValueFrom(this._campaignService.deleteCampaign(this.campaign.id));
+
+  } catch (err) {
+    console.error('Erreur suppression :', err);
+
+  } finally {
+    // calcul du temps écoulé
+    const elapsed = Date.now() - start;
+    const remaining = 2000 - elapsed;
+
+    // attendre seulement si la requête a été trop rapide
+    if (remaining > 0) {
+      await new Promise(res => setTimeout(res, remaining));
     }
-    onEditCampaign() {
-        this._router.navigate(['/campaign/edit', this.campaignId]);
-    }
+
+    this._loading.hide(); // cacher le spinner
+  }
+}
 
     joinCampaign() {
         //appel db avec l'id de la campagne pour la rejoindre

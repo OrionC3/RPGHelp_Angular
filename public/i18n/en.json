@@ -164,6 +164,9 @@
                 "details": "Details",
                 "update": "Update",
                 "delete": "Delete"
+            },
+            "spinner": {
+                "loading-text": "Loading in progress..." 
             }
         }
     },
