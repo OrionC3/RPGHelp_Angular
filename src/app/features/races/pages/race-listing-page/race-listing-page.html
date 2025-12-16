@@ -1,4 +1,4 @@
-<app-pagination
+<!-- <app-pagination
     [total]="count"
     [(currentPage)]="currentPage"
     (futurPage)="futurPage($event)"
@@ -66,3 +66,136 @@
         }
     </tbody>
 </table>
+
+<app-pagination
+    [total]="count"
+    [(currentPage)]="currentPage"
+    (futurPage)="futurPage($event)"
+    [pageSize]="pageSize"
+/>
+<table
+    class="table table-hover table-bordered table-striped text-center align-middle"
+>
+    <thead class="table-dark">
+        <tr>
+            <th>{{ 'common.name' | translate }}</th>
+            <th>
+                <i class="bi bi-speedometer2 me-1"></i>
+                {{
+                    'features.races.pages.race-listing-page.travelSpeed'
+                        | translate
+                }}
+            </th>
+            <th>
+                <i class="bi bi-plus-circle-fill text-success me-1"></i>
+                {{
+                    'features.races.pages.race-listing-page.bonusName'
+                        | translate
+                }}
+                :
+                {{
+                    'features.races.pages.race-listing-page.bonusValue'
+                        | translate
+                }}
+            </th>
+            <th>
+                <i class="bi bi-dash-circle-fill text-danger me-1"></i>
+                {{
+                    'features.races.pages.race-listing-page.malusName'
+                        | translate
+                }}
+                :
+                {{
+                    'features.races.pages.race-listing-page.malusValue'
+                        | translate
+                }}
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (race of races; track race.id) {
+            <tr>
+                <td class="fw-bold">{{ race.name }}</td>
+                <td>{{ race.travelSpeed }}</td>
+                <td class="text-success">
+                    {{ race.bonusRacial.bonusName }} : **+{{
+                        race.bonusRacial.bonusValue
+                    }}**
+                </td>
+                <td class="text-danger">
+                    {{ race.bonusRacial.malusName }} : **{{
+                        race.bonusRacial.malusValue
+                    }}**
+                </td>
+                <td>
+                    <button
+                        class="btn btn-sm btn-info"
+                        (click)="onClickDetails(race.id)"
+                    >
+                        <i class="bi bi-eye">🔎</i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> -->
+
+<app-pagination
+    [total]="count"
+    [(currentPage)]="currentPage"
+    (futurPage)="futurPage($event)"
+    [pageSize]="pageSize"
+/>
+
+<div class="row g-4 mt-3">
+    @for (race of races; track race.id) {
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm border-2 border-primary">
+                <div class="card-header bg-primary text-white text-center">
+                    <h5 class="mb-0">{{ race.name }}</h5>
+                </div>
+
+                <div class="card-body d-flex flex-column">
+                    <div
+                        class="d-flex justify-content-between mb-2 pb-1 border-bottom"
+                    >
+                        <span class="fw-bold">
+                            <i class="bi bi-speedometer2 me-1"></i> Vitesse :
+                        </span>
+                        <span>{{ race.travelSpeed }}</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bold text-success">
+                            <i class="bi bi-plus-circle-fill me-1"></i>
+                            {{ race.bonusRacial.bonusName }}
+                        </span>
+                        <span class="text-success fw-bold"
+                            >+{{ race.bonusRacial.bonusValue }}</span
+                        >
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="fw-bold text-danger">
+                            <i class="bi bi-dash-circle-fill me-1"></i>
+                            {{ race.bonusRacial.malusName }}
+                        </span>
+                        <span class="text-danger fw-bold">{{
+                            race.bonusRacial.malusValue
+                        }}</span>
+                    </div>
+
+                    <div class="mt-auto pt-2 text-center">
+                        <button
+                            class="btn btn-outline-primary w-100"
+                            (click)="onClickDetails(race.id)"
+                        >
+                            Voir les détails
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

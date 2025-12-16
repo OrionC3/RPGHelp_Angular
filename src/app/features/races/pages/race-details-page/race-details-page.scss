@@ -1,0 +1,15 @@
+// race-details.component.scss
+
+.detail-field-group {
+    display: flex;
+    align-items: baseline;
+    line-height: 1.5;
+}
+
+.detail-label {
+    /* * Définit la largeur du label. Utilisons 50% comme point de départ
+     * pour que les valeurs commencent au même endroit dans chaque colonne.
+     */
+    width: 50%;
+    margin-right: 0.5rem;
+}

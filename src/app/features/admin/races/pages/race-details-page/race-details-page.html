@@ -1,20 +1,76 @@
 @if (race) {
-    <p>{{ race.name }}</p>
-    <p>
-        {{ 'features.races.pages.race-details-page.speed' | translate }} :
-        {{ race.travelSpeed }}
-    </p>
+    <div class="container my-4">
+        <h1 class="text-center mb-5">{{ race.name }}</h1>
 
-    <p>
-        {{
-            'features.races.pages.race-details-page.racial-bonus-malus'
-                | translate
-        }}
-    </p>
-    <p>{{ race.bonusRacial.bonusName }} : {{ race.bonusRacial.bonusValue }}</p>
-    <p>{{ race.bonusRacial.malusName }} : {{ race.bonusRacial.malusValue }}</p>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    {{
+                        'features.races.pages.race-create-page.race-info'
+                            | translate
+                    }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold">
+                                {{
+                                    'features.races.pages.race-details-page.speed'
+                                        | translate
+                                }}
+                                :
+                            </span>
+                            <span>{{ race.travelSpeed }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-info text-dark">
+                <h5 class="mb-0">
+                    {{
+                        'features.races.pages.race-details-page.racial-bonus-malus'
+                            | translate
+                    }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold text-success">
+                                {{ race.bonusRacial.bonusName }} :
+                            </span>
+                            <span>+{{ race.bonusRacial.bonusValue }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="detail-field-group">
+                            <span class="detail-label fw-bold text-danger">
+                                {{ race.bonusRacial.malusName }} :
+                            </span>
+                            <span>{{ race.bonusRacial.malusValue }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a routerLink="/admin/races" class="btn btn-secondary">
+                {{ 'common.return-listing' | translate }}
+            </a>
+        </div>
+    </div>
 } @else {
-    <p>{{ 'features.races.pages.race-details-page.not-found' | translate }}</p>
+    <p class="text-center my-5 text-danger">
+        {{ 'features.races.pages.race-details-page.not-found' | translate }}
+    </p>
 }
-
-<a routerLink="/admin/races">{{ 'common.return-listing' | translate }}</a>
