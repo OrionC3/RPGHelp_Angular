@@ -117,7 +117,11 @@
                     "bonusName": "Bonus Name",
                     "bonusValue": "Bonus Values",
                     "malusName": "Malus Name",
-                    "malusValue": "Malus Value"
+                    "malusValue": "Malus Value",
+                    "race-info": "ℹ️ Race Information",
+                    "race-bonus": "➕ Race Statistics Bonus",
+                    "race-malus": "➖ Race Statistics Penalty",
+                    "race-create": "Create Race"
                 },
                 "race-details-page": {
                     "speed": "Speed",

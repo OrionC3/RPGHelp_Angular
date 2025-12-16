@@ -1,0 +1,25 @@
+// race-create-page.component.scss ou race-form.component.scss
+
+.form-field-group {
+    display: flex;
+    align-items: center;
+
+    .form-label {
+        /*
+         * Utilise la largeur définie dans le HTML (w-33 pour le nom, w-50 pour le reste)
+         * Ajoutez un petit espace à droite du label.
+         */
+        margin-right: 0.5rem;
+        margin-bottom: 0; // Important pour l'alignement dans Flex
+    }
+
+    .form-control,
+    .form-select {
+        flex-grow: 1; // Le champ prend tout l'espace restant
+    }
+}
+// Optionnel: Petit style pour les messages d'erreur
+.text-danger {
+    font-size: 0.85em;
+    margin-left: 0.5rem; /* Pour l'aligner sous le champ d'input */
+}
