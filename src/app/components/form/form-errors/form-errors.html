@@ -1,0 +1,8 @@
+<!-- TODO Add list input -->
+ @if (shouldDisplay) {
+  <ul class="form-errors">
+    @for (error of errors; track error) {
+      <li>{{ getMessage(error) }}</li>
+    }
+  </ul>
+}

@@ -171,7 +171,17 @@
                 "delete": "Delete"
             },
             "spinner": {
-                "loading-text": "Loading in progress..."
+                "loading-text": "Loading in progress..." 
+            },
+            "form-errors": {
+                "required": "This field is required",
+                "email": "Invalid email address",
+                "minlength": "Too short",
+                "maxlength": "Too long",
+                "lowerCase": "Must contain a lowercase letter",
+                "upperCase": "Must contain an uppercase letter",
+                "number": "Must contain a number",
+                "specialChar": "Must contain a special character"
             }
         }
     },
