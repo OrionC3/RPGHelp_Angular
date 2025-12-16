@@ -20,7 +20,7 @@
             </th>
             <th>
                 {{
-                    'features.characters.pages.character-listing-page.campagn'
+                    'features.characters.pages.character-listing-page.campaign'
                         | translate
                 }}
             </th>
@@ -53,6 +53,7 @@
                 </td>
                 <td>
                     <button (click)="onClickDetails(character.id)">🔎</button>
+                    <button (click)="onClickUpdate(character.id)">✒️</button>
                     <button (click)="onClickDelete(character.id)">🗑️</button>
                     @if (elementIdToConfirm() === character.id) {
                         <app-confirm-modal

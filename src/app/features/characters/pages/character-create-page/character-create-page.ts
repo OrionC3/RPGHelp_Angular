@@ -66,6 +66,7 @@ export class CharacterCreatePage {
                 level: this.charactersForm.value.level!,
                 xp: this.charactersForm.value.xp!,
                 speed: this.charactersForm.value.speed!,
+                userId: 0,
             };
             this._charactersService
                 .createCharacter(characters)

@@ -40,6 +40,10 @@ export class CharacterListingPage {
         this._router.navigate(['/', 'characters', id]);
     }
 
+    onClickUpdate(id: string | number) {
+        this._router.navigate(['/', 'characters', id, 'update']);
+    }
+
     onClickDelete(id: string | number) {
         //this._router.navigate(['/characters', id, 'delete']);
         this.elementIdToConfirm.set(+id);

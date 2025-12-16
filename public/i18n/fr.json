@@ -78,7 +78,7 @@
         "characters": {
             "pages": {
                 "character-listing-page": {
-                    "campagn": "Campagne",
+                    "campaign": "Campagne",
                     "action": "Action"
                 },
                 "character-create-page": {

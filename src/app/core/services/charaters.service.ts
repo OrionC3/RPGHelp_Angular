@@ -57,4 +57,13 @@ export class CharatersService {
             ),
         );
     }
+
+    updateCharacter(id: number, form: CharactersFormDto): Promise<void> {
+        return firstValueFrom(
+            this._httpClient.put<void>(
+                environment.apiUrl + 'api/charactere/' + id,
+                form,
+            ),
+        );
+    }
 }

@@ -1,6 +1,7 @@
 import { RaceIndexDto } from './race-index-dto.model';
 
 export interface CharactersDetailsDto {
+    id: number;
     baseAttackBonus: number;
     charisma: number;
     constitution: number;
@@ -21,4 +22,5 @@ export interface CharactersDetailsDto {
     willpowerSave: number;
     wisdom: number;
     xp: number;
+    userId: number;
 }

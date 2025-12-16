@@ -18,4 +18,5 @@ export interface CharactersFormDto {
     willpowerSave: number;
     wisdom: number;
     xp: number;
+    userId: number;
 }

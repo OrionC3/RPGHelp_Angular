@@ -1,1 +1,435 @@
-<p>character-update-page works!</p>
+<form [formGroup]="charactersForm" (ngSubmit)="onSubmit()">
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+                {{ 'features.characters.character-info' | translate }}
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="card mb-4">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="name" class="form-label fw-bold"
+                                >{{ 'common.name' | translate }} :</label
+                            ><input
+                                type="text"
+                                id="name"
+                                formControlName="name"
+                            />
+                            @if (
+                                charactersForm.get('name')?.touched &&
+                                charactersForm.get('name')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="pvCurrent" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.pages.character-details-page.pv'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="pvCurrent"
+                                formControlName="pvCurrent"
+                            />
+                            @if (
+                                charactersForm.get('pvCurrent')?.touched &&
+                                charactersForm.get('pvCurrent')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                            <input
+                                type="number"
+                                min="1"
+                                id="pvMax"
+                                formControlName="pvMax"
+                            />
+                            @if (
+                                charactersForm.get('pvMax')?.touched &&
+                                charactersForm.get('pvMax')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="speed" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.speed' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="speed"
+                                formControlName="speed"
+                            />
+                            @if (
+                                charactersForm.get('speed')?.touched &&
+                                charactersForm.get('speed')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="xp" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.xp' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="xp"
+                                formControlName="xp"
+                            />
+                            @if (
+                                charactersForm.get('xp')?.touched &&
+                                charactersForm.get('xp')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="level" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.level' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="level"
+                                formControlName="level"
+                            />
+                            @if (
+                                charactersForm.get('level')?.touched &&
+                                charactersForm.get('level')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-info text-dark">
+            <h5 class="mb-0">
+                {{ 'features.characters.character-stat' | translate }}
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="card mb-4">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="strength" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.strength' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="strength"
+                                formControlName="strength"
+                            />
+                            @if (
+                                charactersForm.get('strength')?.touched &&
+                                charactersForm.get('strength')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="dexterity" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.dexterity' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="dexterity"
+                                formControlName="dexterity"
+                            />
+                            @if (
+                                charactersForm.get('dexterity')?.touched &&
+                                charactersForm.get('dexterity')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="constitution" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.constitution'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="constitution"
+                                formControlName="constitution"
+                            />
+                            @if (
+                                charactersForm.get('constitution')?.touched &&
+                                charactersForm.get('constitution')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="intelligence" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.intelligence'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="intelligence"
+                                formControlName="intelligence"
+                            />
+                            @if (
+                                charactersForm.get('intelligence')?.touched &&
+                                charactersForm.get('intelligence')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="wisdom" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.wisdom' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="wisdom"
+                                formControlName="wisdom"
+                            />
+                            @if (
+                                charactersForm.get('wisdom')?.touched &&
+                                charactersForm.get('wisdom')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="charisma" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.charisma' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="charisma"
+                                formControlName="charisma"
+                            />
+                            @if (
+                                charactersForm.get('charisma')?.touched &&
+                                charactersForm.get('charisma')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">
+                {{ 'features.characters.character-defence' | translate }}
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="card mb-4">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="initiative" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.initiative' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="initiative"
+                                formControlName="initiative"
+                            />
+                            @if (
+                                charactersForm.get('initiative')?.touched &&
+                                charactersForm.get('initiative')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label
+                                for="baseAttackBonus"
+                                class="form-label fw-bold"
+                                >{{
+                                    'features.characters.base-attack-bonus'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="baseAttackBonus"
+                                formControlName="baseAttackBonus"
+                            />
+                            @if (
+                                charactersForm.get('baseAttackBonus')
+                                    ?.touched &&
+                                charactersForm.get('baseAttackBonus')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="defence" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.defence' | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="defence"
+                                formControlName="defence"
+                            />
+                            @if (
+                                charactersForm.get('defence')?.touched &&
+                                charactersForm.get('defence')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label
+                                for="fortitudeSave"
+                                class="form-label fw-bold"
+                                >{{
+                                    'features.characters.fortitude-save'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="fortitudeSave"
+                                formControlName="fortitudeSave"
+                            />
+                            @if (
+                                charactersForm.get('fortitudeSave')?.touched &&
+                                charactersForm.get('fortitudeSave')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label for="reflexeSave" class="form-label fw-bold"
+                                >{{
+                                    'features.characters.reflexe-save'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="reflexeSave"
+                                formControlName="reflexeSave"
+                            />
+                            @if (
+                                charactersForm.get('reflexeSave')?.touched &&
+                                charactersForm.get('reflexeSave')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="stat-field-group">
+                            <label
+                                for="willpowerSave"
+                                class="form-label fw-bold"
+                                >{{
+                                    'features.characters.willpower-save'
+                                        | translate
+                                }}
+                                :</label
+                            ><input
+                                type="number"
+                                min="1"
+                                id="willpowerSave"
+                                formControlName="willpowerSave"
+                            />
+                            @if (
+                                charactersForm.get('willpowerSave')?.touched &&
+                                charactersForm.get('willpowerSave')?.invalid
+                            ) {
+                                <p>Champs requis</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button
+            [disabled]="charactersForm.invalid"
+            type="submit"
+            class="btn btn-primary"
+        >
+            {{
+                'features.characters.pages.character-create-page.update-characters'
+                    | translate
+            }}
+        </button>
+    </div>
+</form>
