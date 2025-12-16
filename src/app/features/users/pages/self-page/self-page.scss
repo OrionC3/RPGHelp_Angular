@@ -1,0 +1,27 @@
+// user-self-page.component.scss
+
+// 1. Style Flexbox pour les détails du compte (Email, Rôle)
+.user-detail-group {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    .detail-label {
+        /* Donne une largeur fixe aux labels pour l'alignement */
+        width: 30%;
+        min-width: 100px;
+        margin-right: 1rem;
+    }
+}
+
+// 2. Style des listes (pour éviter la saturation si la liste est très longue)
+.character-list,
+.campaign-list {
+    max-height: 400px; /* Limiter la hauteur pour les longues listes */
+    overflow-y: auto; /* Ajouter une barre de défilement si nécessaire */
+
+    // Assurer que le style de Bootstrap est appliqué
+    .list-group-item {
+        border-color: #f0f0f0;
+    }
+}

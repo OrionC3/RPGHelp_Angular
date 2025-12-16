@@ -26,9 +26,9 @@
                         raceForm.get('name')?.touched &&
                         raceForm.get('name')?.invalid
                     ) {
-                        <small class="text-danger d-block mt-1"
-                            >Champs requis</small
-                        >
+                        <small class="text-danger d-block mt-1">{{
+                            'common.field-required' | translate
+                        }}</small>
                     }
                 </div>
 
@@ -38,10 +38,7 @@
                             for="travelSpeed"
                             class="form-label fw-bold w-50"
                         >
-                            {{
-                                'features.races.pages.race-create-page.travelSpeed'
-                                    | translate
-                            }}
+                            {{ 'common.travelSpeed' | translate }}
                             :
                         </label>
                         <input
@@ -56,9 +53,9 @@
                         raceForm.get('travelSpeed')?.touched &&
                         raceForm.get('travelSpeed')?.invalid
                     ) {
-                        <small class="text-danger d-block mt-1"
-                            >Champs requis</small
-                        >
+                        <small class="text-danger d-block mt-1">{{
+                            'common.field-required' | translate
+                        }}</small>
                     }
                 </div>
             </div>
@@ -79,10 +76,7 @@
                 <div class="col-md-6 mb-3">
                     <div class="form-field-group">
                         <label for="bonusName" class="form-label fw-bold w-50">
-                            {{
-                                'features.races.pages.race-create-page.bonusName'
-                                    | translate
-                            }}
+                            {{ 'features.races.bonusName' | translate }}
                             :
                         </label>
                         <select
@@ -103,10 +97,7 @@
                 <div class="col-md-6 mb-3">
                     <div class="form-field-group">
                         <label for="bonusValue" class="form-label fw-bold w-50">
-                            {{
-                                'features.races.pages.race-create-page.bonusValue'
-                                    | translate
-                            }}
+                            {{ 'features.races.bonusValue' | translate }}
                             :
                         </label>
                         <input
@@ -121,9 +112,9 @@
                         raceForm.get('bonusValue')?.touched &&
                         raceForm.get('bonusValue')?.invalid
                     ) {
-                        <small class="text-danger d-block mt-1"
-                            >Champs requis</small
-                        >
+                        <small class="text-danger d-block mt-1">{{
+                            'common.field-required' | translate
+                        }}</small>
                     }
                 </div>
             </div>
@@ -144,10 +135,7 @@
                 <div class="col-md-6 mb-3">
                     <div class="form-field-group">
                         <label for="malusName" class="form-label fw-bold w-50">
-                            {{
-                                'features.races.pages.race-create-page.malusName'
-                                    | translate
-                            }}
+                            {{ 'features.races.malusName' | translate }}
                             :
                         </label>
                         <select
@@ -168,10 +156,7 @@
                 <div class="col-md-6 mb-3">
                     <div class="form-field-group">
                         <label for="malusValue" class="form-label fw-bold w-50">
-                            {{
-                                'features.races.pages.race-create-page.malusValue'
-                                    | translate
-                            }}
+                            {{ 'features.races.malusValue' | translate }}
                             :
                         </label>
                         <input
@@ -186,9 +171,9 @@
                         raceForm.get('malusValue')?.touched &&
                         raceForm.get('malusValue')?.invalid
                     ) {
-                        <small class="text-danger d-block mt-1"
-                            >Champs requis</small
-                        >
+                        <small class="text-danger d-block mt-1">{{
+                            'common.field-required' | translate
+                        }}</small>
                     }
                 </div>
             </div>

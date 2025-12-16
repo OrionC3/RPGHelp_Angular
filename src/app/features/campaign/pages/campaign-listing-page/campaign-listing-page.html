@@ -1,6 +1,11 @@
-<h2>{{ ('features.campaign.pages.campaign-listing-page.title' | translate) }}</h2>
+<h2>{{ 'features.campaign.pages.campaign-listing-page.title' | translate }}</h2>
 @for (item of campaign; track $index) {
-    <p>{{ item.name }} <a [routerLink]="['/campaign', item.id]">{{ ('features.campaign.pages.campaign-listing-page.details-link' | translate) }}</a></p>
+    <p>
+        {{ item.name }}
+        <a [routerLink]="['/campaign', item.id]">{{
+            'common.details' | translate
+        }}</a>
+    </p>
 }
-<br>
-<a [routerLink]="['/campaign', 'add']">{{ ('features.campaign.pages.campaign-listing-page.add-link' | translate) }}</a>
+<br />
+<a [routerLink]="['/campaign', 'add']">{{ 'common.create' | translate }}</a>

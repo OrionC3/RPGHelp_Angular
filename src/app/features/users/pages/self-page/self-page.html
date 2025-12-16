@@ -1,29 +1,153 @@
 @if (user) {
-    <p>
-        {{ 'common.email' | translate }} :
-        {{ user.email }}
-    </p>
-    <p>
-        {{ 'features.users.pages.self-page.role' | translate }} :
-        @for (role of user.role; track $index) {
-            {{ role.name }},
-        }
-    </p>
-    <p>{{ 'features.users.pages.self-page.characters-list' | translate }}</p>
-    <ul>
-        @for (charactere of user.characteres; track charactere.id) {
-            <li>
-                {{ charactere.name }}, {{ charactere.raceIndexDto.name }}, level
-                : {{ charactere.level }}
-            </li>
-        }
-    </ul>
-    <p>{{ 'features.users.pages.self-page.campagns-list' | translate }}</p>
-    <ul>
-        @for (campagn of user.campagns; track $index) {
-            <li>
-                <p>Id: {{ campagn.id }}, Name: {{ campagn.name }}</p>
-            </li>
-        }
-    </ul>
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">Mon Tableau de Bord</h1>
+
+        <div class="card mb-5 shadow-lg border-primary">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-person-circle me-2"></i> Informations du
+                    Compte
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="user-detail-group">
+                            <span class="detail-label fw-bold">
+                                <i class="bi bi-envelope-fill me-1"></i>
+                                {{ 'common.email' | translate }} :
+                            </span>
+                            <span>{{ user.email }}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="user-detail-group">
+                            <span class="detail-label fw-bold">
+                                <i class="bi bi-person-rolodex me-1"></i>
+                                {{
+                                    'features.users.pages.self-page.role'
+                                        | translate
+                                }}
+                                :
+                            </span>
+                            <span>
+                                @for (role of user.role; track $index) {
+                                    <span
+                                        class="badge text-bg-secondary me-1"
+                                        >{{ role.name }}</span
+                                    >
+                                }
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-info text-dark">
+                        <h5 class="mb-0">
+                            <i class="bi bi-people-fill me-2"></i>
+                            {{
+                                'features.users.pages.self-page.characters-list'
+                                    | translate
+                            }}
+                            ({{ user.characteres.length }})
+                        </h5>
+                    </div>
+                    <ul class="list-group list-group-flush character-list">
+                        @for (
+                            charactere of user.characteres;
+                            track charactere.id
+                        ) {
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center"
+                            >
+                                <div>
+                                    <span class="fw-bold me-2">{{
+                                        charactere.name
+                                    }}</span>
+                                    <span class="text-muted small"
+                                        >({{
+                                            charactere.raceIndexDto.name
+                                        }})</span
+                                    >
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <span class="badge text-bg-primary me-3">
+                                        Niv. {{ charactere.level }}
+                                    </span>
+
+                                    <a
+                                        [routerLink]="[
+                                            '/characters',
+                                            charactere.id,
+                                        ]"
+                                        class="btn btn-sm btn-outline-info"
+                                        title="Voir les détails du personnage"
+                                    >
+                                        <i class="bi bi-search">🔎</i>
+                                    </a>
+                                </div>
+                            </li>
+                        } @empty {
+                            <li class="list-group-item text-center text-muted">
+                                {{ 'common.not-found' | translate }}
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="bi bi-book-half me-2"></i>
+                            {{
+                                'features.users.pages.self-page.campagns-list'
+                                    | translate
+                            }}
+                            ({{ user.campagns.length }})
+                        </h5>
+                    </div>
+                    <ul class="list-group list-group-flush campaign-list">
+                        @for (campagn of user.campagns; track campagn.id) {
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center"
+                            >
+                                <div>
+                                    <span class="fw-bold me-2">{{
+                                        campagn.name
+                                    }}</span>
+                                    <span class="text-muted small"
+                                        >ID: {{ campagn.id }}</span
+                                    >
+                                </div>
+
+                                <div>
+                                    <a
+                                        [routerLink]="['/campaign', campagn.id]"
+                                        class="btn btn-sm btn-outline-warning"
+                                        title="Voir les détails de la campagne"
+                                    >
+                                        <i class="bi bi-search">🔎</i>
+                                    </a>
+                                </div>
+                            </li>
+                        } @empty {
+                            <li class="list-group-item text-center text-muted">
+                                {{ 'common.not-found' | translate }}
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+} @else {
+    <p class="text-center my-5 text-danger">Utilisateur non trouvé.</p>
 }

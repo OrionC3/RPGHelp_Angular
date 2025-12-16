@@ -1,85 +1,4 @@
 <button (click)="addRace()">➕</button>
-<!-- <app-pagination
-    [total]="count"
-    [(currentPage)]="currentPage"
-    (futurPage)="futurPage($event)"
-    [pageSize]="pageSize"
-/>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                {{ 'common.name' | translate }}
-            </th>
-            <th>
-                {{
-                    'features.races.pages.race-listing-page.travelSpeed'
-                        | translate
-                }}
-            </th>
-            <th>
-                {{
-                    'features.races.pages.race-listing-page.bonusName'
-                        | translate
-                }}
-                :
-                {{
-                    'features.races.pages.race-listing-page.bonusValue'
-                        | translate
-                }}
-            </th>
-            <th>
-                {{
-                    'features.races.pages.race-listing-page.malusName'
-                        | translate
-                }}
-                :
-                {{
-                    'features.races.pages.race-listing-page.malusValue'
-                        | translate
-                }}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (race of races; track race.id) {
-            <tr>
-                <td>
-                    {{ race.name }}
-                </td>
-                <td>
-                    {{ race.travelSpeed }}
-                </td>
-                <td>
-                    {{ race.bonusRacial.bonusName }} :{{
-                        race.bonusRacial.bonusValue
-                    }}
-                </td>
-                <td>
-                    {{ race.bonusRacial.malusName }} :{{
-                        race.bonusRacial.malusValue
-                    }}
-                </td>
-                <td>
-                    <button (click)="onClickDetails(race.id)">🔎</button>
-                    <button (click)="onClickUpdate(race.id)">✒️</button>
-                </td>
-                <td>
-                    <button (click)="onClickDelete(race.id)">🗑️</button>
-                    @if (elementIdToConfirm() === race.id) {
-                        <app-confirm-modal
-                            (confirmed)="onModalAction($event)"
-                            [message]="
-                                'components.common.listing-table-admin.delete-element'
-                                    | translate: { element: race.name }
-                            "
-                        />
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table> -->
 
 <app-pagination
     [total]="count"
@@ -95,34 +14,19 @@
             <th>{{ 'common.name' | translate }}</th>
             <th>
                 <i class="bi bi-speedometer2 me-1"></i>
-                {{
-                    'features.races.pages.race-listing-page.travelSpeed'
-                        | translate
-                }}
+                {{ 'common.travelSpeed' | translate }}
             </th>
             <th>
                 <i class="bi bi-plus-circle-fill text-success me-1"></i>
-                {{
-                    'features.races.pages.race-listing-page.bonusName'
-                        | translate
-                }}
+                {{ 'features.races.bonusName' | translate }}
                 :
-                {{
-                    'features.races.pages.race-listing-page.bonusValue'
-                        | translate
-                }}
+                {{ 'features.races.bonusValue' | translate }}
             </th>
             <th>
                 <i class="bi bi-dash-circle-fill text-danger me-1"></i>
-                {{
-                    'features.races.pages.race-listing-page.malusName'
-                        | translate
-                }}
+                {{ 'features.races.malusName' | translate }}
                 :
-                {{
-                    'features.races.pages.race-listing-page.malusValue'
-                        | translate
-                }}
+                {{ 'features.races.malusValue' | translate }}
             </th>
             <th>Actions</th>
         </tr>

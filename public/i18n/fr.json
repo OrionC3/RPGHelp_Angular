@@ -11,9 +11,7 @@
                 "password-input-error-upperCase": "Le mot de passe doit contenir au moins une lettre majuscule",
                 "password-input-error-number": "Le mot de passe doit contenir au moins un chiffre",
                 "password-input-error-tooShort": "Le mot de passe doit contenir au moins 8 caractères",
-                "password-input-error-specialChar": "Le mot de passe doit contenir au moins un caractère spécial (ex. : !@#$%^&*)",
-                "button-submit": "Se connecter",
-                "button-register": "S'enregistrer"
+                "password-input-error-specialChar": "Le mot de passe doit contenir au moins un caractère spécial (ex. : !@#$%^&*)"
             }
         },
         "users": {
@@ -36,28 +34,22 @@
         "campaign": {
             "pages": {
                 "campaign-listing-page": {
-                    "title": "Campagnes",
-                    "details-link": "Détails 🔎",
-                    "add-link": "Ajouter une campagne ➕"
+                    "title": "Campagnes"
                 },
                 "campaign-details-page": {
                     "title": "Détails de la campagne : ",
-                    "id": "Id : ",
                     "next": "Campagne Suivante ⏩",
-                    "edit": "Modifier ✏️",
-                    "delete": "Supprimer 🚮",
-                    "return-listing": "◀️ Retourner à la liste des campagnes "
+                    "user-in-campaign": "Liste des utilisateurs dans la campagne",
+                    "user-not-in-campaign": "Aucun utilisateur dans la campagne",
+                    "invit-user": "Inviter des utilisateurs à la campagne",
+                    "join-campaign": "Rejoindre la campagne",
+                    "leave-campaign": "Quitter la campagne"
                 },
                 "campaign-edit-page": {
-                    "title": "Modifier la campagne : ",
-                    "id": "Id : ",
-                    "edit": "Modifier ✏️",
-                    "return-listing": "Retourner à la liste des campagnes"
+                    "title": "Modifier la campagne : "
                 },
                 "campaign-form-page": {
                     "title": "Ajouter une nouvelle campagne :",
-                    "add": "Ajouter ➕",
-                    "edit": "Modifier ✏️",
                     "name-input-error-required": "Le nom de la campagne est requis !",
                     "name-input-error-shortOrLong": "La taille du nom de la campagne n'est pas correcte: entre {minLength} et {maxLength} caractères !"
                 }
@@ -77,19 +69,15 @@
         },
         "characters": {
             "pages": {
-                "character-listing-page": {
-                    "campaign": "Campagne",
-                    "action": "Action"
-                },
                 "character-create-page": {
                     "pvMax": "PV Max",
-                    "pvCurrent": "Pv actuel",
-                    "create-characters": "Créer le personnage"
+                    "pvCurrent": "Pv actuel"
                 },
                 "character-details-page": {
                     "pv": "Point de vie"
                 }
             },
+            "create-characters": "Créer le personnage",
             "character-info": "ℹ️ Informations du Personnage",
             "character-stat": "⚔️ Statistiques de Personnage",
             "character-defence": "🛡️ Valeurs de Combat et Sauvegardes",
@@ -105,37 +93,24 @@
             "fortitude-save": "Vigeur",
             "reflexe-save": "Réflexe",
             "willpower-save": "Volonté",
-            "level": "Niveau",
-            "xp": "Xp",
-            "speed": "Vitesse",
-            "races": "Races"
+            "xp": "Xp"
         },
         "races": {
             "pages": {
                 "race-create-page": {
-                    "travelSpeed": "Vitesse de déplacement",
-                    "bonusName": "Nom du bonus",
-                    "bonusValue": "Valeur du bonus",
-                    "malusName": "Nom du malus",
-                    "malusValue": "Valeur du malus",
                     "race-info": "ℹ️ Information sur la race",
                     "race-bonus": "➕ Bonus de statistique de la race",
                     "race-malus": "➖ Malus de statistique de la race",
                     "race-create": "Créer la race"
                 },
                 "race-details-page": {
-                    "speed": "Vitesse",
-                    "racial-bonus-malus": "Bonus/Malus Raciale",
-                    "not-found": "Non trouvé"
-                },
-                "race-listing-page": {
-                    "travelSpeed": "Vitesse de déplacement",
-                    "bonusName": "Nom du bonus",
-                    "bonusValue": "Valeur du bonus",
-                    "malusName": "Nom du malus",
-                    "malusValue": "Valeur du malus"
+                    "racial-bonus-malus": "Bonus/Malus Raciale"
                 }
-            }
+            },
+            "bonusName": "Nom du bonus",
+            "bonusValue": "Valeur du bonus",
+            "malusName": "Nom du malus",
+            "malusValue": "Valeur du malus"
         }
     },
     "components": {
@@ -143,14 +118,9 @@
             "nav-bar": {
                 "role-user": "Role du user: {{role}}",
                 "home": "Accueil",
-                "login": "Connexion",
                 "logout": "Déconnexion",
-                "register": "S'enregistrer",
                 "users": "Utilisateurs",
-                "self": "Mon Compte",
-                "campaign": "Campagnes",
-                "characters": "Mes Personnages",
-                "races": "Races"
+                "self": "Mon Compte"
             },
             "pagination": {
                 "first-page": "Première page",
@@ -168,19 +138,37 @@
                 "loading-text": "Chargement en cours..."
             },
             "listing-table-admin": {
-                "delete-element": "Supprimer l'élement {element} ?",
-                "details": "Détails",
-                "update": "Mise à jour",
-                "delete": "Supprimer"
+                "delete-element": "Supprimer l'élement {element} ?"
             }
         }
     },
     "common": {
-        "return-listing": "Retour à la liste",
+        "login": "Se connecter",
+        "register": "S'enregistrer",
+
+        "id": "Id",
         "email": "Email",
         "name": "Nom",
-        "id": "Id",
-        "race": "Race",
-        "level": "Niveau"
+
+        "level": "Level",
+        "campaign": "Campagne",
+        "characters": "Personnage",
+
+        "races": "Races",
+
+        "travelSpeed": "Vitesse de déplacement",
+
+        "return-listing": "◀️ Retour à la liste",
+        "details": "Détails 🔎",
+        "create": "Créer ➕",
+        "edit": "Editer ✒️",
+        "delete": "Supprimer 🚮",
+
+        "not-found": "Non trouvé",
+
+        "confirm": "Confirmer",
+        "cancel": "Annuler",
+        "action": "Action",
+        "field-required": "Champs requis"
     }
 }

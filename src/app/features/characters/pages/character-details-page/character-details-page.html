@@ -13,7 +13,7 @@
                     <div class="col-md-4 mb-3">
                         <div class="detail-field-group">
                             <span class="detail-label fw-bold"
-                                >{{ 'common.race' | translate }}
+                                >{{ 'common.races' | translate }}
                                 &
                                 {{ 'common.level' | translate }}
                                 :</span
@@ -148,10 +148,7 @@
                     <div class="col-md-3 mb-3">
                         <div class="detail-field-group">
                             <span class="detail-label fw-bold"
-                                >{{
-                                    'features.characters.speed' | translate
-                                }}
-                                :</span
+                                >{{ 'common.travelSpeed' | translate }} :</span
                             >
                             <span>{{
                                 characters.raceIndexDto?.travelSpeed
@@ -240,10 +237,5 @@
         </div>
     </div>
 } @else {
-    <p class="text-center my-5">
-        {{
-            'features.characters.pages.character-details-page.character-not-found'
-                | translate
-        }}.
-    </p>
+    <p class="text-center my-5">{{ 'common.not-found' | translate }}.</p>
 }

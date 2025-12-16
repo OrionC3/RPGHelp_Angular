@@ -23,13 +23,13 @@
         </p>
         <br />
         <button [disabled]="campaignForm.invalid" type="submit">
-            {{ 'features.campaign.pages.campaign-form-page.add' | translate }}
+            {{ 'common.create' | translate }}
         </button>
     </div>
 </form>
 
-@if(!loading){
-<div>
-  <div class="spinner"></div>
-</div>
+@if (!loading) {
+    <div>
+        <div class="spinner"></div>
+    </div>
 }

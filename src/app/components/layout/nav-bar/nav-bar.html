@@ -21,19 +21,19 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/races">{{
-                        'components.layout.nav-bar.races' | translate
+                        'common.races' | translate
                     }}</a>
                 </li>
 
                 @if (isConnected()) {
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/campaign">{{
-                            'components.layout.nav-bar.campaign' | translate
+                            'common.campaign' | translate
                         }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/characters">{{
-                            'components.layout.nav-bar.characters' | translate
+                            'common.characters' | translate
                         }}</a>
                     </li>
                 }
@@ -97,10 +97,7 @@
                                 <a
                                     class="dropdown-item"
                                     routerLink="/admin/races"
-                                    >{{
-                                        'components.layout.nav-bar.races'
-                                            | translate
-                                    }}</a
+                                    >{{ 'common.races' | translate }}</a
                                 >
                             </li>
                         </ul>

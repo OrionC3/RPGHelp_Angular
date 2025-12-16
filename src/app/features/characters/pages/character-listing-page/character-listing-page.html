@@ -1,71 +1,113 @@
-<button (click)="addCharacters()">➕</button>
-<app-pagination
-    [total]="count"
-    [(currentPage)]="currentPage"
-    (futurPage)="futurPage($event)"
-    [pageSize]="pageSize"
-/>
+<div class="container my-4">
+    <div class="d-flex justify-content-start mb-3">
+        <button (click)="addCharacters()" class="btn btn-info btn-sm">
+            <i class="bi bi-plus-circle-fill me-2"></i
+            >{{ 'common.create' | translate }}
+        </button>
+    </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                {{ 'common.name' | translate }}
-            </th>
-            <th>
-                {{ 'common.race' | translate }}
-            </th>
-            <th>
-                {{ 'common.level' | translate }}
-            </th>
-            <th>
-                {{
-                    'features.characters.pages.character-listing-page.campaign'
-                        | translate
-                }}
-            </th>
-            <th>
-                {{
-                    'features.characters.pages.character-listing-page.action'
-                        | translate
-                }}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (character of characters; track character.id) {
-            <tr>
-                <td>
-                    {{ character.name }}
-                </td>
-                <td>
-                    {{ character.raceIndexDto.name }}
-                </td>
-                <td>
-                    {{ character.level }}
-                </td>
-                <td>
-                    @if (character.campagnId > 0) {
-                        Dans une campagne
-                    } @else {
-                        Pas dans une campagne
-                    }
-                </td>
-                <td>
-                    <button (click)="onClickDetails(character.id)">🔎</button>
-                    <button (click)="onClickUpdate(character.id)">✒️</button>
-                    <button (click)="onClickDelete(character.id)">🗑️</button>
-                    @if (elementIdToConfirm() === character.id) {
-                        <app-confirm-modal
-                            (confirmed)="onModalAction($event)"
-                            [message]="
-                                'components.common.listing-table-admin.delete-element'
-                                    | translate: { element: character.name }
-                            "
-                        />
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <app-pagination
+        [total]="count"
+        [(currentPage)]="currentPage"
+        (futurPage)="futurPage($event)"
+        [pageSize]="pageSize"
+    />
+
+    <div class="table-responsive">
+        <table
+            class="table table-hover table-striped table-bordered text-center align-middle"
+        >
+            <thead class="table-dark">
+                <tr>
+                    <th>
+                        <i class="bi bi-person-fill me-1"></i>
+                        {{ 'common.name' | translate }}
+                    </th>
+                    <th>
+                        <i class="bi bi-mask me-1"></i>
+                        {{ 'common.races' | translate }}
+                    </th>
+                    <th>
+                        <i class="bi bi-graph-up me-1"></i>
+                        {{ 'common.level' | translate }}
+                    </th>
+                    <th>
+                        <i class="bi bi-compass-fill me-1"></i>
+                        {{ 'common.campaign' | translate }}
+                    </th>
+                    <th>
+                        <i class="bi bi-gear-fill me-1"></i>
+                        {{ 'common.action' | translate }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (character of characters; track character.id) {
+                    <tr>
+                        <td class="fw-bold text-start">{{ character.name }}</td>
+                        <td>{{ character.raceIndexDto.name }}</td>
+                        <td>
+                            <span class="badge text-bg-info">{{
+                                character.level
+                            }}</span>
+                        </td>
+                        <td>
+                            <label class="switch-display">
+                                <input
+                                    type="checkbox"
+                                    disabled
+                                    [checked]="character.campagnId > 0"
+                                />
+                                <span class="slider"></span>
+                            </label>
+                            @if (character.campagnId > 0) {
+                                <span class="ms-2 badge text-bg-success"
+                                    >Actif</span
+                                >
+                            } @else {
+                                <span
+                                    class="ms-2 badge text-bg-warning text-dark"
+                                    >Libre</span
+                                >
+                            }
+                        </td>
+                        <td class="action-buttons">
+                            <button
+                                class="btn btn-sm btn-info me-1"
+                                title="Détails"
+                                (click)="onClickDetails(character.id)"
+                            >
+                                <i class="bi bi-eye">🔎</i>
+                            </button>
+                            <button
+                                class="btn btn-sm btn-warning me-1"
+                                title="Modifier"
+                                (click)="onClickUpdate(character.id)"
+                            >
+                                <i class="bi bi-pencil">✒️</i>
+                            </button>
+                            <button
+                                class="btn btn-sm btn-danger"
+                                title="Supprimer"
+                                (click)="onClickDelete(character.id)"
+                            >
+                                <i class="bi bi-trash">🗑️</i>
+                            </button>
+
+                            @if (elementIdToConfirm() === character.id) {
+                                <app-confirm-modal
+                                    (confirmed)="onModalAction($event)"
+                                    [message]="
+                                        'components.common.listing-table-admin.delete-element'
+                                            | translate
+                                                : { element: character.name }
+                                    "
+                                />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

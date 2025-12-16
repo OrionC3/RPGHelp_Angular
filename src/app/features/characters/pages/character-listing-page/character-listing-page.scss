@@ -1,0 +1,25 @@
+// character-listing-page.component.scss
+
+// S'assurer que les boutons d'action sont bien alignés dans la colonne
+.action-buttons {
+    // Utiliser Flexbox pour centrer si le contenu devient plus grand
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // Cibler les boutons pour un meilleur clic (surtout si vous avez beaucoup d'icônes)
+    button {
+        padding: 0.25rem 0.5rem; // Rendre les boutons sm un peu plus cliquables
+    }
+}
+
+// Assurer un style cohérent pour les badges
+.badge {
+    min-width: 80px; // Assurer que les badges ont une taille minimale constante
+    font-size: 0.9em;
+}
+
+// Les noms de personnages sont souvent plus longs, on leur donne un peu plus de place
+.table th:first-child,
+.table td:first-child {
+    width: 20%;
+}

@@ -21,7 +21,7 @@
                                 charactersForm.get('name')?.touched &&
                                 charactersForm.get('name')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -44,10 +44,7 @@
                     <div class="col-md-4 mb-3">
                         <div class="stat-field-group">
                             <label for="speed" class="form-label fw-bold"
-                                >{{
-                                    'features.characters.speed' | translate
-                                }}
-                                :</label
+                                >{{ 'common.travelSpeed' | translate }} :</label
                             ><input
                                 type="number"
                                 min="1"
@@ -58,7 +55,7 @@
                                 charactersForm.get('speed')?.touched &&
                                 charactersForm.get('speed')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -79,17 +76,14 @@
                                 charactersForm.get('xp')?.touched &&
                                 charactersForm.get('xp')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <div class="stat-field-group">
                             <label for="level" class="form-label fw-bold"
-                                >{{
-                                    'features.characters.level' | translate
-                                }}
-                                :</label
+                                >{{ 'common.level' | translate }} :</label
                             ><input
                                 type="number"
                                 min="1"
@@ -100,7 +94,7 @@
                                 charactersForm.get('level')?.touched &&
                                 charactersForm.get('level')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -122,7 +116,7 @@
                                 charactersForm.get('pvMax')?.touched &&
                                 charactersForm.get('pvMax')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -157,7 +151,7 @@
                                 charactersForm.get('strength')?.touched &&
                                 charactersForm.get('strength')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -178,7 +172,7 @@
                                 charactersForm.get('dexterity')?.touched &&
                                 charactersForm.get('dexterity')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -200,7 +194,7 @@
                                 charactersForm.get('constitution')?.touched &&
                                 charactersForm.get('constitution')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -222,7 +216,7 @@
                                 charactersForm.get('intelligence')?.touched &&
                                 charactersForm.get('intelligence')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -243,7 +237,7 @@
                                 charactersForm.get('wisdom')?.touched &&
                                 charactersForm.get('wisdom')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -264,7 +258,7 @@
                                 charactersForm.get('charisma')?.touched &&
                                 charactersForm.get('charisma')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -299,7 +293,7 @@
                                 charactersForm.get('initiative')?.touched &&
                                 charactersForm.get('initiative')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -324,7 +318,7 @@
                                     ?.touched &&
                                 charactersForm.get('baseAttackBonus')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -345,7 +339,7 @@
                                 charactersForm.get('defence')?.touched &&
                                 charactersForm.get('defence')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -369,7 +363,7 @@
                                 charactersForm.get('fortitudeSave')?.touched &&
                                 charactersForm.get('fortitudeSave')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -391,7 +385,7 @@
                                 charactersForm.get('reflexeSave')?.touched &&
                                 charactersForm.get('reflexeSave')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -415,7 +409,7 @@
                                 charactersForm.get('willpowerSave')?.touched &&
                                 charactersForm.get('willpowerSave')?.invalid
                             ) {
-                                <p>Champs requis</p>
+                                <p>{{ 'common.field-required' | translate }}</p>
                             }
                         </div>
                     </div>
@@ -430,10 +424,7 @@
             type="submit"
             class="btn btn-primary"
         >
-            {{
-                'features.characters.pages.character-create-page.create-characters'
-                    | translate
-            }}
+            {{ 'features.characters.create-characters' | translate }}
         </button>
     </div>
 </form>

@@ -11,7 +11,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-character-update-page',
-    imports: [ReactiveFormsModule, TranslatePipe, InputTextAutocomplete],
+    imports: [ReactiveFormsModule, TranslatePipe],
     templateUrl: './character-update-page.html',
     styleUrl: './character-update-page.scss',
 })

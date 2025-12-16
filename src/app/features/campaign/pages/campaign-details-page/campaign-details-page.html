@@ -3,7 +3,7 @@
     "{{ campaign?.name }}"
 </h2>
 <p>
-    {{ 'features.campaign.pages.campaign-details-page.id' | translate }}
+    {{ 'common.id' | translate }}
     {{ campaign?.id }}
 </p>
 <p>
@@ -23,17 +23,32 @@
     {{ campaign?.isFinish }}
 </p>
 @if (isGM) {
-    <p>Utilisateur présent dans la campagne</p>
+    <p>
+        {{
+            'features.campaign.pages.campaign-details-page.user-in-campaign'
+                | translate
+        }}
+    </p>
     @for (user of userInCampaign; track $index) {
         <p>
             {{ user.email
             }}<button type="button" (click)="removeUser(user.id)">❌</button>
         </p>
     } @empty {
-        <p>Pas d'utilisateurs dans la campagne</p>
+        <p>
+            {{
+                'features.campaign.pages.campaign-details-page.user-not-in-campaign'
+                    | translate
+            }}
+        </p>
     }
     <form>
-        <p>inviter des utilisateurs</p>
+        <p>
+            {{
+                'features.campaign.pages.campaign-details-page.invit-user'
+                    | translate
+            }}
+        </p>
         <app-input-text-autocomplete
             inputId="userId"
             [placeholder]="'Ma petite recherche'"
@@ -47,9 +62,19 @@
     </form>
 } @else {
     @if (inCampaign) {
-        <button (click)="leaveCampaign()">Leave Campaign</button>
+        <button (click)="leaveCampaign()">
+            {{
+                'features.campaign.pages.campaign-details-page.leave-campaign'
+                    | translate
+            }}
+        </button>
     } @else {
-        <button (click)="joinCampaign()">Join Campaign</button>
+        <button (click)="joinCampaign()">
+            {{
+                'features.campaign.pages.campaign-details-page.join-campaign'
+                    | translate
+            }}
+        </button>
     }
 }
 
@@ -57,15 +82,12 @@
     {{ 'features.campaign.pages.campaign-details-page.next' | translate }}
 </button>
 <button [routerLink]="['/campaign/edit', campaign?.id]">
-    {{ 'features.campaign.pages.campaign-details-page.edit' | translate }}
+    {{ 'common.edit' | translate }}
 </button>
 <button (click)="deleteCampaign()">
-    {{ 'features.campaign.pages.campaign-details-page.delete' | translate }}
+    {{ 'common.delete' | translate }}
 </button>
 <br /><br />
 <a [routerLink]="['/campaign']">
-    {{
-        'features.campaign.pages.campaign-details-page.return-listing'
-            | translate
-    }}
+    {{ 'common.return-listing' | translate }}
 </a>

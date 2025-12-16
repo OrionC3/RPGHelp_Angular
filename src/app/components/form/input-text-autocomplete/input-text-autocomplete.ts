@@ -1,9 +1,10 @@
 import { Component, forwardRef, input, output } from '@angular/core';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-input-text-autocomplete',
-    imports: [FormsModule],
+    imports: [FormsModule, TranslatePipe],
     templateUrl: './input-text-autocomplete.html',
     styleUrl: './input-text-autocomplete.scss',
     providers: [

@@ -25,6 +25,6 @@
     } @else if (
         showSuggestions && suggestions().length === 0 && searchTerm.length > 0
     ) {
-        <div class="no-results">Aucun résultat trouvé.</div>
+        <div class="no-results">{{ 'common.not-found' | translate }}</div>
     }
 </div>

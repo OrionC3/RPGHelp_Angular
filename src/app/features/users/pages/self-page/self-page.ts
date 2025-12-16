@@ -1,11 +1,12 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { UserSelfDto } from '@core/models/user-self-dto.model';
 import { UserService } from '@core/services/user.service';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-self-page',
-    imports: [TranslatePipe],
+    imports: [TranslatePipe, RouterLink],
     templateUrl: './self-page.html',
     styleUrl: './self-page.scss',
 })
