@@ -1,4 +1,4 @@
-<button [disabled]="currentPage() <= 1" (click)="onFirstPage()">
+<!-- <button [disabled]="currentPage() <= 1" (click)="onFirstPage()">
     {{ 'components.layout.pagination.first-page' | translate }}
 </button>
 <button [disabled]="currentPage() <= 1" (click)="onClickPrevious()">
@@ -12,4 +12,66 @@
 </button>
 <button [disabled]="currentPage() >= maxPages()" (click)="onLastPage()">
     {{ 'components.layout.pagination.last-page' | translate }}
-</button>
+</button> -->
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage() <= 1">
+            <button
+                class="page-link"
+                (click)="onFirstPage()"
+                [disabled]="currentPage() <= 1"
+            >
+                <span aria-hidden="true">&laquo;</span>
+                <span class="d-none d-sm-inline ms-1">{{
+                    'components.layout.pagination.first-page' | translate
+                }}</span>
+            </button>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage() <= 1">
+            <button
+                class="page-link"
+                (click)="onClickPrevious()"
+                [disabled]="currentPage() <= 1"
+            >
+                <span aria-hidden="true">&lsaquo;</span>
+                <span class="d-none d-sm-inline ms-1">{{
+                    'components.layout.pagination.previous-page' | translate
+                }}</span>
+            </button>
+        </li>
+
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+                {{ currentPage() }}
+            </span>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage() >= maxPages()">
+            <button
+                class="page-link"
+                (click)="onClickNext()"
+                [disabled]="currentPage() >= maxPages()"
+            >
+                <span class="d-none d-sm-inline me-1">{{
+                    'components.layout.pagination.next-page' | translate
+                }}</span>
+                <span aria-hidden="true">&rsaquo;</span>
+            </button>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage() >= maxPages()">
+            <button
+                class="page-link"
+                (click)="onLastPage()"
+                [disabled]="currentPage() >= maxPages()"
+            >
+                <span class="d-none d-sm-inline me-1">{{
+                    'components.layout.pagination.last-page' | translate
+                }}</span>
+                <span aria-hidden="true">&raquo;</span>
+            </button>
+        </li>
+    </ul>
+</nav>

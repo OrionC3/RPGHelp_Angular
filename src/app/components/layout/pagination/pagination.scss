@@ -1,0 +1,25 @@
+.pagination {
+    // 1. Ajouter une petite marge entre chaque élément de pagination (page-item)
+    .page-item {
+        margin-left: 0.1rem; // Très petite marge pour séparer les bords
+        margin-right: 0.1rem;
+    }
+
+    // 2. S'assurer que le contenu du bouton (page-link) a suffisamment de padding interne
+    .page-link {
+        // Le padding par défaut de Bootstrap est généralement suffisant (ex: 0.375rem 0.75rem)
+        // Vous pouvez le surcharger si vous voulez plus d'air autour du texte :
+        padding: 0.5rem 1rem; // Exemple : Augmente légèrement le padding
+
+        // S'assurer que les boutons désactivés ont un espacement correct
+        &:disabled {
+            // Pas de changement ici, mais vérifiez que le padding est conservé
+        }
+    }
+
+    // 3. Cas particulier de la page active (qui est un span et non un bouton)
+    .page-item.active .page-link {
+        // S'assurer que la page active a le même padding
+        padding: 0.5rem 1rem;
+    }
+}

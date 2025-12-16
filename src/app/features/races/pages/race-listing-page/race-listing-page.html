@@ -161,7 +161,12 @@
                         class="d-flex justify-content-between mb-2 pb-1 border-bottom"
                     >
                         <span class="fw-bold">
-                            <i class="bi bi-speedometer2 me-1"></i> Vitesse :
+                            <i class="bi bi-speedometer2 me-1"></i>
+                            {{
+                                'features.races.pages.race-listing-page.travelSpeed'
+                                    | translate
+                            }}
+                            :
                         </span>
                         <span>{{ race.travelSpeed }}</span>
                     </div>
@@ -191,7 +196,7 @@
                             class="btn btn-outline-primary w-100"
                             (click)="onClickDetails(race.id)"
                         >
-                            Voir les détails
+                            🔎
                         </button>
                     </div>
                 </div>
