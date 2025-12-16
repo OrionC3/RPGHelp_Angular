@@ -21,7 +21,7 @@ export class LoadingService {
   }
 
   /** Affiche le spinner pendant X millisecondes. */
-  showFor(ms: number = 2000): void {
+  showFor(ms: number = 500): void {
     this.show();
     setTimeout(() => this.hide(), ms);
   }
