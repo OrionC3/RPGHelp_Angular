@@ -19,11 +19,10 @@
     <app-form-errors [control]="password"></app-form-errors>
   </div>
 
-  <button type="submit" [disabled]="loginForm.invalid">
-    {{ 'features.auth.pages.button-submit' | translate }}
-  </button>
-
-  @if (loginError) {
-    <p>{{ loginError }}</p>
-  }
+    <button type="submit" [disabled]="loginForm.invalid">
+        {{ 'common.login' | translate }}
+    </button>
+    @if (loginError) {
+        <p>{{ loginError }}</p>
+    }
 </form>

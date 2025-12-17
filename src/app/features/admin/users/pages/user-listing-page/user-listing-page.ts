@@ -6,10 +6,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 import { ListingTableAdmin } from '@components/common/listing-table-admin/listing-table-admin';
 import { ColumnDefinition } from '@core/models/column-definition.models';
+import { Pagination } from '@components/layout/pagination/pagination';
 
 @Component({
     selector: 'app-user-listing-page',
-    imports: [ListingTableAdmin, TranslatePipe, ListingTableAdmin],
+    imports: [ListingTableAdmin, TranslatePipe, ListingTableAdmin, Pagination],
     templateUrl: './user-listing-page.html',
     styleUrl: './user-listing-page.scss',
 })
@@ -19,6 +20,9 @@ export class UserListingPage {
     count: number | null = null;
     user: UserListing[] = [];
     userError: string | null = null;
+
+    pageSize: number = 10;
+    currentPage: number = 1;
 
     public userColumns: ColumnDefinition[] = [
         {
@@ -60,6 +64,19 @@ export class UserListingPage {
             })
             .catch((err) => {
                 console.error(err.message);
+                this.userError = err.message;
+            });
+    }
+
+    futurPage(next: number) {
+        this._userService
+            .getUsers(next - 1)
+            .then((data) => {
+                this.user = data.data;
+                this.count = data.count;
+            })
+            .catch((err) => {
+                console.error(err);
                 this.userError = err.message;
             });
     }

@@ -1,6 +1,16 @@
 <h2>
-    {{ 'features.admin.users.pages.user-listing-page.user-list' | translate }}
+    {{
+        'common.list-element'
+            | translate: { element: ('common.users' | translate) }
+    }}
 </h2>
+
+<app-pagination
+    [total]="count"
+    [(currentPage)]="currentPage"
+    (futurPage)="futurPage($event)"
+    [pageSize]="pageSize"
+/>
 
 <app-listing-table-admin
     [elements]="user"

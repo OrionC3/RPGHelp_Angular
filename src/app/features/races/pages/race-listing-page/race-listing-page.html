@@ -5,6 +5,13 @@
     [pageSize]="pageSize"
 />
 
+<h2 class="text-center">
+    {{
+        'common.list-element'
+            | translate: { element: ('common.races' | translate) }
+    }}
+</h2>
+
 <div class="row g-4 mt-3">
     @for (race of races; track race.id) {
         <div class="col-sm-6 col-md-4 col-lg-3">

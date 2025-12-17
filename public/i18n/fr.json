@@ -17,9 +17,9 @@
         "users": {
             "pages": {
                 "self-page": {
-                    "role": "Role",
-                    "characters-list": "Liste des personnages",
-                    "campagns-list": "Liste des campagnes"
+                    "title": "Mon compte",
+                    "info-account": "Information",
+                    "role": "Role"
                 }
             }
         },
@@ -60,9 +60,6 @@
                 "pages": {
                     "user-details-page": {
                         "user-details": "Détails de l'utilisateur"
-                    },
-                    "user-listing-page": {
-                        "user-list": "Liste des utilisateurs"
                     }
                 }
             }
@@ -119,7 +116,6 @@
                 "role-user": "Role du user: {{role}}",
                 "home": "Accueil",
                 "logout": "Déconnexion",
-                "users": "Utilisateurs",
                 "self": "Mon Compte"
             },
             "pagination": {
@@ -151,8 +147,9 @@
         "name": "Nom",
 
         "level": "Level",
-        "campaign": "Campagne",
-        "characters": "Personnage",
+        "campaign": "Campagnes",
+        "characters": "Personnages",
+        "users": "Utilisateurs",
 
         "races": "Races",
 
@@ -169,6 +166,7 @@
         "confirm": "Confirmer",
         "cancel": "Annuler",
         "action": "Action",
-        "field-required": "Champs requis"
+        "field-required": "Champs requis",
+        "list-element": "Liste des {element}"
     }
 }

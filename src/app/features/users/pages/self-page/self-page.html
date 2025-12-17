@@ -1,12 +1,17 @@
 @if (user) {
     <div class="container my-5">
-        <h1 class="mb-4 text-center">Mon Tableau de Bord</h1>
+        <h1 class="mb-4 text-center">
+            {{ 'features.users.pages.self-page.title' | translate }}
+        </h1>
 
         <div class="card mb-5 shadow-lg border-primary">
             <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">
-                    <i class="bi bi-person-circle me-2"></i> Informations du
-                    Compte
+                    <i class="bi bi-person-circle me-2"></i
+                    >{{
+                        'features.users.pages.self-page.info-account'
+                            | translate
+                    }}
                 </h5>
             </div>
             <div class="card-body">
@@ -52,8 +57,13 @@
                         <h5 class="mb-0">
                             <i class="bi bi-people-fill me-2"></i>
                             {{
-                                'features.users.pages.self-page.characters-list'
+                                'common.list-element'
                                     | translate
+                                        : {
+                                              element:
+                                                  ('common.characters'
+                                                  | translate),
+                                          }
                             }}
                             ({{ user.characteres.length }})
                         </h5>
@@ -108,8 +118,13 @@
                         <h5 class="mb-0">
                             <i class="bi bi-book-half me-2"></i>
                             {{
-                                'features.users.pages.self-page.campagns-list'
+                                'common.list-element'
                                     | translate
+                                        : {
+                                              element:
+                                                  ('common.campaign'
+                                                  | translate),
+                                          }
                             }}
                             ({{ user.campagns.length }})
                         </h5>
@@ -149,5 +164,7 @@
         </div>
     </div>
 } @else {
-    <p class="text-center my-5 text-danger">Utilisateur non trouvé.</p>
+    <p class="text-center my-5 text-danger">
+        {{ 'common.users' | translate }} {{ 'common.not-found' }}
+    </p>
 }

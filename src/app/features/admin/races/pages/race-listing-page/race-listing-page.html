@@ -1,11 +1,23 @@
-<button (click)="addRace()">➕</button>
+<div
+    class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-3 position-relative"
+>
+    <button
+        (click)="addRace()"
+        class="btn btn-info btn-xs position-md-absolute start-0 top-50 translate-middle-y-md mb-2 mb-md-0"
+    >
+        {{ 'common.create' | translate }}
+    </button>
 
-<app-pagination
-    [total]="count"
-    [(currentPage)]="currentPage"
-    (futurPage)="futurPage($event)"
-    [pageSize]="pageSize"
-/>
+    <div class="text-center w-100">
+        <app-pagination
+            [total]="count"
+            [(currentPage)]="currentPage"
+            (futurPage)="futurPage($event)"
+            [pageSize]="pageSize"
+        />
+    </div>
+</div>
+
 <table
     class="table table-hover table-bordered table-striped text-center align-middle"
 >

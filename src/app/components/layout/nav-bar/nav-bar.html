@@ -43,12 +43,12 @@
                 @if (!isConnected()) {
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/auth/login">{{
-                            'components.layout.nav-bar.login' | translate
+                            'common.login' | translate
                         }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/auth/register">{{
-                            'components.layout.nav-bar.register' | translate
+                            'common.register' | translate
                         }}</a>
                     </li>
                 }
@@ -87,10 +87,7 @@
                                 <a
                                     class="dropdown-item"
                                     routerLink="/admin/user"
-                                    >{{
-                                        'components.layout.nav-bar.users'
-                                            | translate
-                                    }}</a
+                                    >{{ 'common.users' | translate }}</a
                                 >
                             </li>
                             <li>
