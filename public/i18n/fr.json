@@ -4,7 +4,6 @@
             "pages": {
                 "email-input-error-required": "L'email est requis",
                 "email-input-error-email": "L'email doit ressembler à un email : \"votreNom@mail.com\"",
-
                 "password-label": "Mot de passe",
                 "password-input-error-required": "Le mot de passe est requis",
                 "password-input-error-lowerCase": "Le mot de passe doit contenir au moins une lettre minuscule",
@@ -130,39 +129,42 @@
                 "password-input-hiden": "Masquer",
                 "password-input-show": "Afficher"
             },
+            "listing-table-admin": {
+                "delete-element": "Supprimer l'élement {element} ?"
+            },
             "spinner": {
                 "loading-text": "Chargement en cours..."
             },
-            "listing-table-admin": {
-                "delete-element": "Supprimer l'élement {element} ?"
+            "form-errors": {
+                "required": "Le champ est requis",
+                "email": "L'adresse email est invalide",
+                "minlength": "Trop court",
+                "maxlength": "Trop long",
+                "lowerCase": "Dois contenir des lettres minuscules",
+                "upperCase": "Dois contenir des lettres majuscules",
+                "number": "Dois contenir des chiffres",
+                "specialChar": "Dois contenir des caractères spéciaux"
             }
         }
     },
     "common": {
         "login": "Se connecter",
         "register": "S'enregistrer",
-
         "id": "Id",
         "email": "Email",
         "name": "Nom",
-
         "level": "Level",
         "campaign": "Campagnes",
         "characters": "Personnages",
         "users": "Utilisateurs",
-
         "races": "Races",
-
         "travelSpeed": "Vitesse de déplacement",
-
         "return-listing": "◀️ Retour à la liste",
         "details": "Détails 🔎",
         "create": "Créer ➕",
         "edit": "Editer ✒️",
         "delete": "Supprimer 🚮",
-
         "not-found": "Non trouvé",
-
         "confirm": "Confirmer",
         "cancel": "Annuler",
         "action": "Action",

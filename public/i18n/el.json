@@ -2,20 +2,111 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "Ηλεκτρονική διεύθυνση",
-                "email-input-error-required": "Η ηλεκτρονική διεύθυνση είναι υποχρεωτική",
-                "email-input-error-email": "Η ηλεκτρονική διεύθυνση πρέπει να μοιάζει με: \"τοΟνομάΣας@mail.com\"",
-
-                "password-label": "Κωδικός πρόσβασης",
-                "password-input-error-required": "Ο κωδικός πρόσβασης είναι υποχρεωτικός",
-                "password-input-error-lowerCase": "Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα **πεζό γράμμα**",
-                "password-input-error-upperCase": "Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα **κεφαλαίο γράμμα**",
-                "password-input-error-number": "Ο κωδικός πρέπει να περιέχει τουλάχιστον έναν **αριθμό**",
-                "password-input-error-tooShort": "Ο κωδικός πρέπει να περιέχει τουλάχιστον **8 χαρακτήρες**",
-                "password-input-error-specialChar": "Ο κωδικός πρέπει να περιέχει τουλάχιστον έναν **ειδικό χαρακτήρα** (π.χ. : !@#$%^&*)",
-                "button-submit": "Σύνδεση",
-                "button-register": "Εγγραφή"
+                "email-input-error-required": "Το email είναι υποχρεωτικό",
+                "email-input-error-email": "Το email πρέπει να έχει τη μορφή: \"yourName@mail.com\"",
+                "password-label": "Συνθηματικό",
+                "password-input-error-required": "Το συνθηματικό είναι υποχρεωτικό",
+                "password-input-error-lowerCase": "Το συνθηματικό πρέπει να περιέχει τουλάχιστον ένα πεζό γράμμα",
+                "password-input-error-upperCase": "Το συνθηματικό πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα",
+                "password-input-error-number": "Το συνθηματικό πρέπει να περιέχει τουλάχιστον έναν αριθμό",
+                "password-input-error-tooShort": "Το συνθηματικό πρέπει να έχει μήκος τουλάχιστον 8 χαρακτήρες",
+                "password-input-error-specialChar": "Το συνθηματικό πρέπει να περιέχει τουλάχιστον έναν ειδικό χαρακτήρα (π.χ., !@#$%^&*)"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "Ο Λογαριασμός μου",
+                    "info-account": "Πληροφορίες",
+                    "role": "Ρόλος"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - Εφαρμογή",
+                    "p1": "Καλώς ήρθατε στο RPGHelp, ένα εργαλείο συνοδείας σχεδιασμένο να υποστηρίζει τις περιπέτειές σας σε επιτραπέζια RPG. Διαχειριστείτε τους χαρακτήρες σας, παρακολουθήστε καμπάνιες και αποκτήστε πρόσβαση σε χρήσιμες λειτουργίες για να κάνετε τις συνεδρίες σας πιο ομαλές και καθηλωτικές."
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "Καμπάνιες"
+                },
+                "campaign-details-page": {
+                    "title": "Λεπτομέρειες Καμπάνιας: ",
+                    "next": "Επόμενη Καμπάνια ⏩",
+                    "user-in-campaign": "χρήστης στην καμπάνια",
+                    "user-not-in-campaign": "Κανένας χρήστης στην καμπάνια",
+                    "invit-user": "Πρόσκληση χρήστη στην καμπάνια",
+                    "join-campaign": "Συμμετοχή στην καμπάνια",
+                    "leave-campaign": "Αποχώρηση από την καμπάνια"
+                },
+                "campaign-edit-page": {
+                    "title": "Επεξεργασία Καμπάνιας: "
+                },
+                "campaign-form-page": {
+                    "title": "Προσθήκη Νέας Καμπάνιας:",
+                    "name-input-error-required": "Το όνομα της καμπάνιας είναι υποχρεωτικό!",
+                    "name-input-error-shortOrLong": "Το μήκος του ονόματος της καμπάνιας δεν είναι έγκυρο: μεταξύ {minLength} και {maxLength} χαρακτήρων!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "Λεπτομέρειες Χρήστη"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "Μέγιστα PV",
+                    "pvCurrent": "Τρέχοντα PV"
+                },
+                "character-details-page": {
+                    "pv": "Πόντοι Ζωής"
+                }
+            },
+            "create-characters": "Δημιουργία Χαρακτήρα",
+            "character-info": "ℹ️ Πληροφορίες Χαρακτήρα",
+            "character-stat": "⚔️ Στατιστικά Χαρακτήρα",
+            "character-defence": "🛡️ Τιμές Μάχης και Σώσεις",
+            "strength": "Δύναμη",
+            "dexterity": "Επιδεξιότητα",
+            "constitution": "Αντοχή",
+            "intelligence": "Νοημοσύνη",
+            "wisdom": "Σοφία",
+            "charisma": "Χάρισμα",
+            "defence": "Άμυνα",
+            "initiative": "Πρωτοβουλία",
+            "base-attack-bonus": "Βασικό Μπόνους Επίθεσης",
+            "fortitude-save": "Σώση Ανθεκτικότητας",
+            "reflexe-save": "Σώση Αντανακλαστικών",
+            "willpower-save": "Σώση Θέλησης",
+            "xp": "Xp"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ Πληροφορίες Φυλής",
+                    "race-bonus": "➕ Μπόνους Στατιστικών Φυλής",
+                    "race-malus": "➖ Ποινή Στατιστικών Φυλής",
+                    "race-create": "Δημιουργία Φυλής"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "Φυλετικά Μπόνους/Ποινές"
+                }
+            },
+            "bonusName": "Όνομα Μπόνους",
+            "bonusValue": "Τιμές Μπόνους",
+            "malusName": "Όνομα Ποινής",
+            "malusValue": "Τιμή Ποινής"
         }
     },
     "components": {
@@ -23,17 +114,61 @@
             "nav-bar": {
                 "role-user": "Ρόλος χρήστη: {{role}}",
                 "home": "Αρχική",
-                "login": "Σύνδεση",
                 "logout": "Αποσύνδεση",
-                "register": "Εγγραφή",
-                "users": "Χρήστες"
+                "self": "Ο Λογαριασμός μου"
+            },
+            "pagination": {
+                "first-page": "Πρώτη Σελίδα",
+                "previous-page": "Προηγούμενη Σελίδα",
+                "next-page": "Επόμενη Σελίδα",
+                "last-page": "Τελευταία Σελίδα"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "Απόκρυψη",
                 "password-input-show": "Εμφάνιση"
+            },
+            "listing-table-admin": {
+                "delete-element": "Διαγραφή στοιχείου {element};"
+            },
+            "spinner": {
+                "loading-text": "Φόρτωση σε εξέλιξη..."
+            },
+            "form-errors": {
+                "required": "Αυτό το πεδίο είναι υποχρεωτικό",
+                "email": "Μη έγκυρη διεύθυνση email",
+                "minlength": "Πολύ μικρό",
+                "maxlength": "Πολύ μεγάλο",
+                "lowerCase": "Πρέπει να περιέχει ένα πεζό γράμμα",
+                "upperCase": "Πρέπει να περιέχει ένα κεφαλαίο γράμμα",
+                "number": "Πρέπει να περιέχει έναν αριθμό",
+                "specialChar": "Πρέπει να περιέχει έναν ειδικό χαρακτήρα"
             }
         }
+    },
+    "common": {
+        "login": "Σύνδεση",
+        "register": "Εγγραφή",
+        "id": "Id",
+        "email": "Email",
+        "name": "Όνομα",
+        "level": "Επίπεδο",
+        "campaign": "Καμπάνιες",
+        "characters": "Χαρακτήρες",
+        "users": "Χρήστες",
+        "races": "Φυλές",
+        "travelSpeed": "Ταχύτητα Ταξιδιού",
+        "return-listing": "◀️ Επιστροφή στη λίστα",
+        "details": "Λεπτομέρειες 🔎",
+        "create": "Δημιουργία ➕",
+        "edit": "Επεξεργασία ✒️",
+        "delete": "Διαγραφή 🚮",
+        "not-found": "Δεν βρέθηκε",
+        "confirm": "Επιβεβαίωση",
+        "cancel": "Ακύρωση",
+        "action": "Ενέργεια",
+        "field-required": "Απαιτούμενο Πεδίο",
+        "list-element": "Λίστα {element}"
     }
 }

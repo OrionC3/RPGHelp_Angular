@@ -2,38 +2,173 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "E-posta",
-                "email-input-error-required": "E-posta gereklidir",
-                "email-input-error-email": "E-posta şöyle görünmelidir: \"adınız@mail.com\"",
-
+                "email-input-error-required": "E-posta adresi gereklidir",
+                "email-input-error-email": "E-posta şu formatta olmalıdır: \"yourName@mail.com\"",
                 "password-label": "Şifre",
                 "password-input-error-required": "Şifre gereklidir",
-                "password-input-error-lowerCase": "Şifre en az bir **küçük harf** içermelidir",
-                "password-input-error-upperCase": "Şifre en az bir **büyük harf** içermelidir",
-                "password-input-error-number": "Şifre en az bir **rakam** içermelidir",
-                "password-input-error-tooShort": "Şifre en az **8 karakter** içermelidir",
-                "password-input-error-specialChar": "Şifre en az bir **özel karakter** içermelidir (ör. : !@#$%^&*)",
-                "button-submit": "Giriş Yap",
-                "button-register": "Kaydol"
+                "password-input-error-lowerCase": "Şifre en az bir küçük harf içermelidir",
+                "password-input-error-upperCase": "Şifre en az bir büyük harf içermelidir",
+                "password-input-error-number": "Şifre en az bir rakam içermelidir",
+                "password-input-error-tooShort": "Şifre en az 8 karakter uzunluğunda olmalıdır",
+                "password-input-error-specialChar": "Şifre en az bir özel karakter içermelidir (örneğin: !@#$%^&*)"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "Hesabım",
+                    "info-account": "Bilgiler",
+                    "role": "Rol"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - Uygulama",
+                    "p1": "Masaüstü RPG maceralarınızı desteklemek için tasarlanmış bir yardımcı araç olan RPGHelp'e hoş geldiniz. Karakterlerinizi yönetin, kampanyalarınızı takip edin ve oturumlarınızı daha akıcı ve sürükleyici hale getirmek için kullanışlı özelliklere erişin."
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "Kampanyalar"
+                },
+                "campaign-details-page": {
+                    "title": "Kampanya Detayları: ",
+                    "next": "Sonraki Kampanya ⏩",
+                    "user-in-campaign": "kampanyadaki kullanıcı",
+                    "user-not-in-campaign": "Kampanyada kullanıcı yok",
+                    "invit-user": "Kullanıcıyı kampanyaya davet et",
+                    "join-campaign": "Kampanyaya katıl",
+                    "leave-campaign": "Kampanyadan ayrıl"
+                },
+                "campaign-edit-page": {
+                    "title": "Kampanyayı Düzenle: "
+                },
+                "campaign-form-page": {
+                    "title": "Yeni Kampanya Ekle:",
+                    "name-input-error-required": "Kampanya adı gereklidir!",
+                    "name-input-error-shortOrLong": "Kampanya adı uzunluğu geçersiz: {minLength} ile {maxLength} karakter arasında olmalıdır!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "Kullanıcı Detayları"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "Maksimum Can",
+                    "pvCurrent": "Mevcut Can"
+                },
+                "character-details-page": {
+                    "pv": "Can Puanı"
+                }
+            },
+            "create-characters": "Karakter Oluştur",
+            "character-info": "ℹ️ Karakter Bilgisi",
+            "character-stat": "⚔️ Karakter İstatistikleri",
+            "character-defence": "🛡️ Savaş Değerleri ve Kurtarma Atışları",
+            "strength": "Güç",
+            "dexterity": "Çeviklik",
+            "constitution": "Dayanıklılık",
+            "intelligence": "Zeka",
+            "wisdom": "Bilgelik",
+            "charisma": "Karizma",
+            "defence": "Savunma",
+            "initiative": "Girişim",
+            "base-attack-bonus": "Temel Saldırı Bonusu",
+            "fortitude-save": "Dayanıklılık Kurtarması",
+            "reflexe-save": "Refleks Kurtarması",
+            "willpower-save": "İrade Kurtarması",
+            "xp": "Tecrübe Puanı"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ Irk Bilgisi",
+                    "race-bonus": "➕ Irk İstatistik Bonusu",
+                    "race-malus": "➖ Irk İstatistik Cezası",
+                    "race-create": "Irk Oluştur"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "Irksal Bonus/Ceza"
+                }
+            },
+            "bonusName": "Bonus Adı",
+            "bonusValue": "Bonus Değerleri",
+            "malusName": "Ceza Adı",
+            "malusValue": "Ceza Değeri"
         }
     },
     "components": {
         "layout": {
             "nav-bar": {
-                "role-user": "Kullanıcı Rolü: {{role}}",
-                "home": "Ana Sayfa",
-                "login": "Giriş",
-                "logout": "Çıkış",
-                "register": "Kaydol",
-                "users": "Kullanıcılar"
+                "role-user": "Kullanıcı rolü: {{role}}",
+                "home": "Anasayfa",
+                "logout": "Çıkış Yap",
+                "self": "Hesabım"
+            },
+            "pagination": {
+                "first-page": "İlk Sayfa",
+                "previous-page": "Önceki Sayfa",
+                "next-page": "Sonraki Sayfa",
+                "last-page": "Son Sayfa"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "Gizle",
                 "password-input-show": "Göster"
+            },
+            "listing-table-admin": {
+                "delete-element": "{element} ögesini silmek istiyor musunuz?"
+            },
+            "spinner": {
+                "loading-text": "Yükleniyor..."
+            },
+            "form-errors": {
+                "required": "Bu alan zorunludur",
+                "email": "Geçersiz e-posta adresi",
+                "minlength": "Çok kısa",
+                "maxlength": "Çok uzun",
+                "lowerCase": "Küçük harf içermelidir",
+                "upperCase": "Büyük harf içermelidir",
+                "number": "Bir rakam içermelidir",
+                "specialChar": "Özel bir karakter içermelidir"
             }
         }
+    },
+    "common": {
+        "login": "Giriş Yap",
+        "register": "Kayıt Ol",
+        "id": "Kimlik",
+        "email": "E-posta",
+        "name": "İsim",
+        "level": "Seviye",
+        "campaign": "Kampanyalar",
+        "characters": "Karakterler",
+        "users": "Kullanıcılar",
+        "races": "Irklar",
+        "travelSpeed": "Seyahat Hızı",
+        "return-listing": "◀️ Listeye dön",
+        "details": "Detaylar 🔎",
+        "create": "Oluştur ➕",
+        "edit": "Düzenle ✒️",
+        "delete": "Sil 🚮",
+        "not-found": "Bulunamadı",
+        "confirm": "Onayla",
+        "cancel": "İptal",
+        "action": "Eylem",
+        "field-required": "Alan Zorunlu",
+        "list-element": "{element} Listesi"
     }
 }

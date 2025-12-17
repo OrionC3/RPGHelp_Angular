@@ -1,39 +1,174 @@
 {
-  "features": {
-    "auth": {
-      "pages": {
-        "email-label": "电子邮件",
-        "email-input-error-required": "电子邮件是必需的",
-        "email-input-error-email": "电子邮件必须类似于 \"votreNom@mail.com\"",
-
-        "password-label": "密码",
-        "password-input-error-required": "密码是必需的",
-        "password-input-error-lowerCase": "密码必须包含至少一个**小写字母**",
-        "password-input-error-upperCase": "密码必须包含至少一个**大写字母**",
-        "password-input-error-number": "密码必须包含至少一个**数字**",
-        "password-input-error-tooShort": "密码必须包含至少**8个字符**",
-        "password-input-error-specialChar": "密码必须包含至少一个**特殊字符** (例如: !@#$%^&*)",
-        "button-submit": "登录",
-        "button-register": "注册"
-      }
-    }
-  },
-  "components": {
-    "layout": {
-      "nav-bar": {
-        "role-user": "用户角色: {{role}}",
-        "home": "主页",
-        "login": "登录",
-        "logout": "退出",
-        "register": "注册",
-        "users": "用户"
-      }
+    "features": {
+        "auth": {
+            "pages": {
+                "email-input-error-required": "电子邮件是必填项",
+                "email-input-error-email": "电子邮件格式不正确，示例：\"yourName@mail.com\"",
+                "password-label": "密码",
+                "password-input-error-required": "密码是必填项",
+                "password-input-error-lowerCase": "密码必须包含至少一个小写字母",
+                "password-input-error-upperCase": "密码必须包含至少一个大写字母",
+                "password-input-error-number": "密码必须包含至少一个数字",
+                "password-input-error-tooShort": "密码长度必须至少为 8 个字符",
+                "password-input-error-specialChar": "密码必须包含至少一个特殊字符（如：!@#$%^&*）"
+            }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "我的账户",
+                    "info-account": "账户信息",
+                    "role": "角色权限"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - 应用程序",
+                    "p1": "欢迎使用 RPGHelp，这是一个为支持您的桌面 RPG 冒险而设计的辅助工具。管理您的角色，跟踪战役，并使用各种功能让您的游戏过程更加流畅且更具沉浸感。"
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "战役列表"
+                },
+                "campaign-details-page": {
+                    "title": "战役详情：",
+                    "next": "下一场战役 ⏩",
+                    "user-in-campaign": "战役中的用户",
+                    "user-not-in-campaign": "战役中暂无用户",
+                    "invit-user": "邀请用户加入战役",
+                    "join-campaign": "加入战役",
+                    "leave-campaign": "离开战役"
+                },
+                "campaign-edit-page": {
+                    "title": "编辑战役："
+                },
+                "campaign-form-page": {
+                    "title": "添加新战役：",
+                    "name-input-error-required": "战役名称为必填项！",
+                    "name-input-error-shortOrLong": "战役名称长度无效：必须在 {minLength} 到 {maxLength} 个字符之间！"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "用户详情"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "最大生命值 (PV)",
+                    "pvCurrent": "当前生命值"
+                },
+                "character-details-page": {
+                    "pv": "生命点数"
+                }
+            },
+            "create-characters": "创建角色",
+            "character-info": "ℹ️ 角色信息",
+            "character-stat": "⚔️ 角色属性",
+            "character-defence": "🛡️ 战斗数值与豁免",
+            "strength": "力量 (Strength)",
+            "dexterity": "敏捷 (Dexterity)",
+            "constitution": "体质 (Constitution)",
+            "intelligence": "智力 (Intelligence)",
+            "wisdom": "感知 (Wisdom)",
+            "charisma": "魅力 (Charisma)",
+            "defence": "防御",
+            "initiative": "先攻 (Initiative)",
+            "base-attack-bonus": "基础攻击加成",
+            "fortitude-save": "强韧豁免",
+            "reflexe-save": "反射豁免",
+            "willpower-save": "意志豁免",
+            "xp": "经验值 (XP)"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ 种族信息",
+                    "race-bonus": "➕ 种族属性加成",
+                    "race-malus": "➖ 种族属性减益",
+                    "race-create": "创建种族"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "种族加成/减益"
+                }
+            },
+            "bonusName": "加成名称",
+            "bonusValue": "加成数值",
+            "malusName": "减益名称",
+            "malusValue": "减益数值"
+        }
     },
-    "common":{
-      "form":{
-        "password-input-hiden": "隐藏",
-        "password-input-show": "显示"
-      }
+    "components": {
+        "layout": {
+            "nav-bar": {
+                "role-user": "用户角色：{{role}}",
+                "home": "首页",
+                "logout": "登出",
+                "self": "我的账户"
+            },
+            "pagination": {
+                "first-page": "首页",
+                "previous-page": "上一页",
+                "next-page": "下一页",
+                "last-page": "尾页"
+            }
+        },
+        "common": {
+            "form": {
+                "password-input-hiden": "隐藏",
+                "password-input-show": "显示"
+            },
+            "listing-table-admin": {
+                "delete-element": "确认删除元素 {element} 吗？"
+            },
+            "spinner": {
+                "loading-text": "正在加载中..."
+            },
+            "form-errors": {
+                "required": "此字段为必填项",
+                "email": "电子邮件地址无效",
+                "minlength": "内容太短",
+                "maxlength": "内容太长",
+                "lowerCase": "必须包含小写字母",
+                "upperCase": "必须包含大写字母",
+                "number": "必须包含数字",
+                "specialChar": "必须包含特殊字符"
+            }
+        }
+    },
+    "common": {
+        "login": "登录",
+        "register": "注册",
+        "id": "ID",
+        "email": "电子邮件",
+        "name": "名称",
+        "level": "等级",
+        "campaign": "战役",
+        "characters": "角色",
+        "users": "用户",
+        "races": "种族",
+        "travelSpeed": "旅行速度",
+        "return-listing": "◀️ 返回列表",
+        "details": "详情 🔎",
+        "create": "创建 ➕",
+        "edit": "编辑 ✒️",
+        "delete": "删除 🚮",
+        "not-found": "未找到内容",
+        "confirm": "确认",
+        "cancel": "取消",
+        "action": "操作",
+        "field-required": "必填字段",
+        "list-element": "{element} 列表"
     }
-  }
 }

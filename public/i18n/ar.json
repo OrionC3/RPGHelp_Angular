@@ -2,38 +2,173 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "البريد الإلكتروني",
                 "email-input-error-required": "البريد الإلكتروني مطلوب",
-                "email-input-error-email": "يجب أن يكون البريد الإلكتروني على شكل: \"yourName@mail.com\"",
-
+                "email-input-error-email": "يجب أن يكون البريد الإلكتروني بالتنسيق التالي: \"yourName@mail.com\"",
                 "password-label": "كلمة المرور",
                 "password-input-error-required": "كلمة المرور مطلوبة",
-                "password-input-error-lowerCase": "يجب أن تحتوي كلمة المرور على حرف **صغير واحد** على الأقل",
-                "password-input-error-upperCase": "يجب أن تحتوي كلمة المرور على حرف **كبير واحد** على الأقل",
-                "password-input-error-number": "يجب أن تحتوي كلمة المرور على **رقم واحد** على الأقل",
-                "password-input-error-tooShort": "يجب أن تحتوي كلمة المرور على **8 أحرف** على الأقل",
-                "password-input-error-specialChar": "يجب أن تحتوي كلمة المرور على **حرف خاص واحد** على الأقل (مثل: !@#$%^&*)",
-                "button-submit": "تسجيل الدخول",
-                "button-register": "تسجيل"
+                "password-input-error-lowerCase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+                "password-input-error-upperCase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+                "password-input-error-number": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+                "password-input-error-tooShort": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+                "password-input-error-specialChar": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل (مثل !@#$%^&*)"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "حسابي",
+                    "info-account": "المعلومات",
+                    "role": "الدور"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - التطبيق",
+                    "p1": "مرحبًا بك في RPGHelp، أداة رفيقة مصممة لدعم مغامراتك في ألعاب تقمص الأدوار (RPG). قم بإدارة شخصياتك، وتتبع الحملات، والوصول إلى ميزات مفيدة لجعل جلساتك أكثر سلاسة وانغماسًا."
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "الحملات"
+                },
+                "campaign-details-page": {
+                    "title": "تفاصيل الحملة: ",
+                    "next": "الحملة التالية ⏩",
+                    "user-in-campaign": "مستخدم في الحملة",
+                    "user-not-in-campaign": "لا يوجد مستخدم في الحملة",
+                    "invit-user": "دعوة مستخدم للانضمام إلى الحملة",
+                    "join-campaign": "الانضمام إلى الحملة",
+                    "leave-campaign": "مغادرة الحملة"
+                },
+                "campaign-edit-page": {
+                    "title": "تعديل الحملة: "
+                },
+                "campaign-form-page": {
+                    "title": "إضافة حملة جديدة:",
+                    "name-input-error-required": "اسم الحملة مطلوب!",
+                    "name-input-error-shortOrLong": "طول اسم الحملة غير صالح: يجب أن يكون بين {minLength} و {maxLength} حرفًا!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "تفاصيل المستخدم"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "نقاط الحياة القصوى",
+                    "pvCurrent": "نقاط الحياة الحالية"
+                },
+                "character-details-page": {
+                    "pv": "نقاط الحياة"
+                }
+            },
+            "create-characters": "إنشاء شخصية",
+            "character-info": "ℹ️ معلومات الشخصية",
+            "character-stat": "⚔️ إحصائيات الشخصية",
+            "character-defence": "🛡️ قيم القتال والنجاة",
+            "strength": "القوة",
+            "dexterity": "الرشاكة",
+            "constitution": "البنية",
+            "intelligence": "الذكاء",
+            "wisdom": "الحكمة",
+            "charisma": "الكاريزما",
+            "defence": "الدفاع",
+            "initiative": "المبادرة",
+            "base-attack-bonus": "مكافأة الهجوم الأساسية",
+            "fortitude-save": "نجاة الصمود",
+            "reflexe-save": "نجاة الرد السريع",
+            "willpower-save": "نجاة الإرادة",
+            "xp": "نقاط الخبرة"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ معلومات العرق",
+                    "race-bonus": "➕ مكافأة إحصائيات العرق",
+                    "race-malus": "➖ عقوبة إحصائيات العرق",
+                    "race-create": "إنشاء عرق"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "مكافآت/عقوبات العرق"
+                }
+            },
+            "bonusName": "اسم المكافأة",
+            "bonusValue": "قيم المكافأة",
+            "malusName": "اسم العقوبة",
+            "malusValue": "قيمة العقوبة"
         }
     },
     "components": {
         "layout": {
             "nav-bar": {
-                "role-user": "دور المستخدم: {{role}}",
+                "role-user": "دور المستخدم : {{role}}",
                 "home": "الرئيسية",
-                "login": "تسجيل الدخول",
                 "logout": "تسجيل الخروج",
-                "register": "تسجيل",
-                "users": "المستخدمون"
+                "self": "حسابي"
+            },
+            "pagination": {
+                "first-page": "الصفحة الأولى",
+                "previous-page": "الصفحة السابقة",
+                "next-page": "الصفحة التالية",
+                "last-page": "الصفحة الأخيرة"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "إخفاء",
                 "password-input-show": "إظهار"
+            },
+            "listing-table-admin": {
+                "delete-element": "حذف العنصر {element} ؟"
+            },
+            "spinner": {
+                "loading-text": "جاري التحميل..."
+            },
+            "form-errors": {
+                "required": "هذا الحقل مطلوب",
+                "email": "عنوان بريد إلكتروني غير صحيح",
+                "minlength": "قصير جداً",
+                "maxlength": "طويل جداً",
+                "lowerCase": "يجب أن يحتوي على حرف صغير",
+                "upperCase": "يجب أن يحتوي على حرف كبير",
+                "number": "يجب أن يحتوي على رقم",
+                "specialChar": "يجب أن يحتوي على رمز خاص"
             }
         }
+    },
+    "common": {
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب",
+        "id": "المعرف",
+        "email": "البريد الإلكتروني",
+        "name": "الاسم",
+        "level": "المستوى",
+        "campaign": "الحملات",
+        "characters": "الشخصيات",
+        "users": "المستخدمون",
+        "races": "الأعراق",
+        "travelSpeed": "سرعة السفر",
+        "return-listing": "◀️ العودة إلى القائمة",
+        "details": "التفاصيل 🔎",
+        "create": "إنشاء ➕",
+        "edit": "تعديل ✒️",
+        "delete": "حذف 🚮",
+        "not-found": "غير موجود",
+        "confirm": "تأكيد",
+        "cancel": "إلغاء",
+        "action": "إجراء",
+        "field-required": "حقل مطلوب",
+        "list-element": "قائمة {element}"
     }
 }

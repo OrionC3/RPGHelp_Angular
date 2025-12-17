@@ -2,38 +2,173 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "Электронная почта",
-                "email-input-error-required": "Требуется электронная почта",
-                "email-input-error-email": "Электронная почта должна выглядеть как \"вашеИмя@mail.com\"",
-
+                "email-input-error-required": "Email обязателен для заполнения",
+                "email-input-error-email": "Email должен соответствовать формату: \"yourName@mail.com\"",
                 "password-label": "Пароль",
-                "password-input-error-required": "Требуется пароль",
-                "password-input-error-lowerCase": "Пароль должен содержать как минимум одну **строчную букву**",
-                "password-input-error-upperCase": "Пароль должен содержать как минимум одну **заглавную букву**",
-                "password-input-error-number": "Пароль должен содержать как минимум одну **цифру**",
-                "password-input-error-tooShort": "Пароль должен содержать как минимум **8 символов**",
-                "password-input-error-specialChar": "Пароль должен содержать как минимум один **специальный символ** (напр.: !@#$%^&*)",
-                "button-submit": "Войти",
-                "button-register": "Зарегистрироваться"
+                "password-input-error-required": "Пароль обязателен для заполнения",
+                "password-input-error-lowerCase": "Пароль должен содержать хотя бы одну строчную букву",
+                "password-input-error-upperCase": "Пароль должен содержать хотя бы одну заглавную букву",
+                "password-input-error-number": "Пароль должен содержать хотя бы одну цифру",
+                "password-input-error-tooShort": "Пароль должен быть не менее 8 символов",
+                "password-input-error-specialChar": "Пароль должен содержать хотя бы один специальный символ (например, !@#$%^&*)"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "Мой аккаунт",
+                    "info-account": "Информация",
+                    "role": "Роль"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - Приложение",
+                    "p1": "Добро пожаловать в RPGHelp — вспомогательный инструмент для ваших настольных ролевых приключений. Управляйте персонажами, отслеживайте кампании и используйте полезные функции, чтобы сделать ваши сессии более плавными и захватывающими."
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "Кампании"
+                },
+                "campaign-details-page": {
+                    "title": "Детали кампании: ",
+                    "next": "Следующая кампания ⏩",
+                    "user-in-campaign": "пользователь в кампании",
+                    "user-not-in-campaign": "В кампании нет пользователей",
+                    "invit-user": "Пригласить пользователя в кампанию",
+                    "join-campaign": "Присоединиться к кампании",
+                    "leave-campaign": "Покинуть кампанию"
+                },
+                "campaign-edit-page": {
+                    "title": "Редактировать кампанию: "
+                },
+                "campaign-form-page": {
+                    "title": "Добавить новую кампанию:",
+                    "name-input-error-required": "Название кампании обязательно!",
+                    "name-input-error-shortOrLong": "Недопустимая длина названия: от {minLength} до {maxLength} символов!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "Детали пользователя"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "Макс. ОЗ",
+                    "pvCurrent": "Текущие ОЗ"
+                },
+                "character-details-page": {
+                    "pv": "Очки здоровья"
+                }
+            },
+            "create-characters": "Создать персонажа",
+            "character-info": "ℹ️ Информация о персонаже",
+            "character-stat": "⚔️ Характеристики персонажа",
+            "character-defence": "🛡️ Боевые параметры и спасброски",
+            "strength": "Сила",
+            "dexterity": "Ловкость",
+            "constitution": "Телосложение",
+            "intelligence": "Интеллект",
+            "wisdom": "Мудрость",
+            "charisma": "Харизма",
+            "defence": "Защита",
+            "initiative": "Инициатива",
+            "base-attack-bonus": "Базовый бонус атаки",
+            "fortitude-save": "Спасбросок стойкости",
+            "reflexe-save": "Спасбросок реакции",
+            "willpower-save": "Спасбросок воли",
+            "xp": "Опыт"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ Информация о расе",
+                    "race-bonus": "➕ Расовый бонус к характеристикам",
+                    "race-malus": "➖ Расовый штраф к характеристикам",
+                    "race-create": "Создать расу"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "Расовые бонусы/штрафы"
+                }
+            },
+            "bonusName": "Название бонуса",
+            "bonusValue": "Значение бонуса",
+            "malusName": "Название штрафа",
+            "malusValue": "Значение штрафа"
         }
     },
     "components": {
         "layout": {
             "nav-bar": {
-                "role-user": "Роль пользователя: {{role}}",
+                "role-user": "Роль: {{role}}",
                 "home": "Главная",
-                "login": "Вход",
-                "logout": "Выход",
-                "register": "Регистрация",
-                "users": "Пользователи"
+                "logout": "Выйти",
+                "self": "Мой аккаунт"
+            },
+            "pagination": {
+                "first-page": "Первая страница",
+                "previous-page": "Назад",
+                "next-page": "Вперед",
+                "last-page": "Последняя страница"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "Скрыть",
                 "password-input-show": "Показать"
+            },
+            "listing-table-admin": {
+                "delete-element": "Удалить элемент {element}?"
+            },
+            "spinner": {
+                "loading-text": "Загрузка..."
+            },
+            "form-errors": {
+                "required": "Это поле обязательно",
+                "email": "Неверный адрес email",
+                "minlength": "Слишком коротко",
+                "maxlength": "Слишком длинно",
+                "lowerCase": "Должен содержать строчную букву",
+                "upperCase": "Должен содержать заглавную букву",
+                "number": "Должен содержать цифру",
+                "specialChar": "Должен содержать спецсимвол"
             }
         }
+    },
+    "common": {
+        "login": "Войти",
+        "register": "Регистрация",
+        "id": "ID",
+        "email": "Email",
+        "name": "Имя",
+        "level": "Уровень",
+        "campaign": "Кампании",
+        "characters": "Персонажи",
+        "users": "Пользователи",
+        "races": "Расы",
+        "travelSpeed": "Скорость перемещения",
+        "return-listing": "◀️ Назад к списку",
+        "details": "Подробнее 🔎",
+        "create": "Создать ➕",
+        "edit": "Изменить ✒️",
+        "delete": "Удалить 🚮",
+        "not-found": "Не найдено",
+        "confirm": "Подтвердить",
+        "cancel": "Отмена",
+        "action": "Действие",
+        "field-required": "Обязательное поле",
+        "list-element": "Список: {element}"
     }
 }

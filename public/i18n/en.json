@@ -4,7 +4,6 @@
             "pages": {
                 "email-input-error-required": "The email is required",
                 "email-input-error-email": "The email must look like an email: \"yourName@mail.com\"",
-
                 "password-label": "Password",
                 "password-input-error-required": "The password is required",
                 "password-input-error-lowerCase": "The password must contain at least one lowercase letter",
@@ -134,7 +133,7 @@
                 "delete-element": "Delete Element {element} ?"
             },
             "spinner": {
-                "loading-text": "Loading in progress..." 
+                "loading-text": "Loading in progress..."
             },
             "form-errors": {
                 "required": "This field is required",
@@ -151,28 +150,21 @@
     "common": {
         "login": "Login",
         "register": "Register",
-
         "id": "Id",
         "email": "Email",
         "name": "Name",
-
         "level": "Level",
         "campaign": "Campaigns",
         "characters": "Characters",
         "users": "Users",
-
         "races": "Races",
-
         "travelSpeed": "Travel Speed",
-
         "return-listing": "◀️ Return to list",
         "details": "Details 🔎",
         "create": "Create ➕",
         "edit": "Edit ✒️",
         "delete": "Delete 🚮",
-
         "not-found": "Not Found",
-
         "confirm": "Confirm",
         "cancel": "Cancel",
         "action": "Action",

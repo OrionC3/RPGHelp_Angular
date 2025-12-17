@@ -2,20 +2,111 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "이메일",
-                "email-input-error-required": "이메일은 필수입니다",
-                "email-input-error-email": "이메일 형식은 \"yourName@mail.com\"와 같아야 합니다",
-
+                "email-input-error-required": "이메일은 필수 항목입니다",
+                "email-input-error-email": "이메일 형식이 올바르지 않습니다: \"yourName@mail.com\"",
                 "password-label": "비밀번호",
-                "password-input-error-required": "비밀번호는 필수입니다",
-                "password-input-error-lowerCase": "비밀번호는 최소 하나 이상의 **소문자**를 포함해야 합니다",
-                "password-input-error-upperCase": "비밀번호는 최소 하나 이상의 **대문자**를 포함해야 합니다",
-                "password-input-error-number": "비밀번호는 최소 하나 이상의 **숫자**를 포함해야 합니다",
-                "password-input-error-tooShort": "비밀번호는 최소 **8자** 이상이어야 합니다",
-                "password-input-error-specialChar": "비밀번호는 최소 하나 이상의 **특수 문자**를 포함해야 합니다 (예: !@#$%^&*)",
-                "button-submit": "로그인",
-                "button-register": "회원가입"
+                "password-input-error-required": "비밀번호는 필수 항목입니다",
+                "password-input-error-lowerCase": "비밀번호에 적어도 하나의 소문자가 포함되어야 합니다",
+                "password-input-error-upperCase": "비밀번호에 적어도 하나의 대문자가 포함되어야 합니다",
+                "password-input-error-number": "비밀번호에 적어도 하나의 숫자가 포함되어야 합니다",
+                "password-input-error-tooShort": "비밀번호는 최소 8자 이상이어야 합니다",
+                "password-input-error-specialChar": "비밀번호에 적어도 하나의 특수 문자(!@#$%^&* 등)가 포함되어야 합니다"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "내 계정",
+                    "info-account": "정보",
+                    "role": "역할"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - 애플리케이션",
+                    "p1": "RPGHelp에 오신 것을 환영합니다. 테이블탑 RPG 모험을 돕기 위해 설계된 보조 도구입니다. 캐릭터 관리, 캠페인 추적 등 세션을 더 매끄럽고 몰입감 있게 만들어주는 유용한 기능을 이용해 보세요."
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "캠페인"
+                },
+                "campaign-details-page": {
+                    "title": "캠페인 상세: ",
+                    "next": "다음 캠페인 ⏩",
+                    "user-in-campaign": "캠페인 참여 사용자",
+                    "user-not-in-campaign": "참여 중인 사용자가 없습니다",
+                    "invit-user": "사용자를 캠페인에 초대하기",
+                    "join-campaign": "캠페인 참여하기",
+                    "leave-campaign": "캠페인 탈퇴하기"
+                },
+                "campaign-edit-page": {
+                    "title": "캠페인 수정: "
+                },
+                "campaign-form-page": {
+                    "title": "새 캠페인 추가:",
+                    "name-input-error-required": "캠페인 이름은 필수입니다!",
+                    "name-input-error-shortOrLong": "캠페인 이름의 길이가 잘못되었습니다: {minLength}자에서 {maxLength}자 사이여야 합니다!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "사용자 상세 정보"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "최대 HP",
+                    "pvCurrent": "현재 HP"
+                },
+                "character-details-page": {
+                    "pv": "생명력 (HP)"
+                }
+            },
+            "create-characters": "캐릭터 생성",
+            "character-info": "ℹ️ 캐릭터 정보",
+            "character-stat": "⚔️ 캐릭터 능력치",
+            "character-defence": "🛡️ 전투 수치 및 내성",
+            "strength": "힘 (Strength)",
+            "dexterity": "민첩 (Dexterity)",
+            "constitution": "건강 (Constitution)",
+            "intelligence": "지능 (Intelligence)",
+            "wisdom": "지혜 (Wisdom)",
+            "charisma": "매력 (Charisma)",
+            "defence": "방어",
+            "initiative": "우선권 (Initiative)",
+            "base-attack-bonus": "기본 공격 보너스",
+            "fortitude-save": "인내 내성",
+            "reflexe-save": "반사 내성",
+            "willpower-save": "의지 내성",
+            "xp": "경험치 (XP)"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ 종족 정보",
+                    "race-bonus": "➕ 종족 능력치 보너스",
+                    "race-malus": "➖ 종족 능력치 패널티",
+                    "race-create": "종족 생성"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "종족 보너스/패널티"
+                }
+            },
+            "bonusName": "보너스 이름",
+            "bonusValue": "보너스 값",
+            "malusName": "패널티 이름",
+            "malusValue": "패널티 값"
         }
     },
     "components": {
@@ -23,17 +114,61 @@
             "nav-bar": {
                 "role-user": "사용자 역할: {{role}}",
                 "home": "홈",
-                "login": "로그인",
                 "logout": "로그아웃",
-                "register": "회원가입",
-                "users": "사용자"
+                "self": "내 계정"
+            },
+            "pagination": {
+                "first-page": "첫 페이지",
+                "previous-page": "이전 페이지",
+                "next-page": "다음 페이지",
+                "last-page": "마지막 페이지"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "숨기기",
                 "password-input-show": "표시"
+            },
+            "listing-table-admin": {
+                "delete-element": "{element} 요소를 삭제하시겠습니까?"
+            },
+            "spinner": {
+                "loading-text": "로딩 중..."
+            },
+            "form-errors": {
+                "required": "이 필드는 필수입니다",
+                "email": "유효하지 않은 이메일 주소입니다",
+                "minlength": "너무 짧습니다",
+                "maxlength": "너무 깁니다",
+                "lowerCase": "소문자가 포함되어야 합니다",
+                "upperCase": "대문자가 포함되어야 합니다",
+                "number": "숫자가 포함되어야 합니다",
+                "specialChar": "특수 문자가 포함되어야 합니다"
             }
         }
+    },
+    "common": {
+        "login": "로그인",
+        "register": "회원가입",
+        "id": "아이디",
+        "email": "이메일",
+        "name": "이름",
+        "level": "레벨",
+        "campaign": "캠페인",
+        "characters": "캐릭터",
+        "users": "사용자",
+        "races": "종족",
+        "travelSpeed": "이동 속도",
+        "return-listing": "◀️ 목록으로 돌아가기",
+        "details": "상세 정보 🔎",
+        "create": "생성 ➕",
+        "edit": "수정 ✒️",
+        "delete": "삭제 🚮",
+        "not-found": "찾을 수 없음",
+        "confirm": "확인",
+        "cancel": "취소",
+        "action": "작업",
+        "field-required": "필수 필드",
+        "list-element": "{element} 목록"
     }
 }

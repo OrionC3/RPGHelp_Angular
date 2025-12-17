@@ -2,38 +2,173 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "メールアドレス",
                 "email-input-error-required": "メールアドレスは必須です",
-                "email-input-error-email": "メールアドレスの形式が正しくありません: 「yourName@mail.com」のように入力してください",
-
+                "email-input-error-email": "メールアドレスの形式が正しくありません: \"yourName@mail.com\"",
                 "password-label": "パスワード",
                 "password-input-error-required": "パスワードは必須です",
-                "password-input-error-lowerCase": "パスワードには**小文字**を1文字以上含める必要があります",
-                "password-input-error-upperCase": "パスワードには**大文字**を1文字以上含める必要があります",
-                "password-input-error-number": "パスワードには**数字**を1文字以上含める必要があります",
-                "password-input-error-tooShort": "パスワードは**8文字以上**である必要があります",
-                "password-input-error-specialChar": "パスワードには**特殊文字**を1文字以上含める必要があります (例: !@#$%^&*)",
-                "button-submit": "ログイン",
-                "button-register": "登録"
+                "password-input-error-lowerCase": "パスワードには少なくとも1つの小文字を含める必要があります",
+                "password-input-error-upperCase": "パスワードには少なくとも1つの大文字を含める必要があります",
+                "password-input-error-number": "パスワードには少なくとも1つの数字を含める必要があります",
+                "password-input-error-tooShort": "パスワードは8文字以上である必要があります",
+                "password-input-error-specialChar": "パスワードには少なくとも1つの特殊文字（例: !@#$%^&*）を含める必要があります"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "マイアカウント",
+                    "info-account": "アカウント情報",
+                    "role": "権限"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - アプリケーション",
+                    "p1": "RPGHelpへようこそ。これはテーブルトークRPGの冒険をサポートするために設計されたコンパニオンツールです。キャラクターの管理、キャンペーンの追跡、セッションをよりスムーズで没入感のあるものにするための便利な機能にアクセスできます。"
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "キャンペーン"
+                },
+                "campaign-details-page": {
+                    "title": "キャンペーン詳細: ",
+                    "next": "次のキャンペーン ⏩",
+                    "user-in-campaign": "参加中のユーザー",
+                    "user-not-in-campaign": "参加ユーザーなし",
+                    "invit-user": "ユーザーをキャンペーンに招待",
+                    "join-campaign": "キャンペーンに参加",
+                    "leave-campaign": "キャンペーンを退出"
+                },
+                "campaign-edit-page": {
+                    "title": "キャンペーン編集: "
+                },
+                "campaign-form-page": {
+                    "title": "新規キャンペーン追加:",
+                    "name-input-error-required": "キャンペーン名は必須です！",
+                    "name-input-error-shortOrLong": "キャンペーン名の長さが無効です: {minLength}文字から{maxLength}文字の間で入力してください！"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "ユーザー詳細"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "最大HP",
+                    "pvCurrent": "現在HP"
+                },
+                "character-details-page": {
+                    "pv": "ヒットポイント"
+                }
+            },
+            "create-characters": "キャラクター作成",
+            "character-info": "ℹ️ キャラクター情報",
+            "character-stat": "⚔️ キャラクターステータス",
+            "character-defence": "🛡️ 戦闘値とセービングスロー",
+            "strength": "筋力",
+            "dexterity": "敏捷力",
+            "constitution": "耐久力",
+            "intelligence": "知力",
+            "wisdom": "判断力",
+            "charisma": "魅力",
+            "defence": "防御力",
+            "initiative": "イニシアチブ",
+            "base-attack-bonus": "基本攻撃ボーナス",
+            "fortitude-save": "頑健セーヴ",
+            "reflexe-save": "反応セーヴ",
+            "willpower-save": "意志セーヴ",
+            "xp": "経験値"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ 種族情報",
+                    "race-bonus": "➕ 種族ステータスボーナス",
+                    "race-malus": "➖ 種族ステータスペナルティ",
+                    "race-create": "種族作成"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "種族ボーナス/ペナルティ"
+                }
+            },
+            "bonusName": "ボーナス名",
+            "bonusValue": "ボーナス値",
+            "malusName": "ペナルティ名",
+            "malusValue": "ペナルティ値"
         }
     },
     "components": {
         "layout": {
             "nav-bar": {
-                "role-user": "ユーザーの役割: {{role}}",
+                "role-user": "ユーザー権限 : {{role}}",
                 "home": "ホーム",
-                "login": "ログイン",
                 "logout": "ログアウト",
-                "register": "登録",
-                "users": "ユーザー"
+                "self": "マイアカウント"
+            },
+            "pagination": {
+                "first-page": "最初のページ",
+                "previous-page": "前のページ",
+                "next-page": "次のページ",
+                "last-page": "最後のページ"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "非表示",
                 "password-input-show": "表示"
+            },
+            "listing-table-admin": {
+                "delete-element": "{element} を削除しますか？"
+            },
+            "spinner": {
+                "loading-text": "読み込み中..."
+            },
+            "form-errors": {
+                "required": "この項目は必須です",
+                "email": "無効なメールアドレスです",
+                "minlength": "短すぎます",
+                "maxlength": "長すぎます",
+                "lowerCase": "小文字を含める必要があります",
+                "upperCase": "大文字を含める必要があります",
+                "number": "数字を含める必要があります",
+                "specialChar": "特殊文字を含める必要があります"
             }
         }
+    },
+    "common": {
+        "login": "ログイン",
+        "register": "新規登録",
+        "id": "ID",
+        "email": "メールアドレス",
+        "name": "名前",
+        "level": "レベル",
+        "campaign": "キャンペーン",
+        "characters": "キャラクター",
+        "users": "ユーザー",
+        "races": "種族",
+        "travelSpeed": "移動速度",
+        "return-listing": "◀️ 一覧に戻る",
+        "details": "詳細 🔎",
+        "create": "作成 ➕",
+        "edit": "編集 ✒️",
+        "delete": "削除 🚮",
+        "not-found": "見つかりません",
+        "confirm": "確認",
+        "cancel": "キャンセル",
+        "action": "アクション",
+        "field-required": "必須項目",
+        "list-element": "{element} 一覧"
     }
 }

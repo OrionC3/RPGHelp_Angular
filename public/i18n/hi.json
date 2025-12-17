@@ -2,20 +2,111 @@
     "features": {
         "auth": {
             "pages": {
-                "email-label": "ईमेल",
                 "email-input-error-required": "ईमेल आवश्यक है",
-                "email-input-error-email": "ईमेल ऐसा दिखना चाहिए: \"आपकानाम@mail.com\"",
-
+                "email-input-error-email": "ईमेल इस तरह दिखना चाहिए: \"yourName@mail.com\"",
                 "password-label": "पासवर्ड",
-                "password-input-error-required": "पासवर्ड आवश्यक है",
-                "password-input-error-lowerCase": "पासवर्ड में कम से कम एक **छोटा अक्षर** होना चाहिए",
-                "password-input-error-upperCase": "पासवर्ड में कम से कम एक **बड़ा अक्षर** होना चाहिए",
-                "password-input-error-number": "पासवर्ड में कम से कम एक **अंक** होना चाहिए",
-                "password-input-error-tooShort": "पासवर्ड में कम से कम **8 वर्ण** होने चाहिए",
-                "password-input-error-specialChar": "पासवर्ड में कम से कम एक **विशेष वर्ण** होना चाहिए (जैसे: !@#$%^&*)",
-                "button-submit": "लॉग इन करें",
-                "button-register": "रजिस्टर करें"
+                "password-input-error-required": "पासवर्ड अनिवार्य है",
+                "password-input-error-lowerCase": "पासवर्ड में कम से कम एक छोटा अक्षर (lowercase) होना चाहिए",
+                "password-input-error-upperCase": "पासवर्ड में कम से कम एक बड़ा अक्षर (uppercase) होना चाहिए",
+                "password-input-error-number": "पासवर्ड में कम से कम एक अंक होना चाहिए",
+                "password-input-error-tooShort": "पासवर्ड कम से कम 8 वर्णों का होना चाहिए",
+                "password-input-error-specialChar": "पासवर्ड में कम से कम एक विशेष वर्ण होना चाहिए (जैसे, !@#$%^&*)"
             }
+        },
+        "users": {
+            "pages": {
+                "self-page": {
+                    "title": "मेरा खाता",
+                    "info-account": "जानकारी",
+                    "role": "भूमिका"
+                }
+            }
+        },
+        "home": {
+            "pages": {
+                "home-page": {
+                    "title": "🧙‍♂ RPGHelp - एप्लिकेशन",
+                    "p1": "RPGHelp में आपका स्वागत है, जो आपके टेबलटॉप RPG रोमांच को सहारा देने के लिए बनाया गया एक टूल है। अपने पात्रों को प्रबंधित करें, अभियानों को ट्रैक करें, और अपने सत्रों को अधिक सहज और इमर्सिव बनाने के लिए उपयोगी सुविधाओं का उपयोग करें।"
+                }
+            }
+        },
+        "campaign": {
+            "pages": {
+                "campaign-listing-page": {
+                    "title": "अभियान"
+                },
+                "campaign-details-page": {
+                    "title": "अभियान का विवरण: ",
+                    "next": "अगला अभियान ⏩",
+                    "user-in-campaign": "अभियान में उपयोगकर्ता",
+                    "user-not-in-campaign": "अभियान में कोई उपयोगकर्ता नहीं है",
+                    "invit-user": "उपयोगकर्ता को अभियान में शामिल होने के लिए आमंत्रित करें",
+                    "join-campaign": "अभियान में शामिल हों",
+                    "leave-campaign": "अभियान छोड़ें"
+                },
+                "campaign-edit-page": {
+                    "title": "अभियान संपादित करें: "
+                },
+                "campaign-form-page": {
+                    "title": "नया अभियान जोड़ें:",
+                    "name-input-error-required": "अभियान का नाम आवश्यक है!",
+                    "name-input-error-shortOrLong": "अभियान के नाम की लंबाई अमान्य है: {minLength} और {maxLength} वर्णों के बीच होनी चाहिए!"
+                }
+            }
+        },
+        "admin": {
+            "users": {
+                "pages": {
+                    "user-details-page": {
+                        "user-details": "उपयोगकर्ता विवरण"
+                    }
+                }
+            }
+        },
+        "characters": {
+            "pages": {
+                "character-create-page": {
+                    "pvMax": "अधिकतम पीवी (PV)",
+                    "pvCurrent": "वर्तमान पीवी (PV)"
+                },
+                "character-details-page": {
+                    "pv": "जीवन अंक (Life Point)"
+                }
+            },
+            "create-characters": "पात्र बनाएँ",
+            "character-info": "ℹ️ पात्र की जानकारी",
+            "character-stat": "⚔️ पात्र के आंकड़े",
+            "character-defence": "🛡️ युद्ध मूल्य और बचाव",
+            "strength": "शक्ति (Strength)",
+            "dexterity": "निपुणता (Dexterity)",
+            "constitution": "संविधान (Constitution)",
+            "intelligence": "बुद्धि (Intelligence)",
+            "wisdom": "विवेक (Wisdom)",
+            "charisma": "आकर्षण (Charisma)",
+            "defence": "रक्षा",
+            "initiative": "पहल (Initiative)",
+            "base-attack-bonus": "आधार हमला बोनस",
+            "fortitude-save": "धैर्य बचाव (Fortitude)",
+            "reflexe-save": "प्रतिवर्त बचाव (Reflex)",
+            "willpower-save": "इच्छाशक्ति बचाव (Willpower)",
+            "xp": "अनुभव अंक (XP)"
+        },
+        "races": {
+            "pages": {
+                "race-create-page": {
+                    "race-info": "ℹ️ नस्ल की जानकारी",
+                    "race-bonus": "➕ नस्ल सांख्यिकी बोनस",
+                    "race-malus": "➖ नस्ल सांख्यिकी दंड",
+                    "race-create": "नस्ल बनाएँ"
+                },
+                "race-details-page": {
+                    "racial-bonus-malus": "नस्लीय बोनस/दंड"
+                }
+            },
+            "bonusName": "बोनस का नाम",
+            "bonusValue": "बोनस मूल्य",
+            "malusName": "दंड का नाम",
+            "malusValue": "दंड मूल्य"
         }
     },
     "components": {
@@ -23,17 +114,61 @@
             "nav-bar": {
                 "role-user": "उपयोगकर्ता की भूमिका: {{role}}",
                 "home": "होम",
-                "login": "लॉगिन",
-                "logout": "लॉग आउट",
-                "register": "रजिस्टर करें",
-                "users": "उपयोगकर्ता"
+                "logout": "लॉगआउट",
+                "self": "मेरा खाता"
+            },
+            "pagination": {
+                "first-page": "पहला पृष्ठ",
+                "previous-page": "पिछला पृष्ठ",
+                "next-page": "अगला पृष्ठ",
+                "last-page": "अंतिम पृष्ठ"
             }
         },
         "common": {
             "form": {
                 "password-input-hiden": "छिपाएं",
                 "password-input-show": "दिखाएं"
+            },
+            "listing-table-admin": {
+                "delete-element": "तत्व {element} को हटा दें?"
+            },
+            "spinner": {
+                "loading-text": "लोड हो रहा है..."
+            },
+            "form-errors": {
+                "required": "यह फ़ील्ड आवश्यक है",
+                "email": "अमान्य ईमेल पता",
+                "minlength": "बहुत छोटा",
+                "maxlength": "बहुत लंबा",
+                "lowerCase": "एक छोटा अक्षर होना चाहिए",
+                "upperCase": "एक बड़ा अक्षर होना चाहिए",
+                "number": "एक अंक होना चाहिए",
+                "specialChar": "एक विशेष वर्ण होना चाहिए"
             }
         }
+    },
+    "common": {
+        "login": "लॉगिन",
+        "register": "रजिस्टर करें",
+        "id": "आईडी (Id)",
+        "email": "ईमेल",
+        "name": "नाम",
+        "level": "स्तर",
+        "campaign": "अभियान",
+        "characters": "पात्र",
+        "users": "उपयोगकर्ता",
+        "races": "नस्लें",
+        "travelSpeed": "यात्रा की गति",
+        "return-listing": "◀️ सूची पर वापस लौटें",
+        "details": "विवरण 🔎",
+        "create": "बनाएँ ➕",
+        "edit": "संपादित करें ✒️",
+        "delete": "हटाएं 🚮",
+        "not-found": "नहीं मिला",
+        "confirm": "पुष्टि करें",
+        "cancel": "रद्द करें",
+        "action": "कार्रवाई",
+        "field-required": "फ़ील्ड आवश्यक है",
+        "list-element": "{element} सूची"
     }
 }
