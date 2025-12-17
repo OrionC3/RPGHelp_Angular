@@ -1,79 +1,76 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CampaignService } from '@core/services/campaign.service';
 import { LoadingService } from '@core/services/loading-service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-campaign-form-page',
-  imports: [TranslatePipe, ReactiveFormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './campaign-form-page.html',
   styleUrl: './campaign-form-page.scss',
 })
 export class CampaignFormPage {
-  private readonly _fb = inject(FormBuilder);
-  private readonly _campagnService = inject(CampaignService);
-  private readonly _loading = inject(LoadingService);
-  private readonly _router = inject(Router);
+  private readonly fb = inject(FormBuilder);
+  private readonly campaignService = inject(CampaignService);
+  private readonly loadingService = inject(LoadingService);
+  private readonly router = inject(Router);
 
-  loading: boolean = false;
+  loading = false;
+  campaignError: string | null = null;
 
-get nameLengthMessage() {
-  return {
-    minLength: this.name.errors?.['minlength']?.requiredLength || 5,
-    maxLength: this.name.errors?.['maxlength']?.requiredLength || 100,
-  };
-}
+  name = new FormControl('', {
+    nonNullable: true,
+    validators: [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(100),
+    ],
+  });
 
-  name = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5),
-    Validators.maxLength(100),
-  ]);
-
-
-  campaignForm = this._fb.group({
+  campaignForm = this.fb.group({
     name: this.name,
   });
 
-  campaignError = '';
+  get nameLengthMessage() {
+    return {
+      minLength: this.name.errors?.['minlength']?.requiredLength ?? 5,
+      maxLength: this.name.errors?.['maxlength']?.requiredLength ?? 100,
+    };
+  }
 
-async onSubmit(): Promise<void> {
-  if (this.campaignForm.invalid) return;
-
-  const newCampaign = {
-    name: this.campaignForm.value.name!
-  };
-
-  // ⏳ Affiche le spinner global
-  this._loading.show();
-  const start = Date.now();
-
-
-  try {
-    // Convertit la Promise en await direct
-    await this._campagnService.add(newCampaign);
-
-    // Redirection après succès
-    this._router.navigate(['/campaign']);
-
-  } catch (err: any) {
-    console.error('Erreur lors de la création de la campagne', err);
-    this.campaignError = err.message || 'Une erreur est survenue';
-
-  } finally {
-    const elapsed = Date.now() - start;
-    const remaining = 2000 - elapsed;
-
-    if (remaining > 0) {
-      await new Promise(res => setTimeout(res, remaining));
+  async onSubmit(): Promise<void> {
+    if (this.campaignForm.invalid) {
+      this.campaignForm.markAllAsTouched();
+      return;
     }
 
-    this._loading.hide();
+    const payload = {
+      name: this.name.value,
+    };
 
+    console.log('CREATE CAMPAIGN PAYLOAD', payload);
+
+    this.loading = true;
+    this.loadingService.show();
+
+    try {
+      await this.campaignService.add(payload);
+      this.router.navigate(['/campaign']);
+    } catch (err: any) {
+      console.error(err);
+      this.campaignError =
+        err?.error?.message ?? 'Erreur lors de la création de la campagne';
+    } finally {
+      this.loading = false;
+      this.loadingService.hide();
+    }
   }
-}
-
 }
