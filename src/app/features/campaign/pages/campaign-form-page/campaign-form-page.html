@@ -1,35 +1,45 @@
 <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
-    <div>
-        <p>
-            {{ 'features.campaign.pages.campaign-form-page.title' | translate }}
-        </p>
+    <h2>
+        {{ 'features.campaign.pages.campaign-form-page.title' | translate }}
+    </h2>
 
-        <label for="name">{{ 'common.name' | translate }}</label>
-        <input type="text" id="name" formControlName="name" />
+    <label for="name">
+        {{ 'common.name' | translate }}
+    </label>
 
-        <p>
-            {{
-                name.touched && name.invalid
-                    ? name.getError('required')
-                        ? ('features.campaign.pages.campaign-form-page.name-input-error-required'
-                          | translate)
-                        : name.getError('minlength') ||
-                            name.getError('maxlength')
-                          ? ('features.campaign.pages.campaign-form-page.name-input-error-shortOrLong'
-                            | translate: nameLengthMessage)
-                          : ''
-                    : ''
-            }}
+    <input
+        id="name"
+        type="text"
+        formControlName="name"
+    />
+
+    @if (name.touched && name.invalid) {
+        <p class="error">
+            @if (name.getError('required')) {
+                {{
+                    'features.campaign.pages.campaign-form-page.name-input-error-required'
+                        | translate
+                }}
+            } @else if (name.getError('minlength') || name.getError('maxlength')) {
+                {{
+                    'features.campaign.pages.campaign-form-page.name-input-error-shortOrLong'
+                        | translate : nameLengthMessage
+                }}
+            }
         </p>
-        <br />
-        <button [disabled]="campaignForm.invalid" type="submit">
-            {{ 'common.create' | translate }}
-        </button>
-    </div>
+    }
+
+    @if (campaignError) {
+        <p class="error">{{ campaignError }}</p>
+    }
+
+    <button type="submit" [disabled]="campaignForm.invalid || loading">
+        {{ 'common.create' | translate }}
+    </button>
 </form>
 
-@if (!loading) {
-    <div>
+@if (loading) {
+    <div class="spinner-container">
         <div class="spinner"></div>
     </div>
 }

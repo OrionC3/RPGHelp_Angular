@@ -11,206 +11,145 @@ import { lastValueFrom, Subscription } from 'rxjs';
 import { InputTextAutocomplete } from '@components/form/input-text-autocomplete/input-text-autocomplete';
 
 @Component({
-    selector: 'app-campaign-details-page',
-    imports: [RouterLink, TranslatePipe, InputTextAutocomplete],
-    templateUrl: './campaign-details-page.html',
-    styleUrls: ['./campaign-details-page.scss'],
+  selector: 'app-campaign-details-page',
+  imports: [RouterLink, TranslatePipe, InputTextAutocomplete],
+  templateUrl: './campaign-details-page.html',
+  styleUrls: ['./campaign-details-page.scss'],
 })
 export class CampaignDetailsPage implements OnInit, OnDestroy {
-    private readonly _loading = inject(LoadingService);
-    private readonly _campaignService = inject(CampaignService);
-    private readonly _router = inject(Router);
-    private readonly _userService = inject(UserService);
-    private readonly _authService = inject(AuthService);
+  private readonly _loading = inject(LoadingService);
+  private readonly _campaignService = inject(CampaignService);
+  private readonly _router = inject(Router);
+  private readonly _userService = inject(UserService);
+  private readonly _authService = inject(AuthService);
 
-    campaign: CampaignDetailsDtoModel | null = null;
-    campaignSubscription!: Subscription;
-    users: UserListing[] = [];
-    usersSearch: UserListing[] = [];
-    inCampaign: boolean = false;
-    isGM: boolean = false;
-    userId: number | null = this._authService.id();
-    userInCampaign: UserListing[] = [];
+  campaign: CampaignDetailsDtoModel | null = null;
+  campaignSubscription!: Subscription;
+  usersSearch: UserListing[] = [];
+  inCampaign: boolean = false;
+  isGM: boolean = false;
+  userId: number | null = this._authService.id();
+  userInCampaign: UserListing[] = [];
+  totalCampaigns = 0;
+  campaignId!: string;
 
-    totalCampaigns = 0;
-    campaignId!: string;
+  constructor(private route: ActivatedRoute) {}
 
-    constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.campaignSubscription = this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (!id) return;
 
-    ngOnInit(): void {
-        this.campaignSubscription = this.route.paramMap.subscribe((params) => {
-            const id = params.get('id');
-            if (!id) return;
+      this.campaignId = id;
+      this.loadCampaign(id);
+    });
 
-            this.campaignId = id;
+    this._campaignService.getCampaigns().subscribe({
+      next: (list) => (this.totalCampaigns = list.data.length),
+      error: (err) => console.error(err),
+    });
 
-            this._campaignService
-                .getCampaignById(id)
-                .then((data) => {
-                    console.log(data);
+    this.getAllUserInCampagn();
+  }
 
-                    this.campaign = data;
+  ngOnDestroy(): void {
+    this.campaignSubscription?.unsubscribe();
+  }
 
-                    if (this.userId !== null) {
-                        if (this.userId == this.campaign.idGM) {
-                            this.isGM = true;
-                        }
-                    }
-                })
-                .catch((err) => {
-                    console.error(err);
-                });
-        });
+  private async loadCampaign(id: string) {
+    try {
+      const data = await this._campaignService.getCampaignById(id);
+      this.campaign = data;
 
-        this._campaignService.getCampaigns().subscribe({
-            next: (list) => (this.totalCampaigns = list.data.length),
-            error: (err) => console.error(err),
-        });
+      if (this.userId !== null && this.userId === this.campaign.idGM) {
+        this.isGM = true;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
-        const idUser = this._authService.id();
+  onNextCampaign(): void {
+    const nextId = Number(this.campaignId) + 1;
+    if (nextId > this.totalCampaigns) return;
+    this._router.navigate(['/campaign', nextId]);
+  }
 
-        this.getAllUserInCampagn();
+  async deleteCampaign(): Promise<void> {
+    if (!this.campaign) return;
+
+    this._loading.show();
+    const start = Date.now();
+
+    try {
+      await lastValueFrom(this._campaignService.deleteCampaign(this.campaign.id));
+    } catch (err) {
+      console.error('Erreur suppression :', err);
+    } finally {
+      const elapsed = Date.now() - start;
+      const remaining = 2000 - elapsed;
+      if (remaining > 0) await new Promise((res) => setTimeout(res, remaining));
+      this._loading.hide();
+    }
+  }
+
+  joinCampaign(): void {
+    this._userService.joinCampaign(+this.campaignId)
+      .then(() => (this.inCampaign = true))
+      .catch((err) => console.error(err.message));
+  }
+
+  leaveCampaign(): void {
+    this._userService.leaveCampaign(+this.campaignId)
+      .then(() => (this.inCampaign = false))
+      .catch((err) => console.error(err.message));
+  }
+
+  onSearchRaces(search: string): void {
+    this._userService.getUsersByEmail(search)
+      .then((data) => (this.usersSearch = data.data))
+      .catch((err) => console.error(err));
+  }
+
+  // ✅ Méthode corrigée idSelected pour TS7030
+  async idSelected(id: string | number | null): Promise<void> {
+    if (id === null) {
+      this.userId = 0;
+      return;
     }
 
-    ngOnDestroy(): void {
-        this.campaignSubscription?.unsubscribe();
+    try {
+      const data = await this._userService.getUsersByEmail(id.toString());
+      const user = data.data[0];
+      if (user) this.userId = user.id;
+    } catch (err) {
+      console.error(err);
     }
+  }
 
-    onNextCampaign() {
-        const nextId = Number(this.campaignId) + 1;
-        if (nextId > this.totalCampaigns) return;
-        this._router.navigate(['/campaign', nextId]);
-    }
+  addUser(): void {
+    if (!this.userId) return;
+    const campaignIdNum = Number(this.campaignId);
+    this._userService.addUserToCampaign(this.userId, campaignIdNum)
+      .then(() => this.getAllUserInCampagn())
+      .catch((err) => console.error(err.message));
+  }
 
-    async deleteCampaign(): Promise<void> {
-        if (!this.campaign) return;
+  removeUser(userId: number): void {
+    const campaignIdNum = Number(this.campaignId);
+    this._userService.removeUserForCampaign(userId, campaignIdNum)
+      .then(() => this.getAllUserInCampagn())
+      .catch((err) => console.error(err.message));
+  }
 
-        this._loading.show(); // afficher le spinner
+  getAllUserInCampagn(): void {
+    if (!this.userId) return;
 
-        const start = Date.now();
-
-        try {
-            // attendre la requête
-            await lastValueFrom(
-                this._campaignService.deleteCampaign(this.campaign.id),
-            );
-        } catch (err) {
-            console.error('Erreur suppression :', err);
-        } finally {
-            // calcul du temps écoulé
-            const elapsed = Date.now() - start;
-            const remaining = 2000 - elapsed;
-
-            // attendre seulement si la requête a été trop rapide
-            if (remaining > 0) {
-                await new Promise((res) => setTimeout(res, remaining));
-            }
-
-            this._loading.hide(); // cacher le spinner
-        }
-    }
-
-    joinCampaign() {
-        //appel db avec l'id de la campagne pour la rejoindre
-        this._userService
-            .joinCampaign(+this.campaignId)
-            .then(() => {
-                this.inCampaign = true;
-            })
-            .catch((err) => {
-                console.error(err.message);
-            });
-    }
-
-    leaveCampaign() {
-        this._userService
-            .leaveCampaign(+this.campaignId)
-            .then(() => {
-                this.inCampaign = false;
-            })
-            .catch((err) => {
-                console.error(err.message);
-            });
-    }
-
-    onSearchRaces(search: string) {
-        this._userService
-            .getUsersByEmail(search)
-            .then((data) => {
-                this.usersSearch = data.data;
-            })
-            .catch((err) => {
-                console.error('Erreur de chargement des utilisateurs:', err);
-            });
-    }
-    user: UserListing | null = null;
-    idSelected(id: string | number | null) {
-        if (id === null) {
-            this.userId = 0; // or set to a default value like 0
-            return;
-        }
-        //récupéré l'id de la race avant de l'assigné
-        this._userService
-            .getUsersByEmail(id.toString())
-            .then((data) => {
-                this.user = data.data[0];
-                this.userId = this.user.id;
-            })
-            .catch((err) => {
-                console.error(err.message);
-            });
-
-        this.userId = parseInt(String(id), 10);
-    }
-
-    addUser() {
-        this.campaignSubscription = this.route.paramMap.subscribe((params) => {
-            const campaignId = params.get('id');
-            if (campaignId !== null) {
-                const IdCampaign = parseInt(campaignId, 10);
-                if (this.userId !== null) {
-                    this._userService
-                        .addUserToCampaign(this.userId, IdCampaign)
-                        .then(() => this.getAllUserInCampagn())
-                        .catch((err) => console.error(err.message));
-                }
-            }
-        });
-    }
-
-    removeUser(userId: number) {
-        this.campaignSubscription = this.route.paramMap.subscribe((params) => {
-            const campaignId = params.get('id');
-            if (campaignId !== null) {
-                const IdCampaign = parseInt(campaignId, 10);
-                this._userService
-                    .removeUserForCampaign(userId, IdCampaign)
-                    .then(() => this.getAllUserInCampagn())
-                    .catch((err) => console.error(err.message));
-            }
-        });
-    }
-
-    getAllUserInCampagn() {
-        const idUser = this._authService.id();
-        if (idUser !== null) {
-            this._campaignService
-                .getAllUserByCampaignId(+this.campaignId)
-                .then((data) => {
-                    this.userInCampaign = data.data;
-                    for (
-                        let index = 0;
-                        index < this.userInCampaign.length;
-                        index++
-                    ) {
-                        if (this.userInCampaign[index].id === idUser) {
-                            this.inCampaign = true;
-                        }
-                    }
-                })
-                .catch((err) => {
-                    console.error(err.message);
-                });
-        }
-    }
+    this._campaignService.getAllUserByCampaignId(Number(this.campaignId))
+      .then((data) => {
+        this.userInCampaign = data.data;
+        this.inCampaign = this.userInCampaign.some(u => u.id === this.userId);
+      })
+      .catch((err) => console.error(err.message));
+  }
 }
