@@ -4,52 +4,85 @@
 </h2>
 
 <div class="mb-2">
-    <p><strong>{{ 'common.id' | translate }}:</strong> {{ campaign?.id }}</p>
-    <p><strong>{{ 'common.name' | translate }}:</strong> {{ campaign?.name }}</p>
+    <p>
+        <strong>{{ 'common.id' | translate }}:</strong> {{ campaign?.id }}
+    </p>
+    <p>
+        <strong>{{ 'common.name' | translate }}:</strong> {{ campaign?.name }}
+    </p>
     <p><strong>Description:</strong> {{ campaign?.description }}</p>
     <p><strong>Id GM:</strong> {{ campaign?.idGM }}</p>
     <p><strong>Finished:</strong> {{ campaign?.isFinish }}</p>
 </div>
 
-<div *ngIf="isGM">
-    <p>{{ 'features.campaign.pages.campaign-details-page.user-in-campaign' | translate }}</p>
-    <ul class="list-group mb-3">
-        @for (user of userInCampaign; track $index) {
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ user.email }}
-                <button class="btn btn-sm btn-danger" type="button" (click)="removeUser(user.id)">❌</button>
-            </li>
+@if (isGM) {
+    <div>
+        <p>
+            {{
+                'features.campaign.pages.campaign-details-page.user-in-campaign'
+                    | translate
+            }}
+        </p>
+        <ul class="list-group mb-3">
+            @for (user of userInCampaign; track $index) {
+                <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                    {{ user.email }}
+                    <button
+                        class="btn btn-sm btn-danger"
+                        type="button"
+                        (click)="removeUser(user.id)"
+                    >
+                        ❌
+                    </button>
+                </li>
+            }
+        </ul>
+
+        <form class="d-flex align-items-center gap-2 mb-3">
+            <app-input-text-autocomplete
+                inputId="userId"
+                [placeholder]="'Ma petite recherche'"
+                [suggestions]="usersSearch"
+                [displayKey]="'email'"
+                (search)="onSearchRaces($event)"
+                (itemSelected)="idSelected($event)"
+                formControlName="userId"
+            ></app-input-text-autocomplete>
+            <button class="btn btn-success" type="button" (click)="addUser()">
+                ➕
+            </button>
+        </form>
+    </div>
+} @else {
+    <div>
+        @if (inCampaign) {
+            <button class="btn btn-warning me-2" (click)="leaveCampaign()">
+                {{
+                    'features.campaign.pages.campaign-details-page.leave-campaign'
+                        | translate
+                }}
+            </button>
+        } @else {
+            <button class="btn btn-primary" (click)="joinCampaign()">
+                {{
+                    'features.campaign.pages.campaign-details-page.join-campaign'
+                        | translate
+                }}
+            </button>
         }
-    </ul>
-
-    <form class="d-flex align-items-center gap-2 mb-3">
-        <app-input-text-autocomplete
-            inputId="userId"
-            [placeholder]="'Ma petite recherche'"
-            [suggestions]="usersSearch"
-            [displayKey]="'email'"
-            (search)="onSearchRaces($event)"
-            (itemSelected)="idSelected($event)"
-            formControlName="userId"
-        ></app-input-text-autocomplete>
-        <button class="btn btn-success" type="button" (click)="addUser()">➕</button>
-    </form>
-</div>
-
-<div *ngIf="!isGM">
-    <button class="btn btn-warning me-2" *ngIf="inCampaign" (click)="leaveCampaign()">
-        {{ 'features.campaign.pages.campaign-details-page.leave-campaign' | translate }}
-    </button>
-    <button class="btn btn-primary" *ngIf="!inCampaign" (click)="joinCampaign()">
-        {{ 'features.campaign.pages.campaign-details-page.join-campaign' | translate }}
-    </button>
-</div>
+    </div>
+}
 
 <div class="mt-4 d-flex gap-2">
     <button class="btn btn-outline-primary" (click)="onNextCampaign()">
         {{ 'features.campaign.pages.campaign-details-page.next' | translate }}
     </button>
-    <button class="btn btn-outline-secondary" [routerLink]="['/campaign/edit', campaign?.id]">
+    <button
+        class="btn btn-outline-secondary"
+        [routerLink]="['/campaign/edit', campaign?.id]"
+    >
         {{ 'common.edit' | translate }}
     </button>
     <button class="btn btn-outline-danger" (click)="deleteCampaign()">
