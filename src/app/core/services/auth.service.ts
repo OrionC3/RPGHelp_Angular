@@ -67,24 +67,8 @@ export class AuthService {
                         'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
                     ];
 
-                // Initialisation d'une variable pour le tableau de rôles final
-                let finalRoles: UserRole[];
-
-                // 1. Vérifier si ce qui est retourné est déjà un tableau
-                if (Array.isArray(rolesFromToken)) {
-                    // Si c'est déjà un tableau, on l'utilise directement
-                    finalRoles = rolesFromToken as UserRole[];
-                } else if (rolesFromToken) {
-                    // Si ce n'est PAS un tableau, mais qu'il y a une valeur (un rôle unique),
-                    // on l'encapsule dans un nouveau tableau.
-                    finalRoles = [rolesFromToken as UserRole];
-                } else {
-                    // S'il n'y a pas de rôle du tout
-                    finalRoles = [];
-                }
-
                 // Maintenant, 'finalRoles' est garanti d'être de type 'UserRole[]'
-                this._role.set(finalRoles);
+                this._role.set(rolesFromToken);
 
                 // Ajout de l'id dans le signal
                 const idFromToken =
