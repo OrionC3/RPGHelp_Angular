@@ -3,14 +3,18 @@
 </h2>
 
 <div class="text-end mb-3">
-    <a
-        class="btn btn-success"
-        [routerLink]="['/campaign', 'add']"
-    >
+    <a class="btn btn-success" [routerLink]="['/campaign', 'add']">
         <i class="bi bi-plus-circle me-1"></i>
         {{ 'common.create' | translate }}
     </a>
 </div>
+
+<app-pagination
+    [total]="count"
+    [(currentPage)]="currentPage"
+    (futurPage)="futurPage($event)"
+    [pageSize]="pageSize"
+/>
 
 <div class="row g-4">
     @for (item of campaign; track item.id) {

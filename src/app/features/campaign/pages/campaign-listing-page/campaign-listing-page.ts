@@ -5,64 +5,76 @@ import { CampaignService } from '@core/services/campaign.service';
 import { LoadingService } from '@core/services/loading-service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { filter, lastValueFrom, Subscription } from 'rxjs';
+import { Pagination } from '@components/layout/pagination/pagination';
 
 @Component({
-  selector: 'app-campaign-listing-page',
-  standalone: true,
-  imports: [RouterModule, TranslatePipe],
-  templateUrl: './campaign-listing-page.html',
-  styleUrl: './campaign-listing-page.scss',
+    selector: 'app-campaign-listing-page',
+    standalone: true,
+    imports: [RouterModule, TranslatePipe, Pagination],
+    templateUrl: './campaign-listing-page.html',
+    styleUrl: './campaign-listing-page.scss',
 })
 export class CampaignListingPage implements OnInit, OnDestroy {
+    private readonly campaignService = inject(CampaignService);
+    private readonly loading = inject(LoadingService);
+    private readonly router = inject(Router);
 
-  private readonly campaignService = inject(CampaignService);
-  private readonly loading = inject(LoadingService);
-  private readonly router = inject(Router);
+    campaign: CampagnIndexDto[] = [];
+    userError: string | null = null;
 
-  campaign: CampagnIndexDto[] = [];
-  userError: string | null = null;
+    private routerSub!: Subscription;
 
-  private routerSub!: Subscription;
+    count: number | null = null;
+    currentPage: number = 1;
+    pageSize: number = 10;
 
-  async ngOnInit(): Promise<void> {
-    // 🔥 1️⃣ CHARGEMENT INITIAL (OBLIGATOIRE)
-    await this.loadCampaigns();
+    async ngOnInit(): Promise<void> {
+        // 🔥 1️⃣ CHARGEMENT INITIAL (OBLIGATOIRE)
+        await this.loadCampaigns();
 
-    // 🔥 2️⃣ Recharge quand on revient sur la page
-    this.routerSub = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.loadCampaigns();
-      });
-  }
-
-  async loadCampaigns(): Promise<void> {
-    this.loading.show();
-    const start = Date.now();
-
-    try {
-      const response = await lastValueFrom(this.campaignService.getCampaigns());
-
-      // 💡 protège si backend change
-      this.campaign = response?.data ?? [];
-
-    } catch (err: any) {
-      console.error(err);
-      this.userError = err.message || 'Erreur lors du chargement';
-
-    } finally {
-      const elapsed = Date.now() - start;
-      const remaining = 2000 - elapsed;
-
-      if (remaining > 0) {
-        await new Promise(res => setTimeout(res, remaining));
-      }
-
-      this.loading.hide();
+        // 🔥 2️⃣ Recharge quand on revient sur la page
+        this.routerSub = this.router.events
+            .pipe(filter((event) => event instanceof NavigationEnd))
+            .subscribe(() => {
+                this.loadCampaigns();
+            });
     }
-  }
 
-  ngOnDestroy(): void {
-    this.routerSub?.unsubscribe();
-  }
+    async loadCampaigns(): Promise<void> {
+        this.loading.show();
+        const start = Date.now();
+
+        try {
+            const response = await lastValueFrom(
+                this.campaignService.getCampaigns(),
+            );
+
+            // 💡 protège si backend change
+            this.campaign = response?.data ?? [];
+            this.count = response?.count;
+        } catch (err: any) {
+            console.error(err);
+            this.userError = err.message || 'Erreur lors du chargement';
+        } finally {
+            const elapsed = Date.now() - start;
+            const remaining = 2000 - elapsed;
+
+            if (remaining > 0) {
+                await new Promise((res) => setTimeout(res, remaining));
+            }
+
+            this.loading.hide();
+        }
+    }
+
+    ngOnDestroy(): void {
+        this.routerSub?.unsubscribe();
+    }
+
+    futurPage(next: number) {
+        this.campaignService.getCampaigns(next - 1).subscribe((data) => {
+            this.campaign = data.data;
+            this.count = data.count;
+        });
+    }
 }
